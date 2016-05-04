@@ -1,0 +1,598 @@
+# Grace project file
+#
+@version 50122
+@page size 792, 612
+@page scroll 5%
+@page inout 5%
+@link page off
+@map font 0 to "Times-Roman", "Times-Roman"
+@map font 1 to "Times-Italic", "Times-Italic"
+@map font 2 to "Times-Bold", "Times-Bold"
+@map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
+@map font 8 to "Courier", "Courier"
+@map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 10 to "Courier-Bold", "Courier-Bold"
+@map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
+@map font 12 to "Symbol", "Symbol"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
+@map color 0 to (255, 255, 255), "white"
+@map color 1 to (0, 0, 0), "black"
+@map color 2 to (255, 0, 0), "red"
+@map color 3 to (0, 255, 0), "green"
+@map color 4 to (0, 0, 255), "blue"
+@map color 5 to (255, 255, 0), "yellow"
+@map color 6 to (188, 143, 143), "brown"
+@map color 7 to (220, 220, 220), "grey"
+@map color 8 to (148, 0, 211), "violet"
+@map color 9 to (0, 255, 255), "cyan"
+@map color 10 to (255, 0, 255), "magenta"
+@map color 11 to (255, 165, 0), "orange"
+@map color 12 to (114, 33, 188), "indigo"
+@map color 13 to (103, 7, 72), "maroon"
+@map color 14 to (64, 224, 208), "turquoise"
+@map color 15 to (0, 139, 0), "green4"
+@reference date 0
+@date wrap off
+@date wrap year 1950
+@default linewidth 1.0
+@default linestyle 1
+@default color 1
+@default pattern 1
+@default font 0
+@default char size 1.000000
+@default symbol size 1.000000
+@default sformat "%.8g"
+@background color 0
+@page background fill on
+@timestamp off
+@timestamp 0.03, 0.03
+@timestamp color 1
+@timestamp rot 0
+@timestamp font 0
+@timestamp char size 1.000000
+@timestamp def "Thu Jan 16 14:12:22 2014"
+@r0 off
+@link r0 to g0
+@r0 type above
+@r0 linestyle 1
+@r0 linewidth 1.0
+@r0 color 1
+@r0 line 0, 0, 0, 0
+@r1 off
+@link r1 to g0
+@r1 type above
+@r1 linestyle 1
+@r1 linewidth 1.0
+@r1 color 1
+@r1 line 0, 0, 0, 0
+@r2 off
+@link r2 to g0
+@r2 type above
+@r2 linestyle 1
+@r2 linewidth 1.0
+@r2 color 1
+@r2 line 0, 0, 0, 0
+@r3 off
+@link r3 to g0
+@r3 type above
+@r3 linestyle 1
+@r3 linewidth 1.0
+@r3 color 1
+@r3 line 0, 0, 0, 0
+@r4 off
+@link r4 to g0
+@r4 type above
+@r4 linestyle 1
+@r4 linewidth 1.0
+@r4 color 1
+@r4 line 0, 0, 0, 0
+@g0 on
+@g0 hidden false
+@g0 type XY
+@g0 stacked false
+@g0 bar hgap 0.000000
+@g0 fixedpoint off
+@g0 fixedpoint type 0
+@g0 fixedpoint xy 0.000000, 0.000000
+@g0 fixedpoint format general general
+@g0 fixedpoint prec 6, 6
+@with g0
+@    world 0, 0.845786927, 300, 0.84579847
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150000, 0.150000, 1.150000, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label "# Iterations"
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 1.000000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 50
+@    xaxis  tick minor ticks 1
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 1.000000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 1.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid off
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.500000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format general
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 0
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place both
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label "Euler Constant"
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 1.000000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 2e-06
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 1.000000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid off
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.500000
+@    yaxis  ticklabel on
+@    yaxis  ticklabel format general
+@    yaxis  ticklabel prec 6
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 1.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place both
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.15, 0.95
+@    legend box color 7
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 0
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 7
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
+@    s0 hidden false
+@    s0 type xy
+@    s0 symbol 0
+@    s0 symbol size 1.000000
+@    s0 symbol color 1
+@    s0 symbol pattern 1
+@    s0 symbol fill color 1
+@    s0 symbol fill pattern 0
+@    s0 symbol linewidth 1.0
+@    s0 symbol linestyle 1
+@    s0 symbol char 65
+@    s0 symbol char font 0
+@    s0 symbol skip 0
+@    s0 line type 1
+@    s0 line linestyle 1
+@    s0 line linewidth 1.0
+@    s0 line color 1
+@    s0 line pattern 1
+@    s0 baseline type 0
+@    s0 baseline off
+@    s0 dropline off
+@    s0 fill type 0
+@    s0 fill rule 0
+@    s0 fill color 1
+@    s0 fill pattern 1
+@    s0 avalue off
+@    s0 avalue type 2
+@    s0 avalue char size 1.000000
+@    s0 avalue font 0
+@    s0 avalue color 1
+@    s0 avalue rot 0
+@    s0 avalue format general
+@    s0 avalue prec 3
+@    s0 avalue prepend ""
+@    s0 avalue append ""
+@    s0 avalue offset 0.000000 , 0.000000
+@    s0 errorbar on
+@    s0 errorbar place both
+@    s0 errorbar color 1
+@    s0 errorbar pattern 1
+@    s0 errorbar size 1.000000
+@    s0 errorbar linewidth 1.0
+@    s0 errorbar linestyle 1
+@    s0 errorbar riser linewidth 1.0
+@    s0 errorbar riser linestyle 1
+@    s0 errorbar riser clip off
+@    s0 errorbar riser clip length 0.100000
+@    s0 comment "Col1"
+@    s0 legend  "Col1"
+@target G0.S0
+@type xy
+0 0.9908317
+1 0.9906104
+2 0.9284767
+3 0.9279292
+4 0.9035183
+5 0.9029711
+6 0.8875104
+7 0.8869849
+8 0.8766978
+9 0.8762393
+10 0.8692161
+11 0.8688397
+12 0.8638869
+13 0.8635948
+14 0.8600065
+15 0.8597872
+16 0.8570996
+17 0.8569399
+18 0.8513962
+19 0.8513109
+20 0.8509239
+21 0.8508607
+22 0.8504552
+23 0.8504081
+24 0.8500428
+25 0.8500064
+26 0.8494859
+27 0.8494581
+28 0.8490099
+29 0.8489874
+30 0.848555
+31 0.8485357
+32 0.8481737
+33 0.8481563
+34 0.8478579
+35 0.8478416
+36 0.8475866
+37 0.8475715
+38 0.8473822
+39 0.8473677
+40 0.8472225
+41 0.8472089
+42 0.847071
+43 0.8470583
+44 0.8469264
+45 0.8469145
+46 0.8468053
+47 0.8467941
+48 0.8467012
+49 0.8466907
+50 0.8466086
+51 0.8465994
+52 0.846535
+53 0.8465264
+54 0.8464661
+55 0.8464581
+56 0.8469796
+57 0.8469543
+58 0.8467225
+59 0.8467045
+60 0.8465359
+61 0.8465228
+62 0.8463968
+63 0.8463872
+64 0.8462922
+65 0.846285
+66 0.8462122
+67 0.8462067
+68 0.8461504
+69 0.8461461
+70 0.8461018
+71 0.8460983
+72 0.8460632
+73 0.8460604
+74 0.846313
+75 0.8463051
+76 0.8461853
+77 0.8461796
+78 0.8460951
+79 0.8460911
+80 0.8460293
+81 0.8460265
+82 0.8459814
+83 0.8459794
+84 0.8459459
+85 0.8459444
+86 0.8459193
+87 0.8459182
+88 0.845899
+89 0.8458983
+90 0.8458834
+91 0.8458828
+92 0.8459928
+93 0.8459908
+94 0.8459391
+95 0.8459377
+96 0.8459017
+97 0.8459007
+98 0.8458749
+99 0.8458742
+100 0.8458556
+101 0.8458552
+102 0.8458417
+103 0.8458414
+104 0.8458315
+105 0.8458313
+106 0.8458239
+107 0.8458238
+108 0.8458182
+109 0.8458181
+110 0.8458593
+111 0.8458588
+112 0.8458396
+113 0.8458393
+114 0.8458262
+115 0.8458259
+116 0.8458166
+117 0.8458164
+118 0.8458099
+119 0.8458097
+120 0.8458051
+121 0.845805
+122 0.8458018
+123 0.8458017
+124 0.8457994
+125 0.8457993
+126 0.8457977
+127 0.8457977
+128 0.8458105
+129 0.8458104
+130 0.8458046
+131 0.8458045
+132 0.8458006
+133 0.8458005
+134 0.8457978
+135 0.8457977
+136 0.8457958
+137 0.8457957
+138 0.8457945
+139 0.8457945
+140 0.8457936
+141 0.8457935
+142 0.845793
+143 0.845793
+144 0.8457926
+145 0.8457926
+146 0.8457952
+147 0.8457951
+148 0.845794
+149 0.8457939
+150 0.8457932
+151 0.8457932
+152 0.8457927
+153 0.8457927
+154 0.8457924
+155 0.8457923
+156 0.8457922
+157 0.8457921
+158 0.8457921
+159 0.845792
+160 0.845792
+161 0.8457919
+162 0.845792
+163 0.8457919
+164 0.845792
+165 0.8457919
+166 0.845792
+167 0.8457919
+168 0.8457921
+169 0.8457919
+170 0.8457921
+171 0.845792
+172 0.8457908
+173 0.8457907
+174 0.8457913
+175 0.8457913
+176 0.8457917
+177 0.8457916
+178 0.845792
+179 0.8457919
+180 0.8457924
+181 0.845792
+182 0.8457921
+183 0.8457922
+184 0.8457923
+185 0.8457923
+186 0.8457924
+187 0.8457923
+188 0.8457924
+189 0.8457924
+190 0.8457925
+191 0.8457924
+192 0.8457926
+193 0.8457925
+194 0.8457918
+195 0.8457917
+196 0.8457921
+197 0.845792
+198 0.8457924
+199 0.8457922
+200 0.8457925
+201 0.8457924
+202 0.8457926
+203 0.8457925
+204 0.8457927
+205 0.8457926
+206 0.8457927
+207 0.8457926
+208 0.8457928
+209 0.8457926
+210 0.8457928
+211 0.8457927
+212 0.8457928
+213 0.8457927
+214 0.8457925
+215 0.8457924
+216 0.8457926
+217 0.8457926
+218 0.8457927
+219 0.8457925
+220 0.8457928
+221 0.8457926
+222 0.8457928
+223 0.8457926
+224 0.8457928
+225 0.8457927
+226 0.8457929
+227 0.8457927
+228 0.8457929
+229 0.8457927
+230 0.8457929
+231 0.8457927
+232 0.8457928
+233 0.8457926
+234 0.8457928
+235 0.8457927
+236 0.8457928
+237 0.8457927
+238 0.8457929
+239 0.8457927
+240 0.8457929
+241 0.8457927
+242 0.8457929
+243 0.8457927
+244 0.8457929
+245 0.8457927
+246 0.8457929
+247 0.8457928
+248 0.8457929
+249 0.8457927
+250 0.8457929
+251 0.8457927
+252 0.8457929
+253 0.8457927
+254 0.8457929
+255 0.8457927
+256 0.8457929
+257 0.8457928
+258 0.8457929
+259 0.8457927
+260 0.8457929
+261 0.8457927
+262 0.8457929
+263 0.8457927
+264 0.8457929
+265 0.8457928
+266 0.8457929
+267 0.8457928
+268 0.8457929
+269 0.8457928
+270 0.8457929
+271 0.8457928
+272 0.8457929
+273 0.8457928
+274 0.8457929
+275 0.8457927
+276 0.8457929
+277 0.8457927
+278 0.8457929
+279 0.8457927
+280 0.8457929
+281 0.8457927
+282 0.8457929
+283 0.8457927
+284 0.8457929
+285 0.8457928
+286 0.8457929
+287 0.8457927
+288 0.8457929
+289 0.8457927
+290 0.8457929
+291 0.8457927
+292 0.8457929
+293 0.8457927
+294 0.8457929
+295 0.8457927
+296 0.8457929
+297 0.8457927
+298 0.8457929
+299 0.8457927
+&

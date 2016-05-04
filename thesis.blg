@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/MacPorts 2012_8)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: intro/intro.aux
+A level-1 auxiliary file: chap2/chap2.aux
+A level-1 auxiliary file: chap3/chap3.aux
+A level-1 auxiliary file: chap4/chap4.aux
+A level-1 auxiliary file: chap5/chap5.aux
+A level-1 auxiliary file: chap6/chap6.aux
+A level-1 auxiliary file: conc/conc.aux
+The style file: apj.bst
+Database file #1: thesis.bib
+Warning--string name "march" is undefined
+--line 32669 of file thesis.bib
+Warning--to sort, need author or key in SpECwebsite
+Warning--empty year in SpECwebsite; set to ????
+Warning--empty journal in Berti:2015itd
+Warning--empty journal in Chatziioannou:2015uea
+Warning--empty journal in Dietrich:2015pxa
+Warning--empty journal in East:2015yea
+Warning--empty journal in Fan:2015bia
+Warning--empty year in Matsushima-Marcus:1995; set to ????
+Warning--empty journal in OssokineEtAl:2014
+Warning--empty journal in Tsatsin:2013jca
+Warning--empty journal in Worley:2008cb
+You've used 121 entries,
+            2988 wiz_defined-function locations,
+            1446 strings with 26404 characters,
+and the built_in function-call counts, 56164 in all, are:
+= -- 4821
+> -- 3559
+< -- 61
++ -- 1218
+- -- 1084
+* -- 4625
+:= -- 10330
+add.period$ -- 121
+call.type$ -- 121
+change.case$ -- 834
+chr.to.int$ -- 120
+cite$ -- 134
+duplicate$ -- 2252
+empty$ -- 3486
+format.name$ -- 1453
+if$ -- 11248
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 113
+newline$ -- 367
+num.names$ -- 483
+pop$ -- 830
+preamble$ -- 1
+purify$ -- 833
+quote$ -- 0
+skip$ -- 2164
+stack$ -- 0
+substring$ -- 3112
+swap$ -- 22
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1089
+warning$ -- 11
+while$ -- 474
+width$ -- 0
+write$ -- 1195
+(There were 12 warnings)

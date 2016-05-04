@@ -1,0 +1,17 @@
+%-------------------------------------------------------------
+% $Id: includefonts.tex,v 1.1 2004/08/27 22:31:49 scheel Exp $
+%
+% This includes fonts in epsfig.eps by wrapping the eps file
+% in a LaTeX document.
+%
+%-------------------------------------------------------------
+\documentclass{revtex4}
+
+\usepackage[dvips]{graphicx}
+
+\begin{document}
+\pagestyle{empty}
+
+\includegraphics{epsfig.eps}
+
+\end{document}

@@ -1,0 +1,701 @@
+\documentclass[aps, prd, amsmath, floats, floatfix, twocolumn,superscriptaddress, nofootinbib, showpacs]{revtex4-1}
+
+%\documentclass[iopams,floats, floatfix, twocolumn,superscriptaddress, 
+%nofootinbib, showpac]{iopart}
+
+\usepackage{graphicx}
+%\usepackage{amsmath,amssymb}
+\usepackage{amsfonts}
+\usepackage{subfigure}
+\usepackage{xspace} 
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage[]{amsmath,amssymb}
+\usepackage[]{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+% This is for strikeout font
+\usepackage{ulem}
+\normalem
+% end strikeout font
+
+\newcommand{\Caltech}{\address{Theoretical Astrophysics 350-17,
+    California Institute of Technology, Pasadena, CA 91125}}
+\newcommand{\Cornell}{\address{Center for Radiophysics and Space
+    Research, Cornell University, Ithaca, New York, 14853}}
+\newcommand{\Maryland}{\address{Maryland Center for Fundamental
+    Physics, Department of Physics, University of Maryland, College
+    Park, MD 20742}}
+\newcommand{\CITA}{\address{Canadian Institute for Theoretical Astrophysics,
+    University~of~Toronto, Toronto, Ontario M5S 3H8, Canada}}
+\newcommand{\JPL}{\address{Jet Propulsion Laboratory,  California
+    Institute of Technology, 4800 Oak Grove Drive, Pasadena, California 91109}}
+
+\definecolor{darkgreen}{rgb}{0.2,0.7,0.2}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+
+%\newcommand{\comment}[1]{\textcolor{red}{[#1]}}
+\newcommand{\sergei}[1]{\textcolor{RubineRed}{#1}}
+\newcommand{\harald}[1]{\textcolor{OliveGreen}{#1}}
+\newcommand{\larry}[1]{\textcolor{SkyBlue}{#1}}
+\newcommand{\w}[1]{\mathbf{#1}}
+\begin{document}
+
+\title[Rotationally invariant dual frame approach to simulation of binary 
+black holes]{Rotationally invariant dual frame approach to simulation of 
+binary black holes}
+
+\author{\sergei{Serguei Ossokine}}\CITA
+\author{\harald{Harald Pfeiffer}} \CITA
+\author{\larry{Lawrence Kidder}} \Cornell
+
+\begin{abstract}
+abstract
+\end{abstract}
+
+\date{\today}
+
+\pacs{04.25.D-, 04.25.dg, 04.25.Nx, 04.30.-w}
+
+\maketitle
+
+
+\section{Introduction}
+\label{sec:intro}
+
+
+
+\section{Methods and Techniques}
+\label{sec:methods}
+\subsection{Dual frames and control systems}
+
+
+As described in Scheel et al.~\cite{Scheel2006}, the {\tt SpEC} code
+utilizes a dual-frame approach to simulate compact object binaries.
+Einstein's equations are written down in an asymptotically
+non-rotating coordinate-system $x^{\bar a}=(\bar t, x^{\bar\imath})$,
+referred to as the ``inertial frame'', and all tensors are represented
+in the coordinate basis of this frame.  In the inertial frame, tensor
+components remain finite even at large separation.  The computational
+grid is specified in ``grid coordinates'' $x^a=(t,x^i)$.  The
+collocation points of the spectral expansion are at constant grid
+coordinates, and numerical derivatives are computed with respect to
+these coordinates.  The two coordinate frames share the same
+time-coordinate
+\begin{equation}
+\bar t=t.
+\end{equation}
+The spatial coordinates of the two frame are related by a coordinate
+transformation
+\begin{equation}\label{eq:CoordTrafo}
+  x^{\bar\imath}=x^{\bar \imath}\large(x^i; \lambda^\mu(t)\large),
+\end{equation}
+which depends on a set of parameters $\lambda^\mu(t)$ to be discussed
+in detail later.  The coordinate
+transformation Eq.~(\ref{eq:CoordTrafo}) maps the grid-coordinates
+into the inertial frame such that the excision surfaces (coordinate
+spheres in the grid-frame) are mapped to a location somewhat inside
+the apparent horizons of the black holes in the inertial frame.
+
+In the original work~\cite{Scheel2006}, this coordinate transformation
+was taken as the composition of a rotation about the z-axis and an
+overall scaling of the coordinates \larry{I've corrected this to what
+is actually in SpEC!}  \footnote{Note that in Ref.~\cite{Scheel2006},
+the equations give the transformation from the inertial coordinates to
+the grid coordinates, the rotation angle is $\phi$ instead of $\psi$,
+and the scale factor $a$ is the inverse of the scale factor in this
+paper.},
+\begin{equation}\label{eq:xyRotation}
+x^{\bar\imath}=
+\left(
+\begin{aligned}
+\bar x \\ \bar y \\ \bar z
+\end{aligned}
+\right)
+=a(t)\left(
+\begin{aligned}
+\cos{\psi(t)} && - \sin{\psi(t)} && 0 \\
+\sin{\psi(t)} && \cos{\psi(t)}&& 0 \\
+0& & 0 && 1
+\end{aligned}
+ \right)
+\left(
+\begin{aligned}
+x \\ y \\ z
+\end{aligned}
+\right).
+\end{equation}
+
+In this simple case, the map depends on two parameters
+$\lambda^\mu(t)=(a(t), \phi(t))$, the scale factor and the rotation
+angle.  The map parameters are chosen dynamically during the
+simulation, such that the map tracks the actual motion of the black
+holes.  This can be accomplished by introducing a set of control-functions
+$Q^\mu$, such that
+\begin{enumerate}
+\item $Q^\mu=0$ if the mapped excision spheres are at the desired location in inertial coordinates.
+\item Under small variations of the mapping parameters around their current values, the control-functions satisfy
+\begin{equation}\label{eq:Orthogonality}
+\left.\frac{\partial Q^\mu}{\partial \lambda^\nu}\right|
+_{\lambda^\mu=\lambda^\mu(t)}
+= -\delta^\mu_\nu
+\end{equation}
+\end{enumerate}
+Equation~(\ref{eq:Orthogonality}) allows to write down uncoupled feedback
+control equations for the $\lambda^\mu(t)$.
+
+For black holes orbiting in the xy-plane, Eq.~(\ref{eq:xyRotation})
+suffices to keep the excision boundaries inside the inspiraling black
+holes, resulting in successful simulations of inspiraling BH--BH
+binaries in Ref.~\cite{Pfeiffer-Brown-etal:2007}.  Subsequently, the
+map was refined to avoid a rapid inward motion of the outer
+boundary~\cite{Scheel2008}, to adjust the shapes of the mapped
+excision boundaries to more closely conform to the distorted apparent
+horizons~\cite{Szilagyi:2009qz}, and was generalized to unequal mass
+binaries~\cite{Buchman-etal-in-prep}.  
+
+The purpose of the present paper is the development of coordinate
+mappings that can handle precessing binaries that may orbit about a
+center of rotation that moves (e.g. due to asymmetric momentum
+emission during the inspiral).  Rotation and translation couple to
+each other and must therefore be dealt with simultaneously.  The
+questions addressed in this paper are therefore determination of (1) a
+suitable coordinate mapping for precessing, translating binaries, (2)
+suitable mapping parameters $\lambda^\mu$, and (3) derivation of
+control-functions $Q^\mu$.  Specifically, we will discuss below two
+generalizations of Eq.~(\ref{eq:xyRotation}), one based on
+Euler-angles and one based on Quaternions.  We will show that the
+Euler-angle representation suffers from singularities when the
+inclination of the orbital plane passes through $\pi/2$, and we will
+demonstrate that the Quaternion representation does not suffer these
+problems.
+
+
+\subsection{General derivation of the control parameters}
+
+In the general case where the orbital plane precesses, we use a
+mapping that composes a scaling $a$, a rotation $\tensor{R}$ and a
+translation $\vec{T}$.  The mapping is given by
+\begin{equation}\label{eq:3dMap}
+\vec{\bar{x}} = a \tensor{R} \vec{x} + \vec{T}
+\end{equation}
+where the rotation matrix $\tensor{R}$ is given by
+\begin{widetext}
+\begin{equation}\label{eq:EulerRotation}
+\tensor{R} = \begin{pmatrix}
+\cos{\theta(t)} \cos{\psi(t)} & 
+- \cos{\phi(t)} \sin{\psi(t)} + \sin{\phi(t)} \sin{\theta(t)} \cos{\psi(t)} &
+\sin{\phi(t)} \sin{\psi(t)} + \cos{\phi(t)} \sin{\theta(t)} \cos{\psi(t)} \\
+\cos{\theta(t)} \sin{\psi(t)} & 
+\cos{\phi(t)} \cos{\psi(t)} + \sin{\phi(t)} \sin{\theta(t)} \sin{\psi(t)} & 
+- \sin{\phi(t)} \cos{\psi(t)} +\cos{\phi(t)} \sin{\theta(t)} \sin{\psi(t)}  \\
+-\sin{\theta(t)} &
+\sin{\phi(t)} \cos{\theta(t)} &
+\cos{\phi(t)} \cos{\theta(t)} 
+\end{pmatrix}.
+\end{equation}
+\end{widetext}
+where $\phi$ is the roll angle around the $x$-axs, $\theta$ is the
+pitch angle around the $y$-axis, and $\psi$ is the yaw angle around the
+$z$ axis.  
+
+In general a rotation matrix depends upon at least three parameters
+(e.g. Euler angles).  But if the desired locations of the particles
+lie parallel to the $x$-axis, then a rotation about the $x$-axis can
+be captured with a translation {\em if only the locations of the
+particles is important}.  Therefore we set the ``roll'' (rotation
+about x-axis of body) angle to zero and the rotation matrix simplifies
+to\footnote{Note that if the motion is confined to the $x-y$ plane,
+the pitch will remain fixed at $\theta = 0$ and we recover the rotation
+matrix in Eq.~(\ref{eq:xyRotation}).}
+\begin{equation}\label{eq:PitchYawRotation} \tensor{R} = \left(
+\begin{aligned}
+\cos{\theta(t)} \cos{\psi(t)} && - \sin{\psi(t)} && \sin{\theta(t)}
+\cos{\psi(t)} \\ \cos{\theta(t)} \sin{\psi(t)} && \cos{\psi(t)} &&
+\sin{\theta(t)} \sin{\psi(t)} \\ -\sin{\theta(t)} & & 0 &&
+\cos{\theta(t)}
+\end{aligned}
+ \right).
+\end{equation}
+Thus the mapping will have six parameters, a scaling $a$, a
+pitch angle (rotation about y-axis) $\theta$, a yaw angle (rotation
+about z-axis) $\psi$, and a translation $(T^X,T^Y,T^Z)$.
+
+The goal of the scaling-rotation-translation map is to keep the
+location of the two black holes, $\vec{x_A}$ and $\vec{x_B}$ at the
+location of the centers of the excision surfaces $\vec{c_A}$ and
+$\vec{c_B}$ in the grid coordinate frame.  As the binary evolves, the
+map parameters need to be adjusted by the control system.  This is done by setting the control-functions $Q^\mu$ equal to the perturbations needed to the map that will equate the current mapping of the grid location of each black hole to the pertrubed mapping of the centers of the excision surfaces, i.e.
+\begin{equation}
+a \tensor{R}(\theta,\psi) x_{A,B} + \vec{T} = 
+(a + \delta a) \tensor{R}(\theta + \delta\theta,\psi+\delta\psi) c_{A,B} + 
+\vec{T} + \vec{\delta T}.
+\end{equation}
+Solving this system of equations yields
+\begin{eqnarray}
+\delta a &=& a \left( \frac{x_A - x_B}{c^x_A - c^x_B} - 1 \right), \\
+\delta \theta &=& \frac{z_B - z_A}{c^x_A - c^x_B},\\
+\delta \psi &=& \frac{1}{\cos{\theta}} \frac{y_A - y_B}{x_A - x_B}, \\
+\delta T^X &=& \frac{a}{c^x_A - c^x_B} \left( 
+   \delta t^X \cos{\theta} \cos{\psi} - \delta t^Y \sin{\psi} \right. 
+\nonumber \\ && + \left. 
+   \delta t^Z \sin{\theta} \cos{\psi} \right),\\
+\delta T^Y &=& \frac{a}{c^x_A - c^x_B} \left( 
+   \delta t^X \cos{\theta} \sin{\psi} + \delta t^Y \cos{\psi} \right. 
+\nonumber \\ && + \left. 
+   \delta t^Z \sin{\theta} \sin{\psi} \right),\\
+\delta T^Z &=& \frac{a}{c^x_A - c^x_B} \left( - \delta t^X \sin{\theta} +
+                                              \delta t^Z \cos{\theta} \right),
+\end{eqnarray}
+where
+\begin{eqnarray}
+\delta t^X &=& c^x_A x_B - c^x_B x_A + c^y \left( y_A - y_B \right) + 
+               c^z \left( z_A - z_B \right), \nonumber \\ && \\
+\delta t^Y &=& c^x_A y_B - c^x_B y_A + c^y \left( x_B - x_A \right) \nonumber 
+\\ && + ~ c^z \left( y_B - y_A \right) \tan{\theta},\\
+\delta t^Z &=& c^x_A z_B - c^x_B z_A + c^y \left( y_A - y_B \right) 
+               \tan{\theta} \nonumber \\ && + ~ c^z \left( x_B - x_A \right),
+\end{eqnarray}
+and we have aligned the centers of the excision surfaces parallel to
+the $x$-axis so that $c_A^y = c_B^y = c^y$ and $c_A^z = c_B^z = c^z$.
+
+
+\subsection{\sergei{Rotationally invariant control system}}
+
+\subsubsection{\sergei{Singularities in the Euler angle parametrization}}
+
+In this section we describe rotations as parametrized by three Euler's angles and
+discuss the coordinate singularities that are  inherent with this choice. \\
+
+The rotation matrix is given in the x-y-z convention by 
+$R=R_z(\psi)R_y(\theta)R_x(\phi)$
+Here, $\phi$ is the roll angle around the $x$-axs, $\theta$ is the pitch angle
+around the $y$-axis and $\psi$ is the yaw angle around the $z$ axis. A 
+familiar example of a coordinate singularity with this parametrization
+is the gimbal lock: when $\theta=\frac{\pi}{2}$, we have:
+
+\[\begin{pmatrix}
+
+0&-\sin \left({\psi}\left(t\right)-{\phi}\left(t 
+\right)\right)&\cos \left({\psi}\left(t\right)-{\phi}\left(t 
+\right)\right)\cr 0&\cos \left({\psi}\left(t\right)-{\phi} 
+\left(t\right)\right)&\sin \left({\psi}\left(t\right)-{\phi} 
+\left(t\right)\right)\cr -1&0&0\cr 
+
+\end{pmatrix}\]
+
+Notice that the above matrix is a function of $\psi-\phi$ and thus changing 
+$\phi$ and $\psi$ have the same effect: the difference changes but the 
+direction of rotation remains the same: a degree of freedom has been 
+lost.  \\
+
+There is a more serious effect that is important in the context of control
+systems. Consider the time derivative of the rotation matrix. Let 
+$\vec{\omega}$ be the angular velocity in the fixed frame, and let
+$\vec{\Omega}$ be the angular velocity in the rotating frame. Let 
+$\Omega  $ be a skew-symmetric matrix with components are 
+$\Omega_{ij}=\epsilon_{ikj}\Omega^{k}$. Then we have
+\[\dot{R} = R\Omega \]
+which implies  
+
+\begin{equation}
+\Omega = R^{T}\dot{R}
+\end{equation}
+
+We can use this relationship to compute $\Omega$ (and thus $\vec{\Omega}$) in
+terms of the derivatives of the Euler angles: 
+$(\dot{\phi},\dot{\theta},\dot{\psi})$.
+
+\[
+(\Omega_1,\Omega_2,\Omega_3)^{T}=A\ (\dot{\phi},\dot{\theta},\dot{\psi})^{T}
+\]
+
+where 
+
+\[A=\left(\begin{array}{ccc}
+1 & 0 & -\sin(\theta) \\
+0 & \cos(\phi) &\sin(\phi)\cos(\theta)\\
+0 & -\sin(\phi) & \cos(\phi)\cos(\theta)
+\end{array}\right)\]
+
+Notice that we should be able to write $(\dot{\phi},\dot{\theta},
+\dot{\psi})^{T} = A^{-1}(\Omega_1,\Omega_2,\Omega_3)^{T}$, assuming that 
+$A^{-1}$ exists. A quick computation shows that $\det{A}=\cos(\theta)$. 
+Thus, when $\theta=\frac{\pi}{2}$ the derivatives of the Euler angles are not
+well defined. Numerically, we expect trouble even before this happens as 
+Cramer's rule dictates that the inverse is scaled by $\det{A}$. \\
+
+\begin{figure*}[!htbp]
+  \includegraphics[scale=0.7]{PitchYawBroken}
+  \caption{Typical behaviour of the Pitch and Yaw angles and their derivatives for a nearly polar orbit inclined at 85 degrees with respect to the $x-y$ plane }
+  \label{fig:PitchYawBroken}
+\end{figure*}
+
+
+Another way to envision how the derivatives of the Euler angles diverge is the following. Consider the vector $\hat{u}=\frac{\vec{x}_A-\vec{x}_B}{|\vec{x}_A-\vec{x}_B|}$, the unit vector in the direction separating the centres of the 2 compact objects. Before we considered $\phi,\ \theta$ as parameters in a mapping. Let us now consider them as coordinates that describe this vector:
+\begin{eqnarray*}
+\bar{x}&=&\cos\phi\cos\theta\\
+\bar{y}&=&\sin\phi\cos\theta\\
+\bar{z}&=&\sin\theta
+\end{eqnarray*}
+We can immediately derive the expressions for $\dot{\theta},\ \dot{\phi}$ as functions of $\dot{\bar{x}}, \ \dot{\bar{y}},\ \dot{\bar{z}}$:
+\begin{eqnarray}
+\dot{\theta} &=& \frac{\dot{\bar{z}}}{\cos\theta}\\
+\dot{\phi}   &=& \frac{1}{\cos\theta}\sqrt{\dot{\bar{x}}^{2}+\dot{\bar{y}}^2-\dot{\bar{z}}^2\tan^{2}\theta}
+\end{eqnarray}
+From these equations it's obvious that the derivatives diverge at the poles. Letting $\delta\theta = \frac{\pi}{2}-\theta$ we can write for $\delta\theta<<1$:
+\[
+\dot{\theta} \propto \frac{1}{\delta \theta},\ \dot{\phi} \propto \frac{1}{\delta \theta^{3}}  
+\]
+This behaviour is demonstrated clearly in Figure \ref{fig:PitchYawBroken}, where the derivatives of both the pitch and the yaw angles demonstrate sharp, almost discontinous features.
+
+
+This is the fundamental reason why Euler angles are not a suitable 
+parametrization of rotations: there exist situations when their derivatives 
+grow extremely fast numerically.
+\subsection{Preliminaries}
+In this section we discuss the ideas behind a rotationally invariant control 
+system. Our goal is to construct a new mapping  $x^{\bar\imath}=x^{\bar \imath}\large(x^i; \lambda^\mu(t)\large)$ that does not suffer from the divergent derivatives like Euler's angles. Since these singularities were brought about by a poor choice of representation of the rotation group, which relied on preferred directions in space (namely the coordinate axes), our new choice representation must be independent of any special directions. Examples of such representations include the axis-angle approach, orthogonal matrices and quaternions. All of these approaches only need the direction of the rotation axis and the angle by which rotate. However, such an axis and angle have no clear physical interpetation. Instead, we consider the rotation to be built from a sequence of infinitesimal rotations around the direction of the instantenous angular velocity vector. Essentially, each rotation is done in instantenous orbital plane of the binary. 
+
+\subsection{Quaternion rotations}
+
+
+\subsubsection*{General introduction}
+Quaternions are widely used in certain subjects but are not generally 
+well-known. They are an extension of the complex numbers,
+where one introduces \emph{three} imaginary units, obeying:
+
+\[ i^{2}=j^{2}=k^{2}=ijk=-1 \]
+
+ We define a quaternion as an object of the form
+
+\[ \w{q}=q_{0}+q_{1}i+q_{2}j+q_{3}k,\ q_{i} \in \mathbb{R} \]
+
+This is conveniently written as $ q = (q_{0},\vec{q}) $. The operations of
+addition and scalar multiplication are defined in the obvious way, in complete
+analogy with complex numbers. With the structure introduced so far, the set 
+of quaternions
+
+\[ \mathbb{H}=\{\alpha + \beta i +\delta j +\gamma k | \alpha,\beta, \gamma,
+\delta\in\mathbb{R} \} \]
+
+is a 4-dimensional vector space over the real numbers. 
+Further, one can introduce the operation of conjugation and multiplication 
+which are defined as
+
+\[\w{q}^{*}=(q_{0},-q)\]
+
+and
+
+\[\w{qp} = (p_{0}q_{0}- \vec{p}\cdot\vec{q},p_{0} \vec{q} + q_{0} \vec{p} + \vec{p} 
+\times \vec{q}) \]
+
+respectively. It follows that the multiplicative inverse is given by 
+$ \w{q}^{-1}=\frac{\w{q}^{*}}{|\w{q}|} $ where $ |\w{q}| $ is the Euclidian norm. \\
+
+Restricting our attention now to the set of all unit quaternions 
+$ Sp(1) = \{\w{q}\in \mathbb{H},|\w{q}|=1\} $, it is easy to show that $ Sp(1) $ is 
+in fact a Lie group. More crucially, $ Sp(1)$ is isomorphic to $SU(2) $ 
+ where $ SU(2) $ is the group of all $ 2 \times 2 $ unitary matrices with unit determinant \cite{altmann2005rotations}.  The connection back to our problem is 
+provided by the fact that $ SU(2) $ is a double cover of $ SO(3) $. Thus, 
+$ Sp(1) $ is a double cover of $ SO(3) $ and it is reasonable to expect that 
+one can use quaternions to represent rotations. \\
+
+This is done in the following manner.  Let $\hat{n},\vec{v} \in R^3$ and let 
+$\w{q}=(\cos\frac{\theta}{2},\hat{n}\sin\frac{\theta}{2})$. Then the operation 
+that rotates the vector $\vec{v}$ into vector $\vec{v}'$, around the axis $\hat{n}$ by angle $\theta$ in the right-handed sense is \[\w{v}' = \w{qvq}^*\] where we have promoted the 3-vectors to quaternions, e.g. $\w{v}'=(0,\vec{v}')$.
+
+The rotation matrix that represents the opration $L_q(v)=\w{qvq^*}$ by left 
+multplication is given by 
+{\small
+\[R=\begin{pmatrix}
+q_0^2+q_1^2-q_2^2-q_3^2 & 2(q_1q_2-q_0q_3) & 2(q_0q_2+q_1q_3)\\
+2(q_1q_2+q_0q_3) & q_0^2+q_2^2-q_1^2-q_3^2 & 2(q_2q_3-q_0q_1)\\
+2(q_1q_3-q_0q_2) & 2(q_0q_1+q_2q_3)  &  q_0^2+q_3^2-q_1^2-q_2^2\\
+\end{pmatrix}\]
+}
+
+\subsection{Coordinate mapping in SpEC}
+Recall that we wish to employ some sort of comoving coordinates which are 
+related to the fixed intertial frame by a rotation, \emph{viz}. 
+$x^{\bar{i}}=x^{\bar{i}}(x^i)=aR^i_jx^j+T^{i}$. We wish to rewrite this in terms of 
+quaternions. Note that the operation $L_q(v)=\w{qvq^*}$ represents an \emph{active}
+rotation of a vector counterclockwise around a given axis. It also represents
+the rotation of the coordinate system in the opposite direction. Thus it 
+follows that
+\begin{equation}
+  \label{eq:SpECMap}
+  \w{\bar{x}=aqxq^* + T}
+\end{equation}
+ where all the quantities have been promoted to quaternions.
+
+
+Note that equation \ref{eq:SpECMap} generalizes equation \ref{eq:xyRotation}. The mapping parameters are $a(t),\w{q}(t),\w{T}$. Our next task is derive equations that determine the time evolution of these parameters as well as the control functions $Q^{\mu}$.
+
+
+
+\subsection{Dynamics}
+
+Let us derive to find the differential equation that $q$ (or alternatively, $R$)
+obeys. Consider a fixed vector $\vec{r}$, written in quaternion form as $\w{r}=(0,\vec{r})$. Suppose it is mapped to $\bar{\w{r}}=\w{qrq^{*}}$, where $\w{q}$ is a time-dependent unit quaternion. Then:
+\[\w{ \dot{\bar{r}}=\dot{q}rq^*+qr\dot{q^*}}\]
+where we have used the fact that the vector is fixed in the rotating frame. 
+Substituting $\w{r=q^*\bar{r}q}$ we get
+\[
+\w{\dot{\bar{r}}=\dot{q}q^*\bar{r}qq^*+qq^*\bar{r}q\dot{q^*}}
+\]
+Notice that because $\w{q}$ is a unit quaternion we must 
+have that $\w{q\dot{q^*}=-\dot{q}q^*} $ and thus
+\[
+\w{\dot{\bar{r}}}=\dot{\w{q}}\w{q}^*\w{\bar{r}}-\w{\bar{r}}\dot{\w{q}}\w{q}^* \equiv [\dot{\w{q}}\w{q}^*,\w{\bar{r}}]
+\]
+Notice that for any two quaternions $\w{q,p}$ we have 
+\[ [\w{q,p}]=(0,2\vec{q}\times\vec{p})\]
+Note that this commutator is independent of the real parts of $\w{q,p}$.
+Letting $(0,\vec{u})\equiv\dot{\w{q}}\w{q}^*$ we have
+\[ \dot{\bar{r}}=(0,2\vec{u}\times\vec{r})\]
+Recall that the rate of change of vector in a fixed coordinate frame is given by\cite{goldstein2002classical} 
+\[\dot{\vec{v'}}=\vec{\omega}\times \vec{v}\] 
+where $\vec{v}'$ is the vector in the fixed frame.
+Thus we can identify $\w{\omega=2u}=(0,\vec{\omega})$ and we therefore have 
+$\w{\omega=2\dot{q}q^*}$ so that
+\[\w{\dot{q}=\frac{1}{2}\omega q}\]
+
+Note that this result can also be obtained straight from the definition of the
+time derivative, see e.g. 
+Now, note that here $\vec{\omega}$ is the angular velocity of the moving 
+frame \emph{measured  with respect to the fixed frame}. In {\tt SpEC}, we measure the angular velocity in the \emph{rotating frame} and thus we have $\w{\Omega = q^*\omega q}$ so that the equation we solve is
+\begin{equation}
+  \label{Dynamics}
+  \w{\dot{q}=\frac{1}{2}q\Omega}
+\end{equation}
+
+In the context of control systems, we have that $\lambda=q$ and $\w{\dot{\lambda}=\frac{1}{2}q\Omega}$. This is different from all the other control parameters because we control the derivatives of $\Omega$ , and \emph{not} the derivatives of $q$ 
+
+\section{Numerical Results}
+
+\begin{figure}[!h]
+  \includegraphics[scale=0.33]{NormsCombinedPN}
+  \caption{Three Post-Newtonian simulations where the initial orbital plane was inclined by  angle $\beta=0,30,75$ from the
+$x-y$ plane, performed with both control systems. The time is measured in units of initial orbital period. }
+  \label{fig:NormPN}
+\end{figure}
+
+
+To test the validity of the new approach we began with Post-Newtonian simulations
+up to 2.5 PN order, which have the advantage of finishing much faster than
+full NR simulations. Figure \ref{fig:NormPN} displays a set of three runs for an equal
+mass non-spinning binary done with both control systems. Here, the angle $\beta$ denotes the inclination with respect to the $x-y$ plane and $|Q|=\sqrt{Q_{i}Q^{i}}$ is 
+a measure of how well the control system behaves overall, with $|Q|=0$ corresponding to
+perfect control. \\
+
+The larger the value of $\beta$, the more sharp, oscillating features are present
+for the runs done with the Pitch and Yaw control system. Their amplitude also grows by almost three orders of magnitude.
+Thus we indeed see the erratic behaviour of the control system as the inclination angle increases and the derivatives
+of the Pitch and Yaw angles begin to grow large. Meanwhile, the curves corresponding to the quaternion control system show exactly (to within numerical accuracy) the same value of $|Q|$  for all inclinations, which coincides with the case $\beta=0$ for the pitch and yaw control system. This is exactly what we expect from a rotationally invariant control system. 
+
+\begin{figure}[!h]
+  \includegraphics[scale=0.33]{Inclination}
+  \caption{The inclination angle, $\alpha$ for the three systems under study. Time is measured in units of initial orbital period. }
+  \label{fig:inclination}
+\end{figure}
+We then proceeded to test the new control system with its main application in mind:
+tackling precessing binary black hole systems. Quite generally, if black holes
+in a binary are spinning and their spin is not parallel to the orbital angular
+momentum, the orbital plane will precess. In wide variety of cases, this precession may cause the orbital plane to be inclined by 90 or more degrees with respect to the initial conditions. The behaviour of the system depends on a 7 dimensional parameter space, spanned by the mass ratio and the 6 components of the 2 spatial spin vectors. We chose a set of three simulations to be evolved using full numerical relativity that exhibits mild to significant precession. Table \ref{tab:runs} summarizes the initial conditions. \\
+
+\begin{table*}
+  \setlength{\tabcolsep}{1em}
+  %\setlength{\tabrowsep}{0.5em}
+  \begin{tabular}{c|c|c|c|c|c}
+   \
+   Name & $d_{init}(M)$ & q & $\Omega_{init}$ & $\vec{S}_{1}$ & $\vec{S}_{2}$ \\
+   \hline
+   d10q5 & 10 & 5 & 0.028125893717 & (0.2, 0.0, -0.2) & (0.0, 0.0, -0.2) \\
+   
+   d13q6 & 13 & 6 & 0.0194193674103415 & (0.3, 0.2,  -0.2)  & (0.3,   0.2,  -0.2)\\
+   
+   d25q7 & 25 & 7 & 0.0075922020978379 & (-0.4, 0.2, -0.2) & (-0.2, 0.4, -0.2)\\
+   
+   \end{tabular}
+   \caption{The initial conditions used for the numerical relativity runs. The initial orbital angular momentum is in the $\hat{z}$ direction. Here
+   $q=\frac{m1}{m2}$ is the mass ratio}
+  \label{tab:runs}
+
+\end{table*}
+
+Figure \ref{fig:inclination} shows the inclination angle $\alpha \equiv  \arccos\left(\frac{\Omega_{z}}{|\vec{\Omega}|}\right)$ which measures the angle between the normal to the instanteneous orbital plane and the initial direction of the normal which is by convention in the $z$ direction. The oscillatory features are due to the 
+eccentricity of the orbit.
+ 
+Figure \ref{fig:AllNorms} demonstrates $|Q|$ for the three runs done with both
+control systems. For all 3 cases it is evident that $|Q|$ obtained with the
+Pitch and Yaw control system is about 2 orders of magnitude higher than the one
+obtained with the quaternion control systems. This signals that the quaternion
+control system is better at driving the system to the desired state. 
+
+\begin{figure*}[!htbp]
+  \includegraphics[scale=0.6]{AllNorms}
+  \caption{Three full NR simulations performed with both control systems. The time is measured in units of initial orbital period. }
+  \label{fig:AllNorms}
+\end{figure*}
+
+
+
+Repeat key results:  Pitch-and-Yaw bad. Quaternions good.
+
+Comment on how this relates to minimal rotation frame. 
+
+\acknowledgements
+
+We thank... We acknowledge support from NSERC, from Canada Research
+Chairs Program, and from the Canadian Institute for Advanced Research.
+Calculations were performed at the GPC supercomputer at the SciNet HPC
+Consortium; SciNet is funded by: the Canada Foundation for Innovation
+under the auspices of Compute Canada; the Government of Ontario;
+Ontario Research Fund -- Research Excellence; and the University of
+Toronto.
+
+
+
+
+\section*{Appendix}
+\subsection*{Deriving the control parameters for the control system - Matrix formalism}
+We start with the following system of equations:
+\[ aRx_{A} + T = (a+\delta a) (I+\delta R)R c_{A} +T + \delta T \]
+\[ aRx_{B} + T = (a+\delta a) (I+\delta R)R c_{B} +T + \delta T  \]
+where $ x_{A,B}, c_{A,B}, T, \ \delta T \in \mathbb{R}^{3} $, $ I $ is the identity matrix, $ a,\ \delta a \in \mathbb{R} $ and $ R,\ \delta R \in M_{3\times 3} $. To start off let us subtract the two equations, giving:
+\[  aR(x_{A} - x_{B})= (a+\delta a) R (I+\delta R) (c_{A} - c_{B}) \]
+Now, we impose $ \delta a \ll1 $ and $\delta R^{i}_{j}\ll 1 $. Then to first order in perturbations we can write:
+\begin{equation}
+aR(x_{A} - x_{B})= aR(c_{A} - c_{B}) + a\delta R R(c_{A} - c_{B}) + \delta a R (c_{A} - c_{B})
+\end{equation}
+Next, we multiply both sides by $ R^{-1} $ from the left\footnote{$ R^{-1} $ is guaranteed to exist since $ R $ is a rotation matrix}. This gives:
+\[
+a(x_{A} - x_{B})= a(c_{A} - c_{B}) + aR^{T}\delta R R(c_{A} - c_{B}) +\delta a  (c_{A} - c_{B})
+\]
+Define $W=R^{T}\delta RR $. Then it follows that $W^{T}=R^{T}\delta R^{T}R=-R^{T}\delta RR=-W$ where we have used the fact that $\delta R$ is an infinitesimal rotation matrix and is therefore anti-symmetric.
+Thus we can write $W_{ij}=\epsilon_{ijk}\phi^{j}$ .
+\[ a(x_{A} - x_{B})= a(c_{A} - c_{B}) + a\phi \times (c_{A} - c_{B}) + \delta a  (c_{A} - c_{B}) \]
+Taking the inner product (in the Euclidean sense) with $ c_{A} - c_{B} $ we have \footnote{Where $ (c_{A} - c_{B})^{2}= |c_{B}-c_{A}|^{2} $}
+\[a(x_{A} - x_{B})\cdot(c_{A} - c_{B})= a(c_{A} - c_{B})^{2} + [a \phi \times (c_{A} - c_{B})]\cdot (c_{A} - c_{B}) + \delta a  (c_{A} - c_{B})^{2} \]
+ resulting in 
+\[ a(x_{A} - x_{B})\cdot(c_{A} - c_{B}) =a(c_{A} - c_{B})^{2}+\delta a  (c_{A} - c_{B})^{2}  \]
+Solving for $ \delta a  $:
+\[ \delta a = a \left( \frac{(x_{A}-x_{B})\cdot(c_{B}-c_{A})}{|c_{B}-c_{A}|^{2}} - 1\right) \]
+Noting that $ c_{A} - c_{B} $ lies parallel to x axis, we can write:
+\[ \frac{c_{B}-c_{A}}{|c_{B}-c_{A}|^{2}} = \frac{1}{|c_{B}-c_{A}|} \hat{x} \]
+And so, the final result is 
+\begin{equation}
+\delta a = a \left(\frac{x_{A}^{x}- x_{B}^{x}}{D} - 1 \right)
+\end{equation}
+where $ D \equiv |c_{B}-c_{A}| $ \\
+
+To find the equation for $ \delta R $, let's return to the point where we took the inner product and instead now take the cross product of both sides with $ c_{A} - c_{B} $. The first and last terms on the right-hand side vanish and we are left with 
+\[ a(x_{A} - x_{B}) \times (c_{A} - c_{B}) = a[ \phi \times (c_{A} - c_{B})] \times (c_{A} - c_{B}) \]
+The triple product rule allows us to write:
+\[ a(x_{A} - x_{B}) \times (c_{A} - c_{B})  = -(c_{A} - c_{B})^{2} \cdot \phi + [ \phi \cdot (c_{B}-c_{A})](c_{B}-c_{A}) \]
+The second part of the last term vanishes by constuction:
+\[ a(x_{A} - x_{B}) \times (c_{A} - c_{B}) = -(c_{A} - c_{B})^{2} \cdot  \phi  \]
+Which finally leads to
+\begin{equation}
+ \phi = \frac{c_{A}-c_{B}}{D} \times \frac{x_{A}-x_{B}}{D}
+\end{equation}
+or 
+\[ \phi = \hat{v} \times \hat{u} \] \\
+Upon reflection, note that we did not solve for $\delta R$, but instead for some mysterious quantity $W=R^{T}\delta R R$. Yet this quantity is none other than the control parameter for an \emph{infinitesimal} rotation, which is what we wanted in the first place. It is not the control parameter for $R$ (which is $\delta R$).
+Both of the above results agree exactly with the ones obtained previously\footnote{Sergei to add reference to the magic set of notes where he did this} so we know that they obey the desired conditions for control parameters. \\
+
+Our goal is presently to find $ \delta T $.  To do this, let's go back to the very beginning and add the two equations instead of subtracting them. This gives:
+\[ aR(x_{A} + x_{B}) = (a+\delta a)  (I + \delta R)R(c_{A}+c_{B}) + 2 \delta T\]
+Expanding the right-hand side to first order in perturbations:
+\[ aR(x_{A} + x_{B}) = aR (c_{A}+c_{B}) + a\delta RR (c_{A}+c_{B}) + \delta a R (c_{A}+c_{B}) + 2 \delta T \]
+Grouping all the terms together
+\[ \delta T = \frac{aR}{2} \left( x_{A} + x_{B} - (1 + \frac{\delta a}{a} + R^{T}\delta RR)(c_{A} + c_{B})\right)\]
+This can be written as:
+\[ \delta T = \frac{aR}{2} \left( x_{A} + x_{B} - (1 + \frac{\delta a}{a} + W)(c_{A} + c_{B})\right)\]
+\subsection*{Quaternion approach}
+It is an instructive exercise to repeat everything in terms of quaternions. Before doing so we need to make several definitions.
+First, we denote quaternions by
+\[\w{q}=(q_{0},\vec{q}) \]
+We shall now treat all 3-vectors as quaternions via the trivial identification map $\vec{v}\rightarrow (0,\vec{v})$. Recall that quaternion multiplication is defined by
+\[\w{qp}=(q_{0}p_{0}-\vec{q}\cdot\vec{p},q_{0}\vec{p}+p_{0}\vec{q}+\vec{q}\times\vec{p}) \]
+The conjugate is given by $\w{q}^{*}=(q_{0},-\vec{q})$ and the norm is $||\w{q}||=\sqrt{\w{qq}^{*}}$. The inverse is $\w{q^{-1}=\frac{q^{*}}{||q||^{2}}}$. 
+Finally, we will need the following two operators, the inner and outer products respectively\footnote{It is easy to demonstrate that they obey the typical properties required of an inner and outer product.}: 
+\[\langle q, p \rangle = \frac{qp^{*}+pq^{*}}{2}=q_0p_0+\vec{q}\cdot\vec{p} \]
+\[q \wedge p = \frac{[q,p]}{2}=(0,\vec{q}\times\vec{p}) \]
+It follows from the definitions that:
+\[\langle q\wedge p ,p \rangle = 0 \]
+which will become useful later on.
+In SpEC, we can write the transformation from grid to inertial coordinates in terms of 
+quaternions as:
+\[ \bar{x}=aqxq^{*}+T\]
+where all quantities are now quaternions. We now proceed as before to derive the equations 
+for the control parameters. In terms of quaternions, an infintesimal rotation is given by
+\[p=I+(0,\vec{\epsilon})\]
+where $I \equiv (1,0,0,0)$ is the identity quaternion and $||\epsilon^{i}||\ll 1$.
+For convenience, define $\Delta_{x}=x_{A}-x_{B}$ and similarly for $\Delta_{c}$. Then our initial
+system of equations is
+\[aqxq^{*}=(a+\delta a)(q+\epsilon q)\Delta_{c}(q^{*}-q^{*}\epsilon)\]
+Expanding, and keeping terms which are only first order in perturbations, gives
+\[aqxq^{*}=aq\Delta_{c}q^{*}-aq\Delta_{c}q^{*}\epsilon+a\epsilon q \Delta_{c}q^{*}+\delta aq \Delta_{c}q^{*}\]
+Multiplying both sides by $q^{*}$ from left and $q$ from right gives:
+\[\Delta_{x}=\Delta_{c}-\Delta_{c}q^{*}\epsilon q +q^{*}\epsilon q \Delta_{c}+\frac{\delta a}{a}\Delta_{c} \] 
+Notice that we can write:
+\[\Delta_{x}=\Delta_{c}+[p,\Delta_{c}]+\frac{\delta a}{a}\Delta_{c}\]
+where $p \equiv q^{*}\epsilon q$. But this is just:
+\[\Delta_{x}=\Delta_{c}+2p\wedge \Delta_{c} + \frac{\delta a}{a}\Delta_{c}\]
+Next, let's take the inner product of both sides with $\Delta_{c}$. The second term vanishes,
+giving:
+\[\langle \Delta_{x},\Delta_{c}\rangle = ||\Delta_{c}||^{2}+ \frac{\delta a}{a}||\Delta_{c}||^{2}\]
+This results in
+\[\delta a  =\left( \frac{\langle \Delta_{x},\Delta_{c}\rangle}{||\Delta_{c}||^{2}}-1\right)a\]
+which is exactly what we had before.
+To solve for $p$, let's go back to the point where we took the inner product and instead take the outer product of both sides with
+$\Delta_{c}$:
+\[\Delta_{x}\wedge \Delta_{c}=\Delta_{c}\wedge \Delta_{c}+2(p\wedge \Delta_{c})\wedge \Delta_{c} + \frac{\delta a}{a}\Delta_{c}\wedge \Delta_{c}\]
+From the definition of the outer product we have $q\wedge q =0$ for any quaternion $q$. Thus we are left with:
+\[\Delta_{x}\wedge \Delta_{c}=2(p\wedge \Delta_{c})\wedge \Delta_{c} \]
+Rewriting, we have
+\[-\frac{1}{2}\Delta_{c}\wedge \Delta_{x}=(p\wedge \Delta_{c})\wedge \Delta_{c}\]
+Now,
+\[(p\wedge \Delta_{c})\wedge \Delta_{c} =(0,(\vec{p}\times\vec{c}_{A,B})\times \vec{c}_{A,B})\]
+Using the vector triple product rule:
+\[(p\wedge \Delta_{c})\wedge \Delta_{c} =(0,-\vec{p}||\Delta_{c}||^{2}+\vec{c}_{A,B}(\vec{c}_{A,B}\cdot\vec{p}))\]
+where we have used the fact that $\Delta_{c}$ has no scalar part. \\ 
+
+This is as far as one can go without making additional assumptions. Let's make one now. Without
+loss of generality, we assume that the black holes start on the x axis, which means
+that $\vec{c}_{A,B}=(c_0,0,0)$. With this assumption, it follows immediately that
+\[-\frac{1}{2}\Delta_{c}\wedge \Delta_{x}=-c^{2}_{0}(0,0,p_{2},p_{3})\]
+Doing the cross product on the LHS:
+\[\frac{c_{0}}{2}(0,0,-x_{3},x_{2})=c^{2}_{0}(0,0,p_{2},p_{3})\]
+In so doing, we finally obtain:
+\[(0,0,p_{2},p_{3})=\frac{1}{2c_0}(0,0,-x_{3},x_{2})\]
+Notice that we have no constraint on $p_{1}$ from this derivation. Indeed, without loss of generality we can set $p_{1}\equiv 0$. \\
+
+Finally,we derive the expression for $\delta T$. Define $\tilde{\Delta}_{x} \equiv x_{A}+x_{B}$ and similarly for $\tilde{\Delta}_{c}$ Our starting point is the equation:
+\[aq\tilde{\Delta}_{x}q^{*}=(a+\delta a)(q+\epsilon q)\tilde{\Delta}_{c}(q^{*}-q^{*}\epsilon)+2\delta T\]
+where $\tilde{\Delta}_{x}=x_{A}+x_{B}$ and similar for $\tilde{\Delta}_{c}$.
+Expanding and dropping terms higher than linear order gives:
+\[2\delta T = aq\tilde{\Delta}_{x}q^{*}-aq\tilde{\Delta}_{c}q^{*}+aq\tilde{\Delta}_{c}q^{*}\epsilon -a\epsilon q \tilde{\Delta}_{c}q^{*}-\delta a q \tilde{\Delta}_{c}q^{*}\]
+Grouping terms, we can write the result in the same form as we got for the matrix
+formulation:
+\[\delta T = \frac{aq}{2}\left(\tilde{\Delta}_{x}-\tilde{\Delta}_{c}-2p\wedge \tilde{\Delta}_{c}-\frac{\delta a}{a}\tilde{\Delta}_{c}\right)q^{*}\]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrt}
+\bibliography{References}
+\end{document}
+

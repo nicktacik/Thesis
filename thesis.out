@@ -1,0 +1,81 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Timeline}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Thesis TDL}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Introduction}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{The two-body problem in General Relativity}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{The initial value problem in Numerical Relativity}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Binary Neutron Star Systems}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Binary Neutron Stars with Arbitrary Spins in Numerical Relativity}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Chapter Overview}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Introduction}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Methodology}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.3.1}{Formalism for irrotational binaries}{section.2.3}% 12
+\BOOKMARK [2][-]{subsection.2.3.2}{Formalism for Spinning Binaries}{section.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.3.3}{Solving the elliptic equations}{section.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.3.4}{Construction of quasi-equilibrium initial data}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.5}{Quasi-Local Angular Momentum}{section.2.3}% 16
+\BOOKMARK [1][-]{section.2.4}{Initial Data Results}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.4.1}{Convergence of the Iterative Procedure}{section.2.4}% 18
+\BOOKMARK [2][-]{subsection.2.4.2}{Convergence of the Solution}{section.2.4}% 19
+\BOOKMARK [2][-]{subsection.2.4.3}{Convergence of the quasi-local spin}{section.2.4}% 20
+\BOOKMARK [2][-]{subsection.2.4.4}{Quasi-local Spin}{section.2.4}% 21
+\BOOKMARK [1][-]{section.2.5}{Evolution Results}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.5.1}{Evolution Code}{section.2.5}% 23
+\BOOKMARK [2][-]{subsection.2.5.2}{Eccentricity Removal}{section.2.5}% 24
+\BOOKMARK [2][-]{subsection.2.5.3}{Aligned spin BNS evolutions: NS Spin}{section.2.5}% 25
+\BOOKMARK [2][-]{subsection.2.5.4}{Precession}{section.2.5}% 26
+\BOOKMARK [2][-]{subsection.2.5.5}{Stellar Oscillations}{section.2.5}% 27
+\BOOKMARK [1][-]{section.2.6}{Discussion}{chapter.2}% 28
+\BOOKMARK [1][-]{section.2.7}{Summary }{chapter.2}% 29
+\BOOKMARK [0][-]{chapter.3}{Gravitational and Electromagnetic Radiation from Spinning Magnetized Binary Neutron Stars}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Chapter Overview}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.2}{Introduction}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.3}{Initial Data}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.4}{Summary }{chapter.3}% 34
+\BOOKMARK [0][-]{chapter.4}{Spinning Neutron Stars in Mixed Binaries}{}% 35
+\BOOKMARK [1][-]{section.4.1}{Chapter Overview}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.2}{Chapter TDL}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.3}{Papers to read}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.4}{Introduction}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.5}{Initial Data Formalism}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.6}{Numerical Methods}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.7}{Results}{chapter.4}% 42
+\BOOKMARK [2][-]{subsection.4.7.1}{Initial Data Set Parameters}{section.4.7}% 43
+\BOOKMARK [1][-]{section.4.8}{Conclusion}{chapter.4}% 44
+\BOOKMARK [0][-]{chapter.5}{Junk Radiation in Binary Black Hole Simulations}{}% 45
+\BOOKMARK [1][-]{section.5.1}{Chapter Overview}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.2}{Chapter TDL}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.3}{Introduction}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.4}{Numerical Methods}{chapter.5}% 49
+\BOOKMARK [2][-]{subsection.5.4.1}{The Initial Value Problem}{section.5.4}% 50
+\BOOKMARK [2][-]{subsection.5.4.2}{Code}{section.5.4}% 51
+\BOOKMARK [2][-]{subsection.5.4.3}{Eccentricity Reduction}{section.5.4}% 52
+\BOOKMARK [2][-]{subsection.5.4.4}{Simulations}{section.5.4}% 53
+\BOOKMARK [1][-]{section.5.5}{Methodology}{chapter.5}% 54
+\BOOKMARK [2][-]{subsection.5.5.1}{Pulse in the Gravitational Waveform}{section.5.5}% 55
+\BOOKMARK [2][-]{subsection.5.5.2}{Uncertainty in EJ}{section.5.5}% 56
+\BOOKMARK [2][-]{subsection.5.5.3}{Transient behaviour in Black Hole quantities}{section.5.5}% 57
+\BOOKMARK [1][-]{section.5.6}{Results}{chapter.5}% 58
+\BOOKMARK [2][-]{subsection.5.6.1}{Energy in Junk Radiation}{section.5.6}% 59
+\BOOKMARK [2][-]{subsection.5.6.2}{Mass Increase}{section.5.6}% 60
+\BOOKMARK [2][-]{subsection.5.6.3}{Spin Decrease}{section.5.6}% 61
+\BOOKMARK [1][-]{section.5.7}{Summary }{chapter.5}% 62
+\BOOKMARK [0][-]{chapter.6}{Improved Initial Data for Spinning Binary Neutron Stars}{}% 63
+\BOOKMARK [1][-]{section.6.1}{Chapter Overview}{chapter.6}% 64
+\BOOKMARK [1][-]{section.6.2}{Introduction}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.3}{Erroneuous code}{chapter.6}% 66
+\BOOKMARK [1][-]{section.6.4}{Revised Code}{chapter.6}% 67
+\BOOKMARK [1][-]{section.6.5}{Description of Bug}{chapter.6}% 68
+\BOOKMARK [1][-]{section.6.6}{Revisiting previous results}{chapter.6}% 69
+\BOOKMARK [2][-]{subsection.6.6.1}{Size of density oscillations}{section.6.6}% 70
+\BOOKMARK [2][-]{subsection.6.6.2}{Magnitude of spin}{section.6.6}% 71
+\BOOKMARK [2][-]{subsection.6.6.3}{- \040relation}{section.6.6}% 72
+\BOOKMARK [2][-]{subsection.6.6.4}{Initial Data Convergence}{section.6.6}% 73
+\BOOKMARK [2][-]{subsection.6.6.5}{Komar Mass}{section.6.6}% 74
+\BOOKMARK [1][-]{section.6.7}{Higher Spin Evolutions}{chapter.6}% 75
+\BOOKMARK [2][-]{subsection.6.7.1}{Evolution 1}{section.6.7}% 76
+\BOOKMARK [2][-]{subsection.6.7.2}{Evolution 2}{section.6.7}% 77
+\BOOKMARK [0][-]{chapter.7}{Conclusions \046 Future Work}{}% 78
+\BOOKMARK [1][-]{section.7.1}{Conclusions}{chapter.7}% 79
+\BOOKMARK [1][-]{section.7.2}{Future Work and Directions}{chapter.7}% 80
+\BOOKMARK [0][-]{section.7.2}{Bibliography}{}% 81
