@@ -399,68 +399,91 @@ respectively. In our naming notation, we use a large arrow
 ($\uparrow$) for the ``low-spin'', with the direction of the arrow
 indicating the direction of the NS spin vector. The full parameters of
 the initial data sets are summarized in Table
-~\ref{tab:FullBHNSParameters}.
+~\ref{tab:FullBHNSParameters}. In particular, the name of the run using the naming convention discussed,
+the black hole spin direction, the baryon mass of the neutron star, the orbital angular velocity of the system,
+the approximate number of orbits before merger, the neutron star spin vector $\vec{\omega}$, and the measured dimensionless
+spin of the neutron star. Note that the number of orbits is taken from \cite{Foucart:2013a}, and doesn't account for the neutron star
+spin. Note also since "merger" is defined by the maximum amplitude of the gravitaitonal waveform, this quantity isn't perfectly well-defined
+for precessing binaries.
 
-\begin{longtable}{l|c|c|c|c|c}
+\begin{longtable}{l|c|c|c|c|c|c}
 \centering
-%\begin{tabular}{l|c|c|c|c|c}
-Name & $\Theta_{\rm BH}$ & $M^b_{\rm NS}$ & $M\Omega_{\rm orbit}$ & $\vec{\omega_{\rm NS}}$ & $\vec{\chi_{\rm NS}}$  
+%\begin{tabular}{l|c|c|c|c|c|c}
+Name & $\Theta_{\rm BH}$ & $M^b_{\rm NS}$ & $M\Omega_{\rm orbit}$ & $\sim N_{\rm orb}$ & $\vec{\omega_{\rm NS}}$ & $\vec{\chi_{\rm NS}}$  
 \\\hline
-{\tt R12i0$\uparrow$}&$0^\circ$ & 1.5212 & 0.0413 & $0.00667\hat{z}$ & $0.0995\hat{z}$ \\
-{\tt R12i0$\Uparrow$}&$0^\circ$ & 1.5212 & 0.0413 & $0.0225\hat{z}$ & $0.4093\hat{z}$ \\
-{\tt R12i0$\downarrow$}&$0^\circ$ & 1.5212 & 0.0413 & $-0.00667\hat{z}$& $-0.0895\hat{z}$\\
-{\tt R12i0$\Downarrow$}&$0^\circ$ & 1.5212 & 0.0413 & $-0.0225\hat{z}$ & $-0.4030\hat{z}$ \\
-{\tt R12i0$\rightarrow$}&$0^\circ$ & 1.5212 & 0.0413 & $0.00667\hat{x}$ & $0.0936\hat{x}$\\
-{\tt R12i0$\Rightarrow$}&$0^\circ$ & 1.5212 & 0.0413 & $0.0225\hat{x}$ & $0.3989\hat{x}$ \\
+{\tt R12i0$\uparrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $0.00667\hat{z}$ & $0.0995\hat{z}$ \\
+{\tt R12i0$\Uparrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $0.0225\hat{z}$ & $0.4093\hat{z}$ \\
+{\tt R12i0$\downarrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $-0.00667\hat{z}$& $-0.0895\hat{z}$\\
+{\tt R12i0$\Downarrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $-0.0225\hat{z}$ & $-0.4030\hat{z}$ \\
+{\tt R12i0$\rightarrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $0.00667\hat{x}$ & $0.0936\hat{x}$\\
+{\tt R12i0$\Rightarrow$}&$0^\circ$ & 1.5212 & 0.0413 & 10.25 & $0.0225\hat{x}$ & $0.3989\hat{x}$ \\
 \hline
-{\tt R13i0$\uparrow$}&$0^\circ$ & 1.5128 & 0.0413 & $0.00555\hat{z}$ & $0.0997\hat{z}$ \\
-{\tt R13i0$\Uparrow$}&$0^\circ$ & 1.5128 & 0.0413 & $0.019\hat{z}$ & $0.3911\hat{z}$ \\
-{\tt R13i0$\downarrow$}&$0^\circ$ & 1.5128 & 0.0413 & $-0.00555\hat{z}$& $-0.0845\hat{z}$\\
-{\tt R13i0$\Downarrow$}&$0^\circ$ & 1.5128 & 0.0413 & -$0.019\hat{z}$ & $-0.3793\hat{z}$ \\
-{\tt R13i0$\rightarrow$}&$0^\circ$ & 1.5128 & 0.0413 & $0.00555\hat{x}$ & $0.0913\hat{x}$\\
-{\tt R13i0$\Rightarrow$}&$0^\circ$ & 1.5128 & 0.0413 & $0.019\hat{x}$ & $0.3771\hat{x}$ \\
+{\tt R13i0$\uparrow$}&$0^\circ$ & 1.5128 & 0.0413  & 10.15 & $0.00555\hat{z}$ & $0.0997\hat{z}$ \\
+{\tt R13i0$\Uparrow$}&$0^\circ$ & 1.5128 & 0.0413 & 10.15 & $0.019\hat{z}$ & $0.3911\hat{z}$ \\
+{\tt R13i0$\downarrow$}&$0^\circ$ & 1.5128 & 0.0413 & 10.15 & $-0.00555\hat{z}$& $-0.0845\hat{z}$\\
+{\tt R13i0$\Downarrow$}&$0^\circ$ & 1.5128 & 0.0413 & 10.15 & -$0.019\hat{z}$ & $-0.3793\hat{z}$ \\
+{\tt R13i0$\rightarrow$}&$0^\circ$ & 1.5128 & 0.0413 & 10.15 & $0.00555\hat{x}$ & $0.0913\hat{x}$\\
+{\tt R13i0$\Rightarrow$}&$0^\circ$ & 1.5128 & 0.0413 & 10.15 & $0.019\hat{x}$ & $0.3771\hat{x}$ \\
 \hline
-{\tt R14i0$\uparrow$}&$0^\circ$ & 1.5049 & 0.0413 & $0.005541\hat{z}$ & $0.1188\hat{z}$ \\
-{\tt R14i0$\Uparrow$}&$0^\circ$ & 1.5049 & 0.0413 & $0.017\hat{z}$ & $0.4109\hat{z}$ \\
-{\tt R14i0$\downarrow$}&$0^\circ$ & 1.5049 & 0.0413 & $-0.005541\hat{z}$& $-0.0965\hat{z}$\\
-{\tt R14i0$\Downarrow$}&$0^\circ$ & 1.5049 & 0.0413 & -$0.017\hat{z}$ & $-0.3915\hat{z}$\\
-{\tt R14i0$\rightarrow$}&$0^\circ$ & 1.5049 & 0.0413 & $0.005541\hat{x}$ & $0.1066\hat{x}$\\
-{\tt R14i0$\Rightarrow$}&$0^\circ$ & 1.5049 & 0.0413 & $0.017\hat{x}$ & $0.3907\hat{x}$ \\
+{\tt R14i0$\uparrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & $0.005541\hat{z}$ & $0.1188\hat{z}$ \\
+{\tt R14i0$\Uparrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & $0.017\hat{z}$ & $0.4109\hat{z}$ \\
+{\tt R14i0$\downarrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & $-0.005541\hat{z}$& $-0.0965\hat{z}$\\
+{\tt R14i0$\Downarrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & -$0.017\hat{z}$ & $-0.3915\hat{z}$\\
+{\tt R14i0$\rightarrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & $0.005541\hat{x}$ & $0.1066\hat{x}$\\
+{\tt R14i0$\Rightarrow$}&$0^\circ$ & 1.5049 & 0.0413 & 9.85 & $0.017\hat{x}$ & $0.3907\hat{x}$ \\
 \hline
-{\tt R14i20$\uparrow$}&$20^\circ$ & 1.5049 & 0.0412 & $0.005541\hat{z}$ & $0.1188\hat{z}$ --- \\
-{\tt R14i20$\Uparrow$}&$20^\circ$ & 1.5049 & 0.0412 & $0.017\hat{z}$ & $0.4110\hat{z}$ \\
-{\tt R14i20$\downarrow$}&$20^\circ$ & 1.5049 & 0.0412 & $-0.005541\hat{z}$& $-0.0964\hat{z}$\\
-{\tt R14i20$\Downarrow$}&$20^\circ$ & 1.5049 & 0.0412 & -$0.017\hat{z}$ & $-0.3915\hat{z}$ \\
-{\tt R14i20$\rightarrow$}&$20^\circ$ & 1.5049 & 0.0412 & $0.005541\hat{x}$ & $0.1064\hat{x}$\\
-{\tt R14i20$\Rightarrow$}&$20^\circ$ & 1.5049 & 0.0412 & $0.017\hat{x}$ & $0.3905\hat{x}$ \\
+{\tt R14i20$\uparrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 & $0.005541\hat{z}$ & $0.1188\hat{z}$ \\
+{\tt R14i20$\Uparrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 & $0.017\hat{z}$ & $0.4110\hat{z}$ \\
+{\tt R14i20$\downarrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 &  $-0.005541\hat{z}$& $-0.0964\hat{z}$\\
+{\tt R14i20$\Downarrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 & -$0.017\hat{z}$ & $-0.3915\hat{z}$ \\
+{\tt R14i20$\rightarrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 & $0.005541\hat{x}$ & $0.1064\hat{x}$\\
+{\tt R14i20$\Rightarrow$}&$20^\circ$ & 1.5049 & 0.0412 & 9 & $0.017\hat{x}$ & $0.3905\hat{x}$ \\
 \hline
-{\tt R14i40$\uparrow$}&$40^\circ$ & 1.5049 & 0.0412 & $0.005541\hat{z}$ & $0.1193\hat{z}$ \\
-{\tt R14i40$\Uparrow$}&$40^\circ$ & 1.5049 & 0.0412 & $0.017\hat{z}$ & $0.4117\hat{z}$ \\
-{\tt R14i40$\downarrow$}&$40^\circ$ & 1.5049 & 0.0412 & $-0.005541\hat{z}$& $-0.0961\hat{z}$\\
-{\tt R14i40$\Downarrow$}&$40^\circ$ & 1.5049 & 0.0412 & -$0.017\hat{z}$ & $-0.3908\hat{z}$ \\
-{\tt R14i40$\rightarrow$}&$40^\circ$ & 1.5049 & 0.0412 & $0.005541\hat{x}$ & $0.1064\hat{x}$\\
-{\tt R14i40$\Rightarrow$}&$40^\circ$ & 1.5049 & 0.0412 & $0.017\hat{x}$ & $0.3905\hat{x}$ \\
+{\tt R14i40$\uparrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 &  $0.005541\hat{z}$ & $0.1193\hat{z}$ \\
+{\tt R14i40$\Uparrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 & $0.017\hat{z}$ & $0.4117\hat{z}$ \\
+{\tt R14i40$\downarrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 & $-0.005541\hat{z}$& $-0.0961\hat{z}$\\
+{\tt R14i40$\Downarrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 & -$0.017\hat{z}$ & $-0.3908\hat{z}$ \\
+{\tt R14i40$\rightarrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 & $0.005541\hat{x}$ & $0.1064\hat{x}$\\
+{\tt R14i40$\Rightarrow$}&$40^\circ$ & 1.5049 & 0.0412 & 8.5 & $0.017\hat{x}$ & $0.3905\hat{x}$ \\
 \hline
-{\tt R14i60$\uparrow$}&$60^\circ$ & 1.5049 & 0.0415 & $0.005541\hat{z}$ & $0.1200\hat{z}$ \\
-{\tt R14i60$\Uparrow$}&$60^\circ$ & 1.5049 & 0.0415 & $0.017\hat{z}$ & $0.4132\hat{z}$ \\
-{\tt R14i60$\downarrow$}&$60^\circ$ & 1.5049 & 0.0415 & $-0.005541\hat{z}$& $-0.0954\hat{z}$\\
-{\tt R14i60$\Downarrow$}&$60^\circ$ & 1.5049 & 0.0415 & -$0.017\hat{z}$ & $-0.3898\hat{z}$ \\
-{\tt R14i60$\rightarrow$}&$60^\circ$ & 1.5049 & 0.0415 & $0.005541\hat{x}$ & $0.1061\hat{x}$\\
-{\tt R14i60$\Rightarrow$}&$60^\circ$ & 1.5049 & 0.0415 & $0.017\hat{x}$ & $0.3903\hat{x}$ \\
-
-
+{\tt R14i60$\uparrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 &  $0.005541\hat{z}$ & $0.1200\hat{z}$ \\
+{\tt R14i60$\Uparrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 & $0.017\hat{z}$ & $0.4132\hat{z}$ \\
+{\tt R14i60$\downarrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 & $-0.005541\hat{z}$& $-0.0954\hat{z}$\\
+{\tt R14i60$\Downarrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 & -$0.017\hat{z}$ & $-0.3898\hat{z}$ \\
+{\tt R14i60$\rightarrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 & $0.005541\hat{x}$ & $0.1061\hat{x}$\\
+{\tt R14i60$\Rightarrow$}&$60^\circ$ & 1.5049 & 0.0415 & 7 & $0.017\hat{x}$ & $0.3903\hat{x}$ \\
 %\end{tabular}
-\caption{table}{\label{tab:FullBHNSParameters}}
+\caption[Initial data set parameters for series of 36 Bh-Ns initial data sets.]{\label{tab:FullBHNSParameters}Full set of parameters of the 36 sets of initial data we've created using the results of
+\cite{Foucart:2013a} as the starting point.}
 \end{longtable}
 
 In addition to these parameters, we consider several other sequences
 of Bh-Ns data sets to verify the robustness of the solutions across
-the whole parameter space.
+the whole parameter space. First, we consider a sequence of where we vary the neutron star spin from
+$\chi_{\rm NS}=0$ to $\chi_{\rm NS}\sim0.7$, keeping it aligned with the orbital angular momentum. In these initial data sets, the other binary parameters are the same
+as in the {\tt R14i0} runs. Namely, the neutron star mass, equation of state, black hole mass, black hole spin, initial separation and orbital angular frequency.
 
-In the runs below we choose the orbital parameters so that 
+Next, we consider a sequence of runs where we vary the black hole spin from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$. Similarly, the other binary parameters are the same as in the {\tt R14i0$\Uparrow$} run.
 
-First, we consider a seqeunce where we vary the neutron star spin from
-$\chi=0$ to $\chi=0.7$. \red{Add details}
+Finally, we consider a sequence of runs where we vary the mass ratio from $q=2$ to $q=10$. In these runs the other binary parameters are the same as in the {\tt R14i0$\Uparrow$} run. In particular, the orbital parameters $M\Omega$ and $D/M$ are constant. While not the most accurate way of choosing these parameters, it is a simple method that is sufficient for our purposes.
+
+To assess the accuracy of this approximation, we can look at Eq.228 of \cite{Blanchet2006}:
+\begin{equation}
+\Omega^2=\frac{Gm}{r^3}\left(1+(-3+\nu)\gamma+\left(6+\frac{41}{4}\nu+\nu^2\right)\gamma^2+...\right)
+\end{equation}
+where $\nu$ is the symmetric mass ratio, $\nu=\frac{q}{(1+q)^2}$, and $\gamma=Gm/rc^2$. Keeping $r$ and $m$ constant, this quantity ($m\Omega$) varies by approximately 3\% in the mass ratio range we consider.
+Thus, while this approximation will induce a small eccentricity of a similar order, it's not a large enough difference to invalidate our results.
+
+Figure~\ref{fig:3dparam} summarizes all the initial data sets along the axes of $\chi_{\rm NS}$, $\chi_{\rm BH}$ and $q$.
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/3dparam.png}
+\caption[3d parameter space plot of Bh-Ns initial data sets.]{\label{fig:3dparam}
+A parameter space scatter plot summarized where our sets of initial data have covered. The three axes are the magnitude of the black hole spin, the magnitude of the neutron star spin, and the mass ratio.}
+\end{figure}
+
+\subsection{Convergence of the Initial Data Solver}
+CONVERGENCE
 
 \red{Rough text to add}
 \begin{itemize}
@@ -526,13 +549,6 @@ $q=2$ to $q=10$. \red{Add details}
   a downward trend for $q \geq 3$. \red{Can we explain this?}}
 \end{figure}
 
-
-
-\begin{figure}
-\includegraphics[width=0.95\columnwidth]{chap4/3dparam.png}
-\caption[\red{add}]{\label{fig':3dparam}
-A parameter space scatter plot summarized where our sets of initial data have covered. The three axes are the magnitude of the black hole spin, the magnitude of the neutron star spin, and the mass ratio.}
-\end{figure}
 
 
 %\section{Comparison with Black-Hole Binaries}
