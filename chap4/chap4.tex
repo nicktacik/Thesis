@@ -229,7 +229,9 @@ The interior of the black hole is excised from the computation domain. The bound
 \begin{eqnarray}
 \label{eq:BhBoundary}
 \tilde{s}^k\nabla_k\log\Psi&=&-\frac{1}{4}\left(\tilde{h}^{ij}\tilde{\nabla}^i\tilde{s}_j-\Psi^2J\right) \\
+\label{eq:BhBoundary2}
 \beta_{\perp}&=&\alpha \\
+\label{eq:BhBoundary3}
 \beta_{\parallel}&=&\Omega_{j}^{BH}x_k\epsilon^{ijk}
 \end{eqnarray}
 whre $s$ is the outward pointing unit normal to the apparent horizon
@@ -483,11 +485,49 @@ A parameter space scatter plot summarized where our sets of initial data have co
 \end{figure}
 
 \subsection{Convergence of the Initial Data Solver}
-CONVERGENCE
+To assess the convergence of the initial data solver we will begin by looking at the convergence of the iterative part of the solver. That is, the convergence of steps 1-10 in the iterative procedure
+described above. To assess the convergence we will focus on one particular initial data set - namely the {\tt R14i60$\Uparrow$} initial data set. 
 
-\red{Rough text to add}
-\begin{itemize}
-\item The Hamiltonian constraint is computed as
+We begin by looking at the convergence of the Euler constant, $C$. In figure~\ref{Fig:EulerConv} we plot the absolute difference in $C$ between neighbouring iterations for the eight
+different resolutions used in the initial data solve. In our notation, {\tt R1} is the first resolution, {\tt R2} is the second, etc. In the figure we see that at a given resolution these differences
+seem to decrease exponentially with iteration. Meanwhile the differences also decrease with increasing resolution. This all shows that the initial data solver is working as it should. Note that although we've only shown
+this plot for the {\tt R14i60$\Uparrow$} inital data set, we find similar results for all the other initial data sets we consider.
+
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/EulerConv}
+\caption[Convergence of the Euler constant for the {\tt R14160$\Uparrow$}]{\label{Fig:EulerConv}
+Absolute difference between neighbouring iterations of the Euler constant for the {\tt R14i160$\Uparrow$} initial data set. The eight curves {\tt R1}-{\tt R8} are the eight different resolutions
+used in the initial data solve.}
+\end{figure}
+
+Next, we will look at the properties of the black hole to verify that they convergence as expected in the presence of a spinning neutron star. Again, we will focus on the {\tt R14i60$\Uparrow$} run, and look at the black hole spin parameter $a=J/M=M\chi$, which is controlled by the parameter $\Omega_j^{\rm BH}$ in Eq.~\ref{eq:BhBoundary3}. The target values are
+\begin{eqnarray}
+a&=&\chi_{\rm BH}M_{\rm BH}\\
+&=&q\chi_{\rm BH}M_{\rm NS}^{\rm ADM}\\
+a_x&=&q\chi_{\rm BH}(\sin60^{\circ})M_{\rm NS}^{\rm ADM}\\
+a_z&=&q\chi_{\rm BH}(\cos60^{\circ})M_{\rm NS}^{\rm ADM}
+\end{eqnarray}
+We also look at the irreducible mass of the black hole, $M_{\rm irr}$. It is controlled by the size of the excision surface, and satisfies the relation
+\begin{eqnarray}
+M_{\rm BH}^{\rm irr}&=&\sqrt{\frac{A_{\rm AH}}{16\pi}}\\
+(M_{\rm BH}^{\rm ADM})^2\left((M_{\rm BH}^{\rm irr})^2-\frac{a^2}{4}\right)&=&(M_{\rm BH}^{\rm irr})^4
+\end{eqnarray}
+
+In figure~\ref{Fig:BHSpinConv} we plot the fractional difference between the measured black hole spin and the target value, for both the x and z directions, as well as the fractional difference between
+the measured black hole irreducible mass and the target value. The difference is plotted as a funciton of iteration, for four different resolutions. Note that the previous plot had eight different resolutions, while this one only has four. This is because the black hole spin is only computed for the first four resolutions - afterwards it is no longer solved for or measured. We note that in general we see a decrease in this difference with iteration, especially at the first resolution, therefore showing that the iterative solver is correctly driving the the black hole properties to the target values.
+We also note that this difference decrease with resolution, and that we are able to achieve an accuracy of about $10^{-5}$ in the BH spin and mass.
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/BHSpinConv}
+\caption[Convergence of black hole spin and mass.]{\label{Fig:BHSpinConv} Plotted is the fractional difference from the target black hole spin and black hole mass in the {\tt R14i160$\Uparrow$} initial data set as a function of iteration. The four colours represent 
+the four different resolutions at which the black hole spin is measured. The solid curves are for the $\hat{x}$ component of the BH spin, the dashed curves for the $\hat{z}$ component of the BH spin, and
+the dotted curves are for the irreducible mass of the BH.}
+\end{figure}
+
+Having now established the convergence of the iterative procedure, we turn now to establish the convergence with resolution of the global properties of the solution.
+We begin by looking at the Hamiltonian and momentum constraints for the {\tt R14i160$\Uparrow$} initial data set.
+The Hamiltonian constraint is computed as
 \begin{equation}
 H=||\frac{R_{\psi}}{8\psi^5}||
 \end{equation}
@@ -498,7 +538,13 @@ domain. Similarly, the momentum constraint is computed as
 M = ||\frac{R_{\beta}}{2\alpha\Psi^4}||
 \end{equation}
 where $R_{\beta}$ is the residual of Eq.~\ref{eq:XCTS-Shift}.
-\end{itemize}
+The constraints for this ID set are shown in figure~\ref{fig:HamMom}. We find exponential convergence in the constraints, as expected for spectral methods. The most notable feature
+is that at {\rm R2} the constraints are higher than would be expected from the trend, otherwise. This is because the neutron star spin is only "turned on" at {\rm R2}, and so an additional amount of
+solver time is needed to adjust to this change.
+\begin{figure}\includegraphics[width=0.95\columnwidth]{chap4/HamMom}
+\caption[Hamiltonian and momentum constraints of the {\tt R14i160$\Uparrow$} ID set]{\label{fig:HamMom} The Hamiltonian and momentum constraints for the {\tt R14i160$\Uparrow$} initial data set
+as a function of resolution. We find exponential convergence in both.}
+\end{figure}
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chiVOmega}
