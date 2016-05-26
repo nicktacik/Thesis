@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Wed May 11 13:49:13 2016"
+@timestamp def "Tue May 24 12:54:26 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -101,7 +101,7 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 30, 1e-06, 80, 1
+@    world 30, 1e-06, 80, 0.1
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.150000, 0.150000, 0.950000, 0.950000
@@ -124,7 +124,7 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label ""
+@    xaxis  label "N\S1/3"
 @    xaxis  label layout para
 @    xaxis  label place auto
 @    xaxis  label char size 2.000000
@@ -200,8 +200,8 @@
 @    yaxis  tick minor grid off
 @    yaxis  tick minor size 0.500000
 @    yaxis  ticklabel on
-@    yaxis  ticklabel format general
-@    yaxis  ticklabel prec 8
+@    yaxis  ticklabel format power
+@    yaxis  ticklabel prec 0
 @    yaxis  ticklabel formula ""
 @    yaxis  ticklabel append ""
 @    yaxis  ticklabel prepend ""
@@ -224,8 +224,8 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.15, 0.95
-@    legend box color 10
+@    legend 0.7859375, 0.90625
+@    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
 @    legend box linestyle 1
@@ -233,7 +233,7 @@
 @    legend box fill pattern 0
 @    legend font 0
 @    legend char size 1.000000
-@    legend color 10
+@    legend color 1
 @    legend length 4
 @    legend vgap 1
 @    legend hgap 1
@@ -247,7 +247,7 @@
 @    frame background pattern 0
 @    s0 hidden false
 @    s0 type xy
-@    s0 symbol 0
+@    s0 symbol 1
 @    s0 symbol size 1.000000
 @    s0 symbol color 1
 @    s0 symbol pattern 1
@@ -293,10 +293,10 @@
 @    s0 errorbar riser clip off
 @    s0 errorbar riser clip length 0.100000
 @    s0 comment "Col2[Clm.dat]"
-@    s0 legend  "Col2[Clm.dat]"
+@    s0 legend  "\f{Symbol}D\f{}c"
 @    s1 hidden false
 @    s1 type xy
-@    s1 symbol 0
+@    s1 symbol 2
 @    s1 symbol size 1.000000
 @    s1 symbol color 2
 @    s1 symbol pattern 1
@@ -342,7 +342,7 @@
 @    s1 errorbar riser clip off
 @    s1 errorbar riser clip length 0.100000
 @    s1 comment "Col2[SpinDiff.dat]"
-@    s1 legend  "Col2[SpinDiff.dat]"
+@    s1 legend  "\f{Symbol}Dc\f{}\sNS"
 @target G0.S0
 @type xy
 33.297 0.013897048
@@ -351,7 +351,6 @@
 &
 @target G0.S1
 @type xy
-33.297 0.39809459
 39.8924 0.0043708998
 46.1224 0.00040756082
 53.2644 1.7435371e-05

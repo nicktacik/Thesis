@@ -12,6 +12,7 @@ An Overview of my chapter here.
 \item Information about how easy/difficult it is to do the solution?
   Number of gridpoints, constraints, its?
 \item Geoffrey massive disk formation 
+\item Do the high $\omega$ curves go to higher lev than 8?
 \end{itemize}
 
 
@@ -298,43 +299,59 @@ pseduo-spectral multi-grid elliptic solver developped in
 \begin{center}
 \begin{figure}[!ht]
 \includegraphics[scale=0.45]{chap4/BhNsDomain.png}
+\caption[Visualization of the Bh-Ns domain
+decomposition.]{Visualization of the Bh-Ns domain decomposition. The
+  black object on the left is the black hole and the orange object on
+  the right is the neutron star. The blue wireframes represent the
+  various cylinders and rectangular parallelpipeds in the domain.}
 \label{fig:BhNsDomain}
-\caption[Visualization of the Bh-Ns domain decomposition.]{Visualization of the Bh-Ns domain decomposition. The black object on the left is the black hole and the orange object on the right is the neutron star. The blue wireframes represent the various cylinders and rectangular parallelpipeds in the domain.}
+
 \end{figure}
 \end{center}
 
-All variables (metric and hydrodynamical) decomposed on sets of basis functions on each subdomain. Finite difference schemes are needed for hydrodynamical quantities during evolutions so as to capture shocks, but for initial data spectral methods are suitable and exponentical convergence can be guaranteed. The resolution of each domain is synonymous with the number of colocation points used. The resolution of each domain is chosen by hand at the start of the initial data solve, and then modified several times using an adaptive scheme. To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
+All variables (metric and hydrodynamical) are decomposed on sets of basis functions on each subdomain. Finite difference schemes are needed for hydrodynamical quantities during evolutions so as to capture shocks, but for initial data spectral methods are suitable and exponentical convergence can be guaranteed. The resolution of each domain is synonymous with the number of colocation points used. The resolution of each domain is chosen by hand at the start of the initial data solve, and then modified several times using an adaptive scheme. To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
 \begin{equation}
 N^{1/3}=\left(\sum N_i\right)^{1/3},
 \end{equation}
-where we are summing the colocation points of the all the subdomains. A typical initial data solve might start with, using example numbers, $N^{1/3}\sim 33.3$ and end with $N^{1/3}\sim 80.8$
+where we are summing the colocation points of the all the
+subdomains. This gives an indication of the average resolution in each
+diredction.A typical initial data solve might start with, using example numbers, $N^{1/3}\sim 33$ and end with $N^{1/3}\sim 80$
 
 Construction of initial data begins by choosing values for the free parameters in the problem. In particular, these are
 \begin{itemize}
-\item The black hole mass $M_{\rm BH}$
-\item The black hole's target dimensionless spin $\vec{\chi_{\rm BH}}$
-\item The neutron star's baryon mass $M_{b}$
-\item The neutron star's equation of state 
-\item The neutron star's spin vector $\omega^i$
+\item The black hole mass, $M_{\rm BH}$
+\item The black hole's target dimensionless spin vector, $\vec{\chi_{\rm BH}}$
+\item The neutron star's baryon mass, $M_{b}$
+\item The neutron star's equation of state, 
+\item The neutron star's spin vector, $\omega^i$
 \item The separation between the centres of the BH and NS, $D$
-\item The orbital angular velocity $\Omega_0$
-\item The initial infall velocity $\dot{a}$
+\item The orbital angular velocity, $\Omega_0$
+\item The initial infall velocity, $\dot{a}$.
 \end{itemize}
-We will discuss later how we make the choices of $\Omega_0$ and $\dot{a}$. Additionally, one must make a perscription for the free metric variables. We use maximal slicing $K=0$, and a choice for the conformal metric $\tilde{g}_{ij}$ such that it is Kerr-Schild near the black hole, and flat near the neutron star.
+We will discuss later how we make the choices of $\Omega_0$ and
+$\dot{a}$. Additionally, one must make a perscription for the free
+metric variables, $\tilde{g}_{ij}$ and $K$. Near the black hole they
+are equal to the values for a black hole with the same spin and boost
+velocity,
+written in Kerr-Schild coordinates. Near the neutron star, they are a
+conformally flat metric and $K=0$. They fall-off from the black hole
+to the neutron star with a function of the form $e^{(-r/w)^4}$, where
+$w$ is half the coordinate separation between them.
 
 Let's now discuss the algorithm we use the solve for the initial data. 
 
 \begin{enumerate}
-\item If on the first resolution step, set $\omega^i=0$, otherwise set to the desired value. This has been found to help with convergence. Additionally, impose a maximum radius out to which to apply $W^i=\epsilon^{ijk}\omega^jr^k$, otherwise low density material at high radius can lead to superluminal velocities.
+\item If on the first resolution step, set $\omega^i=0$, otherwise set
+  to the desired value. This has been found to help with overall convergence. Additionally, impose a maximum radius out to which to apply $W^i=\epsilon^{ijk}\omega^jr^k$, otherwise low density material at high radius can lead to superluminal velocities.
 
 \item Solve the non-linear XCTS equations for the metric variables
   $X=\left(\beta^i,\Psi,\alpha\Psi\right)$ assuming the matter source
   terms are fixed. Update the metric variables using a relaxation
   scheme
 \begin{equation}
-X^{n+1}=\lambda X^{*} + (1-\lambda)X^n.
+X^{n+1}=\lambda X^{*} + (1-\lambda)X^n,
 \end{equation}
-We use $\lambda=0.3$.
+for which we use $\lambda=0.3$.
 
 \item Impose equatorial symmetry. This should only be done if both the
   NS and the BH have no spin components in the plane. But if it can be
@@ -343,8 +360,9 @@ We use $\lambda=0.3$.
 \item Locate the surface of the star. The surface of the star is
   reprsented in terms of spherical harmonics
 \begin{equation}
-R(\theta,\phi)=\sum c_{lm}Y^{lm}(\theta,\phi)
-\end{equation}, and for a polytropic equation of state, the surface
+R(\theta,\phi)=\sum c_{lm}Y^{lm}(\theta,\phi),
+\end{equation}
+and for a polytropic equation of state, the surface
 should satisfy $h(R)=1$. 
 
 \item Compute the ADM linear momentum $P_{\rm ADM}$, and if necessary
@@ -362,7 +380,7 @@ should satisfy $h(R)=1$.
 M_{B}=\int \rho_0\Psi^6\gamma_ndV
 \end{equation}
 as a function of the Euler
-constant, and use the secant method to drive the baryon mass to the
+constant, and using the secant method to drive the baryon mass to the
 desired value.
 
 \item Solve the elliptic equations for the velocity potential, $\phi$,
@@ -459,6 +477,18 @@ Name & $\Theta_{\rm BH}$ & $M^b_{\rm NS}$ & $M\Omega_{\rm orbit}$ & $\sim N_{\rm
 \cite{Foucart:2013a} as the starting point.}
 \end{longtable}
 
+Although we do no evolutions of any of these initial data sets in this
+work, in principle these initial data sets could be easily used to
+extend the work of \cite{Foucart:2013a}. For example, it was found
+that the size of the neutron star, varying from $12km$ to $14km$ can
+greatly affect where the neutron star disrupts, and thus the disk
+produced and the electromagnetic signal that would be produced. Given
+such sensitivity to the NS parameters, it is natural to think that
+sensitivity to the NS spin should be tested. If the material is less
+strongly bound to the star because of centrifugal forces arising from
+the spin, then the stars should disrupt earlier.
+
+
 In addition to these parameters, we consider several other sequences
 of Bh-Ns data sets to verify the robustness of the solutions across
 the whole parameter space. First, we consider a sequence of where we vary the neutron star spin from
@@ -525,7 +555,10 @@ the four different resolutions at which the black hole spin is measured. The sol
 the dotted curves are for the irreducible mass of the BH.}
 \end{figure}
 
-Having now established the convergence of the iterative procedure, we turn now to establish the convergence with resolution of the global properties of the solution.
+Having now established the convergence of the iterative procedure, we
+turn now to establish the convergence with resolution of the global
+properties of the solution, continuing to focus on the {\tt R14i160$\Uparrow$} ID set.
+
 We begin by looking at the Hamiltonian and momentum constraints for the {\tt R14i160$\Uparrow$} initial data set.
 The Hamiltonian constraint is computed as
 \begin{equation}
@@ -546,27 +579,144 @@ solver time is needed to adjust to this change.
 as a function of resolution. We find exponential convergence in both.}
 \end{figure}
 
+Finally, we look at the properties of the neutron star. As noted before,
+the neutron star location is expressed as a sum of spherical
+harmonics,
+\begin{equation}
+R(\theta,\phi)=\sum^{l_{\rm max}m_{\rm max}}_{l,m}c_{l,m}Y_{l,m}(\theta,\phi),
+\end{equation}
+where we generally use $l_{max}=11$.
+To evaluate the convergence of the surface location, we define the
+quantity,
+\begin{equation}
+\label{eq:NSSurf}
+\Delta c(N)=\sqrt{\sum_{l,m}^{l_{\rm max}m_{\rm max}}\left(c_{lm}(N)-c^{*}_{lm}\right)^2}
+\end{equation}
+where $N$ represents the current resolution, and $*$ represents the
+highest resolution. This quantity is plotted in
+figure~\ref{fig:SpinDiff}. Note that similar to the black hole surface, the
+neutron star surface is only computed for the first four resolution,
+and so we have three data points shown. We do see exponential
+convergence in this quantity. We also look at the convergence of the
+neutron star spin $\chi_{\rm NS}$ measured at each resolution. In
+figure~\ref{fig:SpinDif}, we plot the fractional difference in
+$\chi_{\rm NS}$ between neighbouring resolutions, and find apparent
+exponential convergence, although there are two disinctly different
+slopes in the data, with the slope becoming more shallow at high
+resolution. This is likely because we have stopped measuring the NS
+surface at this point. However, we are able to measure the spin to an
+accuracy of about $10^{-6}$. 
+ We have ommited the first data point in this curve
+because the neutron star spin is not turned on in the first
+resolution, so by construction the first data point is artificially large.
+
 \begin{figure}
-\includegraphics[width=0.95\columnwidth]{chap4/chiVOmega}
-\caption[\red{add}]{\label{fig:ChiVOmega}
-Neutron star spin $\chi$ as a function of neutron star spin parameter
-$\omega$ for a sequence of initial data sets. The black hole spin is
-constant at $\chi=0.9$ and the mass ratio is $q=7$. \red{Add text
-  describing the BNS curve}}
+\includegraphics[width=0.95\columnwidth]{chap4/SpinDiff}
+\caption[Neutron star surface and spin accuracy.]{\label{fig:SpinDiff}
+  Accuracy of neutron star properties. Plotted are, as a function of resolution the accuracy of the computation of the neutron star
+  surface, $\Delta c$, as defined in Eq.~\ref{eq:NSSurf} (black
+  curve), and the fractional difference between neighbouring
+  resolutions in the measured neutron star spin $\chi_{\rm NS}$ (red
+  curve). This is for the {\tt R14i160$\Uparrow$} ID set.}
 \end{figure}
 
-Second, we consider a sequence where we vary the black hole spin from 
-$\chi=0$ to $\chi=0.99$. \red{Add details}
+The above data all show that we have established the convergence of
+our initial data solver, by showing exponential convergence of the
+iterative solver, the black hole properties, neutron star properties,
+and the constraints.
+
+\subsection{Other Initial Data Sequences}
+We now turn to three more initial data sequences to help fill out the
+bh-ns parameter space, as shown in Fig.~\ref{fig:3dparam}. We begin by
+varying the neutron star spin from $\chi=0$ to $\chi\sim0.7$,
+corresponding to $\omega_{\rm NS}\sim0.22$. The parameters in this
+sequence are otherwise the same as in the {\tt R14i0} data sets
+above, and the neutron star spin is kept aligned with the orbital
+angular momentum. To demonstrate convergence, we begin by plotting the
+Hamiltonian and momentum constraints for a subset of the generated
+initial data sets, with $\chi\sim{0.1,0.3,0.5,0.7}$. This is shown in
+Fig.~\ref{fig:OmegaSeqHamMom}. We note that in general we see
+exponential convergence, as expected, but there are a few features
+worth discussing in the data. The increase at {\tt R2}, as noted
+earlier, is a monotonically increasing function of spin, as we might
+expect. The larger the spin that gets turned on, the more difficult it
+is for the solver to adjust. We also note that at high resolution, in
+the $\chi\sim 0.7$ curve, we lose exponential convergence and the
+curves flatten out around $10^{-6}$. This is likely a sign that the accuracy of the
+solver is becoming limited, likely by approximations that go into the
+solver. $\chi\sim 0.7$ is around the maximum theoretical neutron star
+spin, so such difficulties may be expected.
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/OmegaSeqHamMom}
+\caption[Constraints for the $\chi_{\rm NS}$ sequence.]{\label{fig:OmegaSeqHamMom} Hamiltonian (solid curves) and
+momentum (dotted curves) constraints for four different neutron star spins.}
+\end{figure}
+
+In Fig.~\ref{fig:ChiVOmega} we plot the full sequence, plotting the
+measured neutron star spin $\chi_{\rm NS}$ as a function of the code
+parameter $\omega_{\rm NS}$. As expected, we find a linear
+relationship at low $\omega$, but the relationship becomes non-linear
+at higher $\omega$, as the neutron star's size, and thus moment of
+inertia, becomes an appreciable function of spin. We find that the
+solver breaks down around $\chi_{\rm NS}\sim 0.7$ which is around the
+theoretical maximum spin for $\Gamma=2$ polytropes. In
+Fig.~\ref{fig:ChiVOmega} we have also plotted, in addition to this
+bh-ns curve, a curve from ns-ns initial data sets. These data use
+different NS parameters, with mass $M_{\rm ADM}=1.64M_{\odot}$ and
+equation of state parameter $\kappa=123.6$. However, the curves remain
+very close to each other in shape. Thus we see the neutron star spin
+code seems to be working the same for the code described in this
+chapter, as well as the code descriped in chapter \red{2}.
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/chiVOmega}
+\caption[$\chi_{\rm NS}$ as a function of $\omega_{\rm NS}$ for bh-ns
+binaries]
+{\label{fig:ChiVOmega}
+Neutron star spin $\chi$ as a function of neutron star spin parameter
+$\omega$ for a sequence of initial data sets. The black hole spin is
+constant at $\chi=0.9$ and the mass ratio is $q=7$. The red curve is
+from ns-ns binaries, with somewhat different neutron star parameters.}
+\end{figure}
+
+After the sequence in $\chi_{\rm NS}$ we next look at a sequence in
+$\chi_{\rm BH}$. In partiucar, we vary the black hole spin from
+$\chi=0$ to $\chi=0.99$, keeping it aligned with the orbital angular
+momentum.
+ The other binary parameters are kept the same
+as in the ${\tt R14i0\Uparrow}$ initial data set; that is $\chi_{\rm
+  NS}\sim0.4$ and $q=7$. In Figs.~\ref{fig:chiSeqHam} and
+~\ref{fig:chiSeqMom} we plot the Hamiltonian and momentum constraints,
+respectively, for this sequence. We find exponential convergence in
+all cases. It is interesting to note that the constraints seem to be
+lowest at the highest black hole spins, $\chi_{\rm BH}=0.95$ and
+$\chi_{\rm BH}=0.99$, while out might expect these to be the most
+challenging cases.
+
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chiSeqHam}
-\caption[\red{add}]{\label{fig:chiSeqHam}Hamiltonian constraint versus resolution for our sequence of binaries where the black-hole spin is varied from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the mass ratio is $q=7$. We find exponential convergence in all cases.}
+\caption[Hamiltonian constraint for the sequence in $\chi_{\rm BH}$.]{\label{fig:chiSeqHam}Hamiltonian constraint versus
+  resolution for our sequence of binaries where the black-hole spin is
+  varied from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the mass ratio is $q=7$. We find exponential convergence in all cases.}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chiSeqMom}
-\caption[\red{add}]{\label{fig:chiSeqMom} Same as
+\caption[Momentum constraints for the sequence in $\chi_{\rm BH}$.]{\label{fig:chiSeqMom} Same as
   Fig.~\ref{fig:chiSeqHam} but for the momentum constraint.}
 \end{figure}
+
+Since in this work we are largely concerned with neutron star spin, it
+is interesting to consider how the measured neutron star spin,
+$\chi_{\rm NS}$ couples to other binary parameters. To lowest order,
+it should depend only on $\omega_{\rm NS}$, but in practice in may
+also depend on the parameters of the black hole. For this sequence in
+$\chi_{\rm BH}$, we plot $\chi_{\rm NS}$ as a function of $\chi_{\rm
+  BH}$ in figure~ref\{fig:chichi}. There is a clear negative slope in
+this plot. \red{I am not sure how to explain this!}
+\red{Currently testing how NS spin direction couples.}
+\red{Should also test how BH spin direction couples.}
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chichi}
@@ -574,23 +724,38 @@ $\chi=0$ to $\chi=0.99$. \red{Add details}
 \end{figure}
 
 
+
+
 Finally, we consider a sequence where we vary the mass ratio from
-$q=2$ to $q=10$. \red{Add details}
+$q=2$ to $q=10$. In this sequence we keep the other binary parameters
+the same as in the ${\tt R14i0\Uparrow}$ initial data set. In this sequence, we keep the
+orbtial parameters $M\Omega$ and $D/M$ constant. As discussed above,
+we expect that this will induce a eccentricity of a few percent. To
+assess convergence, we plot the Hamiltonian and momentum constraints
+for this sequence in Figs.~\ref{fig:qSeqHam} and
+~\ref{fig:qSeqMom}. We find exponential convergence in all
+cases. Interestingly, no clear pattern in $q$-space emerges.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/qSeqHam}
-\caption[\red{add}]{\label{fig:qSeqHam}Hamiltonian constraint versus resolution for our sequence of binaries where the mass ratio is varied from $q=2$ up to $q=10$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the black hole spin is $\chi_{\rm BH}=0.9$. We find exponential convergence, as expected, in all cases.}
+\caption[Hamiltonian constraint for the $q$ sequence.]{\label{fig:qSeqHam}Hamiltonian constraint versus resolution for our sequence of binaries where the mass ratio is varied from $q=2$ up to $q=10$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the black hole spin is $\chi_{\rm BH}=0.9$. We find exponential convergence, as expected, in all cases.}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/qSeqMom}
-\caption[\red{add}]{\label{fig:qSeqMom} Same as Fig.~\ref{fig:qSeqHam}
+\caption[Momentum constraint for the $q$ sequence.]{\label{fig:qSeqMom} Same as Fig.~\ref{fig:qSeqHam}
   but for the momentum constraint.}
 \end{figure}
 
+As with the previous sequence, it is interesting to look at the
+properties of $\chi_{\rm NS}$ as a function of $q$. This is shown in
+Fig~\ref{fig:qchi}. Although there is not a great amount of variation,
+apart from $q=2$, there is a clear trend of
+$\chi_{\rm NS}$ decreasing with $q$. \red{can we explain this?}
+\red{what tests to do?}
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/qchi}
-\caption[\red{add}]{\label{fig:chichi}Neutron star spin $\chi_{\rm
+\caption[$\chi_{\rm NS}$ as a function of mass ratio $q$.]{\label{fig:qchi}Neutron star spin $\chi_{\rm
     NS}$ as a function of mass ratio $q$ for this sequence. We notice
   a downward trend for $q \geq 3$. \red{Can we explain this?}}
 \end{figure}
