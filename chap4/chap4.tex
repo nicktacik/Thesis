@@ -48,7 +48,7 @@ Insert here
 %\item XX
 %\end{enumerate}
 
-Black hole - neutron stars (Bh-ns) inspirals and mergers are an important potential source of gravitaitonal waves for ground-based detectors like Advanced LIGO and Virgo. Information abou tthe inspiral can help determine the neutron star equation of state. Electromagnetic signals from the merger can give clues about the violent physical processes that occur. Gravitaitonal waves help test general relativity in the genuinely non-linear regime.
+Black hole - neutron stars (BH-NS) inspirals and mergers are an important potential source of gravitaitonal waves for ground-based detectors like Advanced LIGO and Virgo. Information abou tthe inspiral can help determine the neutron star equation of state. Electromagnetic signals from the merger can give clues about the violent physical processes that occur. Gravitaitonal waves help test general relativity in the genuinely non-linear regime.
 
 The parameter space of Bh-ns binaries is quite rich. The mass ratio, $q$, and black hole spin, $\vec{\chi}$, have been of particular interest in numerical simulations. Foucart \red{cite} gave an analytic description of how this combination can predict the time of neutron star disruption. The neutron star equation of state is also of great interest. The size of the star is directly lninked ot when tidla disruption occurs. One aspect that has not been studied, however, is the effect of neutron star spin. All simulations to date use irrotational neutron star in their Bh-NS binaries. Since no Bh-NS binaries have been directly observed, the NS spins are, at least observationally, unconstrained. Spinning NS will affect the gravitational waveforms and cause the inspiral to proceed more slowly (for spin-aligned NS). \red{cite} XX found that NS spins of XX in Bh-ns binaries could cause Advanced LIGO to miss XX percent of potential signals. The spin could also affect the time of NS disruption, as the stellar material will be less tightly bound to the stellar surface.
 
@@ -65,14 +65,14 @@ initial data. Finally, we conclude the chapter in section XX.
 \section{Initial Data Formalism}
 In this section we will discuss the formalism used to solve the
 Einstein field equations and create quasi-equilibrium initial data for
-black-hole - neutron star (BHNS) binaries with spinning neutron
+BH-NS binaries with spinning neutron
 stars. We begin with the $3+1$ decomposition of the space-time metric
 tensor,
 \begin{equation}
-g_{\mu}{\nu}dx^{\mu}dx^{\nu} = -\alpha^2dt^2 + \gamma_{ij}\left(dx^i +
+g_{\mu\nu}dx^{\mu}dx^{\nu} = -\alpha^2dt^2 + \gamma_{ij}\left(dx^i +
   \beta^idt\right)\left(dx^j+\beta^jdt\right),
 \end{equation}
-where $\alpha$ is the lapse function, $beta^i$ is the shift vector,
+where $\alpha$ is the lapse function, $\beta^i$ is the shift vector,
 and $\gamma_{ij}$ is the induced metric on a spatial hypersurface
 $\Sigma(t)$. The normal vector $n^{\mu}$ to $\Sigma(t)$ is related to
 the coordinate time $t$ by
@@ -81,10 +81,11 @@ t^{\mu} = \alpha n^{\mu} + \beta^{\mu}.
 \end{equation}
 The extrinsic curvature of $\Sigma(t)$ is given by
 \begin{equation}
-K_{\mu\nu} = -\frac{1}{2}\mathcal{L}_n\gamma_{\mu\nu}
+K_{\mu\nu} = -\frac{1}{2}\mathcal{L}_n\gamma_{\mu\nu},
 \end{equation}
-where $\gamma_{\mu\nu}=g_{\mu\nu}+n_{\mu}n_{\nu}.$ We restrict our
-attention to the spatial part $K^{ij}$ of the extrinsic curvature,
+where $\gamma_{\mu\nu}=g_{\mu\nu}+n_{\mu}n_{\nu}.$ and $\mathcal{L}_n$
+is the Lie derivative in the direction of the $n^{\mu}$. We restrict our
+attention to the spatial part of the extrinsic curvature, $K^{ij}$,
 since $n_{\mu}K^{\mu\nu}=0$ by construction. It is convenient to
 decmopose it into its trace and trace-free parts,
 \begin{equation}
@@ -93,19 +94,19 @@ K^{ij} = A^{ij}+\frac{1}{3}K\gamma_{ij}.
 The matter in the system is modelled with the stress-energy tensor of
 a perfect fluid 
 \begin{equation}
-T_{\mu\nu}=\left(\rho+P\right)u_{\mu}u_{\nu}+Pg_{\mu\nu}
+T_{\mu\nu}=\left(\rho+P\right)u_{\mu}u_{\nu}+Pg_{\mu\nu},
 \end{equation}
 where $\rho$ is the fluid's energy density, $P$ is its pressure, and
 $u^{\mu}$ is its four-velocity. It is further useful to define the
-projections of the matter quantities
+projections of the matter quantities,
 \begin{eqnarray}
 E &=& T^{\mu\nu}n_{\mu}n_{\nu},\\
 S &=& \gamma^{ij}\gamma_{i\mu}\gamma_{j\nu}T^{\mu\nu}, \\
-J^i &=& -\gamma^{i}_{\nu}T^{\nu\tau}n_{\tau}.
+J^i &=& -\gamma^{i}_{\mu}T^{\mu\nu}n_{\nu}.
 \end{eqnarray}
 The spatial metric is decomposed with the conformal transformation
 \begin{equation}
-\gamma_{ij}=\Psi^4\tilde{\gamma}_{ij}
+\gamma_{ij}=\Psi^4\tilde{\gamma}_{ij},
 \end{equation}
 where $\Psi$ is called the conformal factor, and $\tilde{\gamma}_{ij}$
 is the conformal metric. The other quantities in the initial value
@@ -114,8 +115,8 @@ problem use the following conformal transformations:
 E &=& \Psi^{-6}\tilde{E}, \\
 S &=& \Psi^{-6}\tilde{S}, \\
 J^i &=& \Psi^{-6}\tilde{J}^i, \\
-A^{ij} &=& \Psi^{-10}\tilde{A}^{ij} \\
-\alpha &=& \Psi^{6}\tilde{\alpha} 
+A^{ij} &=& \Psi^{-10}\tilde{A}^{ij}, \\
+\alpha &=& \Psi^{6}\tilde{\alpha}. 
 \end{eqnarray}
 $\tilde{A}^{ij}$ is related to the shift and to the time derivative of
 the conformal metric, $\tilde{u}_{ij}=\partial_t\tilde{\gamma}_{ij}$,
@@ -129,7 +130,7 @@ where $\tilde{L}$ is the conformal longitudinal operator,
 \left(\tilde{L}V\right)^{ij}=\tilde{\nabla}^iV^j + \tilde{\nabla}^jV^i
 - \frac{2}{3}\tilde{\gamma}^{ij}\tilde{\nabla}_kV^k.
 \end{equation}
-We solve the extended thing sandwich (XCTS), which are a set of 5
+We solve the extended conformal thin sandwich (XCTS) equations, which are a set of 5
 coupled non-linear equations.
 \begin{eqnarray}
 2\tilde{\alpha}\bigg[\tilde{\nabla}_j\left(\frac{1}{2\tilde{\alpha}}\big(\tilde{L}\beta\big)^{ij}\right)-\tilde{\nabla}_j\left(\frac{1}{2\tilde{\alpha}}\tilde{u}^{ij}\right) && \nonumber\\
@@ -153,14 +154,15 @@ coupled non-linear equations.
 - \beta^{k}\partial_kK\right).
 \end{eqnarray}
 These are solved
-for $\Psi$, the densitized lapse, $\alpha\Psi$, and the shift.
+for the conformal factor, $\Psi$, the densitized lapse, $\alpha\Psi$,
+and the shift, $\beta^i$.
 
 The matter content of $\Sigma(t)$ is determined by $\tilde{E}$,
 $\tilde{S}$, and $\tilde{J}^i$. The free data are $\gamma_{ij}$,
 $\tilde{u}_{ij}$, $K$ and $\partial_t K$. $\tilde{u}_{ij}=0$ and
 $\partial_t K=0$ are natural choices in a coordinate system corotating
-with the binary. We use the choice of maximal slicing, $K=0$. The
-choice of the conformal metric will be later discussed in section XX.
+with the binary. The
+choice of the conformal metric will be discussed in section~\ref{sec:NumMethods}.
 
 Let us now further discuss the matter content of the neutron star. The
 energy density of the fluid is $\rho=\rho_0\left(1+\epsilon\right)$,
@@ -169,15 +171,15 @@ energy. The specific enthalpy of the fluid is
 \begin{equation}
 h=1+\epsilon+\frac{P}{\rho_0}.
 \end{equation}
-It is convenient to introduce the following projection of the four
+It is convenient to introduce the following projections of the four
 velocity:
 \begin{eqnarray}
-\gamma &=& \gamma_n\gamma_0\left(1-\gamma_{ij}U^iU^j_0\right) \\
-\gamma_0 &=& \left(1 - \gamma_{ij}U^i_0U^j_0\right)^{-1/2} \\
-\gamma_n &=& \left(1 - \gamma_{ij}U^iU^j\right)^{-1/2} \\
-U^i_0 &=& \frac{\beta^i}{\alpha} \\
-u^{\mu} &=& \gamma_n\left(n^u+U^\mu\right) \\
-U^{\mu}n_{\mu}&=&0
+\gamma &=& \gamma_n\gamma_0\left(1-\gamma_{ij}U^iU^j_0\right), \\
+\gamma_0 &=& \left(1 - \gamma_{ij}U^i_0U^j_0\right)^{-1/2}, \\
+\gamma_n &=& \left(1 - \gamma_{ij}U^iU^j\right)^{-1/2}, \\
+U^i_0 &=& \frac{\beta^i}{\alpha}, \\
+u^{\mu} &=& \gamma_n\left(n^u+U^\mu\right), \\
+U^{\mu}n_{\mu}&=&0.
 \end{eqnarray}
 Following \cite{Tichy:2011gw}, the three-velocity is written as the sum
 of an irrotational part (the gradient of a potential $\phi$) and a
@@ -186,7 +188,7 @@ rotational part $W$:
 U^i =
 \frac{\Psi^{-4}\tilde{\gamma}^{ij}}{h\gamma_n}\left(\partial_j\phi+W_j\right).
 \end{equation}
-$W$ is a freely chosen vector in this formalism; we will discuss this choice in section XX.
+$W$ is a freely chosen vector in this formalism; we will discuss this choice in section~\ref{sec:NumMethods}.
 
 The matter fluid must satisfy the continuity equation and the Euler equation. The continuity equation is a second order elliptic equation for the potential $\phi$:
 \begin{equation}
@@ -200,7 +202,8 @@ Under the assumptions made in \cite{Tichy:2011gw}, this equation can be written 
 &=\tilde{\gamma}^{ij}\big(\partial_i\phi+W_i\big)\partial_j\rho_0 - \frac{h\gamma_n\beta^i\Psi^4}{\alpha}\partial_i\rho_0.
 \label{eq:Continuity}
 \end{align}
-The Euler equation is solved for the specific enthalpy $h$. The solution is, as shown in Tichy \red{cite}:
+The Euler equation is solved for the specific enthalpy $h$. The
+solution is, as shown in \cite{Tichy:2011gw}:
 \begin{equation}
 h = \sqrt{L^2 -
   \left(\nabla_i\phi+W_i\right)\left(\nabla^i\phi+W^i\right)},
@@ -213,7 +216,7 @@ L^2 =
 and
 \begin{equation}
 b =
-\left(\beta^i\nabla_i\phi+C\right)^2+2\alpha^2\left(\nabla_i\phi+w_i\right)w^i.
+\left(\beta^i\nabla_i\phi+C\right)^2+2\alpha^2\left(\nabla_i\phi+W_i\right)W^i.
 \end{equation}
 
 The boundary condition at the surface of the neutron star can deduced from the $\rho_0\rightarrow 0$ limit of the continuity equation:
@@ -226,18 +229,17 @@ The boundary condition at infinity (which is in practice, in our computational g
 \alpha\Psi &=& 1,\\
 \Psi &=&1.
 \end{eqnarray}
-The interior of the black hole is excised from the computation domain. The boundary conditions at the surface of the black hole horizon are \red{cite}
+The interior of the black hole is excised from the computation domain. The boundary conditions at the surface of the black hole horizon are~(\cite{Cook2004}):
 \begin{eqnarray}
 \label{eq:BhBoundary}
-\tilde{s}^k\nabla_k\log\Psi&=&-\frac{1}{4}\left(\tilde{h}^{ij}\tilde{\nabla}^i\tilde{s}_j-\Psi^2J\right) \\
+\tilde{s}^k\nabla_k\log\Psi&=&-\frac{1}{4}\left(\tilde{h}^{ij}\tilde{\nabla}^i\tilde{s}_j-\Psi^2h^{ij}K_{ij}\right) \\
 \label{eq:BhBoundary2}
 \beta_{\perp}&=&\alpha \\
 \label{eq:BhBoundary3}
 \beta_{\parallel}&=&\Omega_{j}^{BH}x_k\epsilon^{ijk}
 \end{eqnarray}
 whre $s$ is the outward pointing unit normal to the apparent horizon
-surface, A$h^{ij}$ is the 2-metric on the surface, $J$ is a projection
-fo the excision surface \red{clarify this}, and $\Omega^{BH}$ is a
+surface, $h^{ij}$ is the 2-metric on the surface, and $\Omega^{BH}$ is a
 free parameter that determines the spin of the black hole.
 
 The force balance equation at the centre of the NS is 
@@ -255,8 +257,9 @@ where
 =\frac{\gamma_n\left(1-\left(\beta^i+\frac{W^i\alpha}{h\gamma_n}\right)\frac{\nabla_i\phi}{\alpha
     h\gamma_n}- \frac{W_i W^i}{\alpha^2\gamma_n^2}\right) } { \sqrt{ 1
     - \left(\frac{\beta^i}{\alpha}+\frac{W^i}{h\gamma_n}\right)
-    \left(\frac{\beta_i}{\alpha}+\frac{W_i}{h\gamma_n}\right) } } .
-\end{equation}, which is a second order equation for the orbital
+    \left(\frac{\beta_i}{\alpha}+\frac{W_i}{h\gamma_n}\right) } } ,
+\end{equation}
+which is a second order equation for the orbital
 frequency $\Omega$. If desired, this equation can be solved to find a
 best guess for the orbital frequency. Alternatively, eccentricity
 removal techniques, such as those used in \cite{Tacik:2015tja} can be
@@ -289,11 +292,13 @@ The irreducible mass is related to the surface area of the horizon
 M_{\rm irr}=\sqrt{A/16\pi}.
 \end{equation}
 Following the method introduced in \cite{Tacik:2015tja} we also compute the dimensionless spin
-of the neutron star in the same way, normalizing it by its ADM mass.
+of the neutron star in the same way, normalizing it by its
+Arnowitt-Deser-Misner (ADM) mass.
 
 \section{Numerical Methods}
+\label{sec:NumMethods}
 Let us now discuss how we solve these ellitpic equations. We use the
-pseduo-spectral multi-grid elliptic solver developped in
+pseduo-spectral multi-grid elliptic solver developed in
 \cite{Pfeiffer2003} and enhanced in \cite{FoucartEtAl:2008} to incorporate matter. The computational domain is divided into a number of subdomains. A small cube is placed at the centre of the NS. Overlapping this cube is a spherical shell whose outer boundary deforms to fit the NS surface. These are surrounded by an additional spherical shell. The black hole is represented by two concentric spherical shells. Their inner bounday is required to be an apparent horizon. Three rectangular parallelpipeds surround the axis passing through the centres of the BH and the NS - one between them and one on each side of the objects. An additional eight cylindrical shells are placed around the same axis to cover the intermediate field region. The far-field region is covered by a large spherical shell whose outer boundary is placed at $R=10^{10}$ using an inverse radial mapping. This domain is visualized in Fig.~\ref{fig:BhNsDomain}.
 
 \begin{center}
@@ -303,34 +308,37 @@ pseduo-spectral multi-grid elliptic solver developped in
 decomposition.]{Visualization of the Bh-Ns domain decomposition. The
   black object on the left is the black hole and the orange object on
   the right is the neutron star. The blue wireframes represent the
-  various cylinders and rectangular parallelpipeds in the domain.}
+  various cylinders and rectangular parallelpipeds in the
+  domain. \red{[Make this look nicer]}}
 \label{fig:BhNsDomain}
 
 \end{figure}
 \end{center}
 
-All variables (metric and hydrodynamical) are decomposed on sets of basis functions on each subdomain. Finite difference schemes are needed for hydrodynamical quantities during evolutions so as to capture shocks, but for initial data spectral methods are suitable and exponentical convergence can be guaranteed. The resolution of each domain is synonymous with the number of colocation points used. The resolution of each domain is chosen by hand at the start of the initial data solve, and then modified several times using an adaptive scheme. To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
+All variables (metric and hydrodynamical) are decomposed on sets of
+basis functions on each subdomain. Finite difference schemes are
+needed for hydrodynamical quantities during evolutions so as to
+capture shocks, but for initial data, where shocks are not present, spectral methods are suitable and exponentical convergence can be guaranteed. The resolution of each domain is synonymous with the number of colocation points used. The resolution of each domain is chosen by hand at the start of the initial data solve, and then modified several times using an adaptive scheme. To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
 \begin{equation}
 N^{1/3}=\left(\sum N_i\right)^{1/3},
 \end{equation}
-where we are summing the colocation points of the all the
+where we are summing the colocation points of all of the
 subdomains. This gives an indication of the average resolution in each
 diredction.A typical initial data solve might start with, using example numbers, $N^{1/3}\sim 33$ and end with $N^{1/3}\sim 80$
 
 Construction of initial data begins by choosing values for the free parameters in the problem. In particular, these are
 \begin{itemize}
-\item The black hole mass, $M_{\rm BH}$
-\item The black hole's target dimensionless spin vector, $\vec{\chi_{\rm BH}}$
-\item The neutron star's baryon mass, $M_{b}$
-\item The neutron star's equation of state, 
-\item The neutron star's spin vector, $\omega^i$
-\item The separation between the centres of the BH and NS, $D$
-\item The orbital angular velocity, $\Omega_0$
-\item The initial infall velocity, $\dot{a}$.
+\item The black hole mass, $M_{\rm BH}$.
+\item The black hole's target dimensionless spin vector, $\vec{\chi_{\rm BH}}$.
+\item The neutron star's baryon mass, $M_{b}$.
+\item The neutron star's equation of state, .
+\item The neutron star's spin vector, $\omega^i$.
+\item The separation between the centres of the BH and NS, $D$.
+\item The orbital angular velocity, $\Omega_0$.
+\item The initial infall velocity parameter, $\dot{a}$.
 \end{itemize}
-We will discuss later how we make the choices of $\Omega_0$ and
-$\dot{a}$. Additionally, one must make a perscription for the free
-metric variables, $\tilde{g}_{ij}$ and $K$. Near the black hole they
+Additionally, perscription is required for the free
+metric variables, $\tilde{g}_{ij}$ and $K$. We use the following: near the black hole they
 are equal to the values for a black hole with the same spin and boost
 velocity,
 written in Kerr-Schild coordinates. Near the neutron star, they are a
@@ -338,7 +346,7 @@ conformally flat metric and $K=0$. They fall-off from the black hole
 to the neutron star with a function of the form $e^{(-r/w)^4}$, where
 $w$ is half the coordinate separation between them.
 
-Let's now discuss the algorithm we use the solve for the initial data. 
+Let's now discuss the algorithm we use to solve for the initial data. 
 
 \begin{enumerate}
 \item If on the first resolution step, set $\omega^i=0$, otherwise set
@@ -351,7 +359,9 @@ Let's now discuss the algorithm we use the solve for the initial data.
 \begin{equation}
 X^{n+1}=\lambda X^{*} + (1-\lambda)X^n,
 \end{equation}
-for which we use $\lambda=0.3$.
+where $X^{*}$ is the result found by solving the XCTS equations, and $X^{n}$ is
+the previous value of $X$.
+We use $\lambda=0.3$.
 
 \item Impose equatorial symmetry. This should only be done if both the
   NS and the BH have no spin components in the plane. But if it can be
@@ -363,11 +373,16 @@ for which we use $\lambda=0.3$.
 R(\theta,\phi)=\sum c_{lm}Y^{lm}(\theta,\phi),
 \end{equation}
 and for a polytropic equation of state, the surface
-should satisfy $h(R)=1$. 
+should satisfy $h(R(\theta,\phi)=1$. 
 
-\item Compute the ADM linear momentum $P_{\rm ADM}$, and if necessary
-  move the center of the black hole to zero-out momentum. \red{Add
-    more detail here}.
+\item Compute the ADM linear momentum $P_{\rm ADM}$, as 
+\begin{equation}
+P_{\rm ADM}^i = \frac{1}{8\pi}\oint_{S_{\infty}}K^{ij}dS_j.
+\end{equation}
+If its norm has changed by less than 10\% in the last iteration, move
+the centre of the BH so as to zero-out the momentum of the
+system. Additionally, modify the radius of the excision surface to
+drive $M_{\rm BH}$ to the desired value.
 
 \item If desired, adjust the orbital angular frequency using Eq.~\ref{eq:OmegaDriver}.
 
