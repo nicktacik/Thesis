@@ -1,24 +1,24 @@
 \chapter{Initial Data for Spinning Neutron Stars in Mixed Binaries}
 
-\section{Chapter Overview}
+%\section{Chapter Overview}
 
-An Overview of my chapter here.
+%An Overview of my chapter here.
 
-\section{Chapter TDL}
-\begin{itemize}
-\item Previous work on mixed binaries with spinning stars?
-\item Plot of omega vs chi for NS spin
-\item 3d parameter space plot
-\item Information about how easy/difficult it is to do the solution?
-  Number of gridpoints, constraints, its?
-\item Geoffrey massive disk formation 
-\item Do the high $\omega$ curves go to higher lev than 8?
-\end{itemize}
+%\section{Chapter TDL}
+%\begin{itemize}
+%\item Previous work on mixed binaries with spinning stars?
+%\item Plot of omega vs chi for NS spin
+%\item 3d parameter space plot
+%\item Information about how easy/difficult it is to do the solution?
+%  Number of gridpoints, constraints, its?
+%\item Geoffrey massive disk formation 
+%\item Do the high $\omega$ curves go to higher lev than 8?
+%\end{itemize}
 
 
-\section{Papers to read}
+%\section{Papers to read}
 
-Insert here
+%Insert here
 
 %\section{Post-Intro}
 %\red{What are all the items I need post-intro}
@@ -47,22 +47,24 @@ Insert here
 %\item X
 %\item XX
 %\end{enumerate}
+The spectacular detection of merging binary black holes by Advanced LIGO (~\cite{Abbott:2016blz}) has dawned the beginning of the era of gravitational wave astronomy. Black-hole - neutron star (Bh-Ns) binaries are now the only compact object binary whose existence has not been direclty confirmed. They remain, however, an important potential source of gravitational waves for advanced ground-based detectors, with an expected event rate of approximately ten per year(~\cite{AbadieLSC:2010}), albeit with a large uncertainity. In addition to gravitational waves, Bh-Ns mergers can be an exciting source of electromagnetic radiation and give further clues to the violent processes that occur during the merger. If a massive disk is left from the merger, it could lead to a short-duration gamma ray burst (SGRB) and material ejected during the merger could radiate a signal such as a "kilonova"(~\cite{metzger:11}).
 
-Black hole - neutron stars (BH-NS) inspirals and mergers are an important potential source of gravitaitonal waves for ground-based detectors like Advanced LIGO and Virgo. Information abou tthe inspiral can help determine the neutron star equation of state. Electromagnetic signals from the merger can give clues about the violent physical processes that occur. Gravitaitonal waves help test general relativity in the genuinely non-linear regime.
-
-The parameter space of Bh-ns binaries is quite rich. The mass ratio, $q$, and black hole spin, $\vec{\chi}$, have been of particular interest in numerical simulations. Foucart \red{cite} gave an analytic description of how this combination can predict the time of neutron star disruption. The neutron star equation of state is also of great interest. The size of the star is directly lninked ot when tidla disruption occurs. One aspect that has not been studied, however, is the effect of neutron star spin. All simulations to date use irrotational neutron star in their Bh-NS binaries. Since no Bh-NS binaries have been directly observed, the NS spins are, at least observationally, unconstrained. Spinning NS will affect the gravitational waveforms and cause the inspiral to proceed more slowly (for spin-aligned NS). \red{cite} XX found that NS spins of XX in Bh-ns binaries could cause Advanced LIGO to miss XX percent of potential signals. The spin could also affect the time of NS disruption, as the stellar material will be less tightly bound to the stellar surface.
+Numerical relativity simulations are important to accurately study both the gravitational waves and electromagnetics produced in Bh-Ns mergers. The parameter space for Bh-Ns binary simulations is quite rich. The mass ratio, $q$, and black hole spin, $\vec{\chi}$, have been of particular interest in numerical simulations. 
+%Neutron star equation of state has also been of interest in more recent simulations that can incorporate more microphysics. 
+\cite{Foucart2012} gave a semi-analytic description of how this combination can predict the time of neutron star disruption. The neutron star equation of state is also of great interest, especially in more recent simulations that can incorporate more microphysics. The size of the star is directly lninked ot when tidal disruption occurs. One aspect that has not been studied, however, is the effect of neutron star spin, as all simulations to date use irrotational neutron star in their Bh-NS binaries. A significant number of studies, however, investigate spinning neutron stars in Ns-Ns binaries (~\cite{Baumgarte:2009fw},~\cite{Tichy:2011gw},~\cite{East:2012zn},~\cite{Tichy:2012rp},~\cite{Bernuzzi:2013rza},~\cite{Kastaun:2013mv},~\cite{Tsatsin:2013jca},~\cite{Dietrich:2015pxa},~\cite{East:2015yea},~\cite{Tsokaros:2015fea}). Since no Bh-NS binaries have been directly observed, the NS spins are, at least observationally, unconstrained. Spinning NS will affect the gravitational waveforms and cause the inspiral to proceed more slowly (for spin-aligned NS). The spin can be important for gravitational wave detection and can cause appreciable mismatch with non-spinning templates, especially at lower Bh-Ns mass ratios (~\cite{Ajith:2011ec}). The spin could also affect the time of NS disruption, as the stellar material will be less tightly bound to the stellar surface.
 
 Recently, \cite{Tacik:2015tja} used the {\tt SpEC} code to create and
 evolve initial data sets of binary neutron star systems with arbitrary
 spins. In this chapter, we extend this code to create initial data for
-Bh-ns systems where the NS spin is arbitrary. The structure of this
-chapter is as follows: In section XX, we review the formalism
+Bh-Ns systems where the neutron star spin is arbitrary. The structure of this
+chapter is as follows: In section~\ref{sec:IDF}, we review standard numerical relativity initial data formalism, as well as the formalism
 developed in \cite{Tichy:2011gw} to create binaries with spinning NS,
-and discuss how this is extended to Bh-NS systems. In section XX we
-present data demonstrating the robustness and convergence of this
-initial data. Finally, we conclude the chapter in section XX.
+and discuss how this is extended to Bh-NS systems. In section~\ref{sec:NumMethods} we discuss the numerical methods used by our initial data solver.
+In section~\ref{sec:Results}, we create a number of initial data sets to demonstrate the robustness of our solvers. We extend the results of~\cite{Foucart:2013a} to incorporate different neutron star spins,
+and we also create sequences of initial data sets along the axes of neutron star spin, black hole spin, and mass ratio, to demonstrate robustness across the Bh-Ns parameter space. We demonstrate initial data convergence and investigate properties of the solution. Finally, we conclude the chapter in section~\ref{sec:Conc}.
 
 \section{Initial Data Formalism}
+\label{sec:IDF}
 In this section we will discuss the formalism used to solve the
 Einstein field equations and create quasi-equilibrium initial data for
 BH-NS binaries with spinning neutron
@@ -407,12 +409,13 @@ desired value.
 
 \item Compute the truncation error for the current solution by
   examining the spectral coefficients of the metric variables. If the
-  truncation error is too large, adjust the number of grid points and
+  truncation error is too large, adjusI personally have no use for Hilary. But what if she had Elizabeth Warren on the ticket?t the number of grid points and
   return to step 1.
 
 \end{enumerate}
 
 \section{Results}
+\label{sec:Results}
 
 %\subsection{bla}
 %In this section we will demonstrate that we are able to construct robust initial data for generic bh-ns binaries with a spinning neutron star. To begin, we will focus on two axes of the mutli-dimensional parameter space - mass ratio and black-hole spin - while keeping the NS parameters fixed. In particular, we use a neutron star wtih ADM mass, $M_{\rm ADM}=1.4M_{\odot}$, equation of state $P=\kappa\rho_0^\Gamma\left(\Gamma=2.0, \kappa=101.45\right)$ and spin parameter, $\vec{\omega_{\rm NS}}=0.017\hat{z}$, corresponding to a dimensionless spin $\vec{\chi_{\rm NS}}\sim0.4\hat{z}$. The black hole is given a mass, $M_{\rm BH}=qM_{\rm ADM}$ and a dimensionless spin $\vec{\chi_{\rm BH}}=\chi\hat{z}$. In the first initial data sqeuence, we keep $q=7$ fixed, and vary $q=\{0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95\}$. In the second initial data sequence, we keep $\chi=0.9$ fixed and vary $q=\{2,3,4,5,6,7,8,9,10\}$. In each case, the BH and the NS are separated by a coordinate distance $D=7.44\left(M_{\rm BH}+M_{\rm ADM}\right)=7.44M$, and have an initial orbital angular velocity $M\Omega_{\rm orb}=0.0413$, with no additional infall velocity ($\dot{a}=0$). We will now focus on a subset of these initial data sets to demonstrate initial data convergence. In particular, the sets with $q=3$, $q=5$, $q=10$, $\chi=0$, $\chi=0.5$, $\chi=0.95$.
@@ -693,7 +696,7 @@ from Ns-Ns binaries, with somewhat different neutron star parameters.}
 \end{figure}
 
 After the sequence in $\chi_{\rm NS}$, we next look at a sequence in
-$\chi_{\rm BH}$. In partiucar, we vary the black hole spin from
+$\chi_{\rm BH}$. In partiucI personally have no use for Hilary. But what if she had Elizabeth Warren on the ticket?ar, we vary the black hole spin from
 $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$, keeping it aligned with the orbital angular
 momentum.
  The other binary parameters are kept the same
@@ -773,6 +776,7 @@ $\chi_{\rm NS}$ decreasing with $q$. Again, howveer, the effect is quite small a
 %Comparison
 
 \section{Conclusion}
+\label{sec:Conc}
 We have presented code to create initial data for Bh-Ns binaries where the neutron stars have arbitrary spins. To our knowledge, this is the first time initial data has been created for Bh-Ns binaries with spinning neutron stars. We used the same formalism develped by~\cite{Tichy:2011gw} and used in~\cite{Tacik:2015tja} to create
 initial data for Ns-Ns systems with arbitrary spins. Two new numerical tricks were found to be necessary to get convergent initial data - setting a maximum radius out to which to apply $W^i=\epsilon^{ijk}\omega^jr^k$, and only "turning on" the neutron star spin after the first resolution of the initial data solver has completed. We created convergent initial data sets across a large portion of the Bh-Ns binary parameter space. We created 36 initial data sets using the results of~\cite{Foucart:2013a} as a starting point. These initial data sets spanned three different equations of state (all $\Gamma=2$ polytropes), two different neutron star spin magnitudes, three different neutron star spin orientations, and four different black hole spin orientations. We also created three sequences of inital data to help fill out the parameter space - a sequence in neutron star spin ranging from $\chi_{\rm NS}=0$ to $\chi_{\rm NS}\sim0.7$ (near the maximum theoretical spin for neutron stars), a sequence in black hole spin ranging from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$ and a sequence in mass ratio ranging from $q=2$ to $q=10$.
 
