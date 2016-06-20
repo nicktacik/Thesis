@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,11 +54,11 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Mar  4 09:26:19 2013"
+@timestamp def "Tue May 31 16:14:56 2016"
 @with box
 @    box on
 @    box loctype view
-@    box 0.3171875, 0.8046875, 0.1640625, 0.8328125
+@    box 0.3109375, 0.853125, 0.1578125, 0.88125
 @    box linestyle 1
 @    box linewidth 1.0
 @    box color 1
@@ -88,7 +88,7 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.16779233871, 0.811290322581
+@    string 0.16310483871, 0.859727822581
 @    string color 1
 @    string rot 0
 @    string font 0
@@ -164,10 +164,10 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "(t-R\sextraction\N)/M"
+@    xaxis  label "t\sR\N/M"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 1.310000
+@    xaxis  label char size 1.750000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -215,16 +215,16 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "|R*\f{Symbol}Y\f{}\s4\N|"
+@    yaxis  label "|R\f{Symbol}Y\f{}\s4\N|"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.110000
-@    yaxis  label char size 1.230000
+@    yaxis  label char size 1.750000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
-@    yaxis  tick major 0.0004
+@    yaxis  tick major 0.0005
 @    yaxis  tick minor ticks 0
 @    yaxis  tick default 9
 @    yaxis  tick place rounded true
@@ -255,7 +255,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 1.050000
+@    yaxis  ticklabel char size 1.250000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
@@ -264,7 +264,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.477419355, 0.858064516
+@    legend 0.544606855, 0.883064516
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 2.0
@@ -300,7 +300,7 @@
 @    s0 symbol skip 0
 @    s0 line type 1
 @    s0 line linestyle 1
-@    s0 line linewidth 1.0
+@    s0 line linewidth 2.0
 @    s0 line color 1
 @    s0 line pattern 1
 @    s0 baseline type 0
@@ -349,7 +349,7 @@
 @    s1 symbol skip 0
 @    s1 line type 1
 @    s1 line linestyle 1
-@    s1 line linewidth 1.0
+@    s1 line linewidth 2.0
 @    s1 line color 2
 @    s1 line pattern 1
 @    s1 baseline type 0
@@ -398,7 +398,7 @@
 @    s3 symbol skip 0
 @    s3 line type 1
 @    s3 line linestyle 3
-@    s3 line linewidth 1.0
+@    s3 line linewidth 2.0
 @    s3 line color 1
 @    s3 line pattern 1
 @    s3 baseline type 0
@@ -447,7 +447,7 @@
 @    s4 symbol skip 0
 @    s4 line type 1
 @    s4 line linestyle 3
-@    s4 line linewidth 1.0
+@    s4 line linewidth 2.0
 @    s4 line color 2
 @    s4 line pattern 1
 @    s4 baseline type 0
@@ -515,10 +515,10 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "(t-R\sextraction\N)/M"
+@    xaxis  label "t\sR\N/M"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 1.230000
+@    xaxis  label char size 1.750000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -554,7 +554,7 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.230000
+@    xaxis  ticklabel char size 1.250000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
@@ -566,10 +566,11 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "|R*\f{Symbol}Y\f{}\s4\N|"
+@    yaxis  label "|R\f{Symbol}Y\f{}\s4\N|"
 @    yaxis  label layout para
-@    yaxis  label place auto
-@    yaxis  label char size 1.310000
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.110000
+@    yaxis  label char size 1.750000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -605,7 +606,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 0.990000
+@    yaxis  ticklabel char size 1.250000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
@@ -614,7 +615,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.493548386774, 0.417741935645
+@    legend 0.538860886774, 0.447429435645
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 2.0
@@ -650,7 +651,7 @@
 @    s0 symbol skip 0
 @    s0 line type 1
 @    s0 line linestyle 1
-@    s0 line linewidth 1.0
+@    s0 line linewidth 2.0
 @    s0 line color 1
 @    s0 line pattern 1
 @    s0 baseline type 0
@@ -699,7 +700,7 @@
 @    s1 symbol skip 0
 @    s1 line type 1
 @    s1 line linestyle 1
-@    s1 line linewidth 1.0
+@    s1 line linewidth 2.0
 @    s1 line color 2
 @    s1 line pattern 1
 @    s1 baseline type 0

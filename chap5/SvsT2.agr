@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue May  7 14:30:50 2013"
+@timestamp def "Tue Jun  7 18:43:56 2016"
 @with string
 @    string on
 @    string loctype view
@@ -1253,7 +1253,7 @@
 @    s5 errorbar riser clip length 0.100000
 @    s5 comment "copy of setdata G0.S9"
 @    s5 legend  "\f{Symbol}c\f{}=0.7"
-@    s6 hidden false
+@    s6 hidden true
 @    s6 type xy
 @    s6 symbol 0
 @    s6 symbol size 1.000000

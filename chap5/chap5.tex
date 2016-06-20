@@ -74,7 +74,7 @@ and subsequently, the expected sinusoidal $(2,2)$ mode emerges.
 
 \begin{figure}
  \includegraphics[scale=0.95]{chap5/Typical}
-  \caption{A typical run illustrating the spurious burst of junk radiation. We see at early times a burst of high-frequency, high-amplitude radiation. At later times, the $(2,0)$ mode dies out, and the $(2,2)$ mode settles into the usual inspiral-type radiation}
+  \caption[A typical run illustrating junk radation.]{A typical run illustrating the spurious burst of junk radiation. We see at early times a burst of high-frequency, high-amplitude radiation. At later times, the $(2,0)$ mode dies out, and the $(2,2)$ mode settles into the usual inspiral-type radiation}
   \label{fig:Typical}
 \end{figure}
 
@@ -150,7 +150,7 @@ The paper is organized as follows:
 
 \subsection{The Initial Value Problem}
 \label{subsec:IVP}
-Employing the usual 3+1 decomposition~\cite{ADM,york79} space-time is foliated by a family
+Employing the usual 3+1 decomposition(~\cite{ADM,york79}),space-time is foliated by a family
 of spacelike hypersurfaces $\Sigma_t$. Each hypersurface has a
 future-pointing unit normal $n^{\mu}$, induced metric $g_{ij}$, and
 extrinsic curvature
@@ -174,7 +174,7 @@ R+K^2-K_{ij}K^{ij}&=&0, \\
 % \partial_tg_{ij}&=& blahblah \\
 % \partial_tK_{ij}&=& blahblah 
 % \end{eqnarray}
-To solve the constraint equations \ one writes~\cite{Lichnerowicz44}
+To solve the constraint equations \ one writes(~\cite{Lichnerowicz44})
 the metric in terms of a conformal metric $\tilde{g}_{ij}$ and a
 conformal factor $\Psi$:
 \begin{equation}
@@ -215,8 +215,8 @@ are \red{PROVIDE DETAILS}.
 \subsection{Code}
 \label{sec:Code}
 
-The initial data is solved using the spectral solver {\tt Spells}~\cite{Pfeiffer2003} of the Spectral 
- Einstein Code {\tt SpEC}~\cite{SpECwebsite}.  This is a
+The initial data is solved using the spectral solver {\tt Spells}(~\cite{Pfeiffer2003}) of the Spectral 
+ Einstein Code {\tt SpEC}~\cite{SXSWebsite}.  This is a
 multi-domain elliptic PDE solver that uses pseudo-spectral methods,
 whereby quantities of interest are expressed as a linear summation of
 basis functions. This method gives exponential convergence (with the
@@ -253,20 +253,18 @@ gravitational wave amplitude, $h$, by
 
 \subsection{Eccentricity Reduction}
 Gravitational radiation tends to circularize in-spiralling compact
-binaries~\cite{PetersMathews1963,Peters1964}. We reduce orbital
-eccentricity with an iterative method similar to the one described in
-Refs.\cite{Boyle2007,Chu2009}. One guesses the initial orbital
+binaries(~\cite{PetersMathews1963,Peters1964}). We reduce orbital
+eccentricity with an iterative method similar to the one described in~\cite{Boyle2007,Chu2009}. One guesses the initial orbital
 frequency $\Omega_0$ from Kepler's third law or from a Post-Newtonian
 calculation, while assuming that the initial radial velocity, $v_r$ is
-zero. After the first simulation has run for a sufficiently long
-length, about two orbits, we fit the time derivative of
+zero. After the first simulation has run for a sufficient length, about two orbits, we fit the time derivative of
 the orbital frequency, $\dot{\Omega}(t)$ as suggested
 in~\cite{Buonanno:2010yk}.  We fit parameters $\{A_0, A_1, T_c, B, \phi, \omega, q\}$ with the function
-\begin{eqnarray}
-\dot{\Omega}(t)&=&A_0\left(T_c-t\right)^{-11/8}+A_1\left(T_c-t\right)^{-13/8}\\
-&+&B\cos\left(\varphi + \omega
-  t+qt^2\right), \nonumber
-\end{eqnarray}
+\begin{equation}
+\dot{\Omega}(t)=A_0\left(T_c-t\right)^{-11/8}+A_1\left(T_c-t\right)^{-13/8}
++B\cos\left(\varphi + \omega
+  t+qt^2\right),
+\end{equation}
 where $T_C$ is the time of merger. The first two terms represent the
 smooth inspiral motion of the black holes, while the oscillatory
 second terms represents unwanted effects due to eccentricity. The
@@ -350,8 +348,9 @@ $\chi=\{0,0.1,0.2,0.3,0.4,0.5\}$. In each case the black holes are of
 equal mass, equal spin, and the spin is aligned with the orbital
 angular momentum, i.e., in the the $+z$ direction. To test the
 convergence of quantities of interest, each run is done at four
-resolutions, which we will refer to has N0-N3. Each evolution is
-run to about $t=1000M$, which is long enough to accurately measure the
+resolutions, which we will refer to as N0 (lowest resolution) to N3
+(highest resolution). Each evolution is
+run to about $t\sim1000M$, which is long enough to accurately measure the
 eccentricity, and make sure that it is sufficiently low. As discussed in
 section~\ref{subsec:ErrorEstimation}, sufficiently low means
 $e\lesssim 0.002$.
@@ -361,8 +360,8 @@ $e\lesssim 0.002$.
 \label{sec:Methodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We shall employ three diagnostics to measure the initial relaxation of
-the initial data, the outgoing pulse of radiation (junk radiation),
+We employ three diagnostics to measure the initial relaxation of
+the initial data: the outgoing pulse of radiation (junk radiation),
 the change in black hole mass during relaxation, and the change in
 black hole spin during relaxation.
 
@@ -373,24 +372,26 @@ black hole spin during relaxation.
 In this section we discuss our methods of
 quantifying the amount of junk radiation present in a given
 simulation. It is not immediately obvious what the best way to do this
-is.  Lovelace~\cite{Lovelace2009} considered the
-maximum value of the Newman-Penrose waveform, $\max\{r|\Psi_4^{lm}|\}$.  The
+is.  \cite{Lovelace2009} considered the
+maximum value of the Newman-Penrose waveform,
+$\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius.  The
   $(l,m)=(2,2)$ and $(2,0)$ modes were found to dominate. We find,
   however, that this method has some inadequacies. This is illustrated
-  by comparing two runs (CF data, $D=15M$, $\chi=0.2$), one at our
-  typical resolution N3, and another at a very high
-  resolution, N7\footnote{It terms of the total number of basis
+  by comparing $R|\Psi_4^{lm}|(t_R)$, where $t_R$ is the retarded time,
+  $t_R=t-R$, for two runs (CF data, $D=15M$, $\chi=0.2$); one at our
+  typical highest resolution N3, and another at an even higher
+  resolution, N7. In terms of the total number of basis
     functions $X$, $X^{1/3}\sim58$ for N3 and $X^{1/3}\sim78$ for
-    N4}. The $(2,0)$ and $(2,2)$ modes are shown in the top panel of
+    N4. The $(2,0)$ and $(2,2)$ modes are shown in the top panel of
   Fig.~\ref{fig:HighResComparison}. It is clear that the $(2,0)$ mode
   is significantly different between N3 and N7, in both the
   largest peak and in the subsequent smaller peaks, and that these
   differences are not well encapsulated simply by
-  $\max\{r|\Psi_4|\}$. In Fig.~\ref{fig:HighResComparison} we also
-  show $|r\Psi_4|$ for an SKS run with the same parameters. The
-  waveform is significantly different from the CF waveform in both the
-  number of peaks and their relative heights, and it is clear that
-  $\max\{r|\Psi_4^{lm}|\}$ does not encapsulate this waveform very well.
+  $\max\{R|\Psi_4|\}$. In Fig.~\ref{fig:HighResComparison} we also
+  show these quantties for an SKS run with the same parameters. Because
+  the waveform is significantly different from the CF waveform in both the
+  number of peaks and their relative heights, it is clear that
+  $\max\{R|\Psi_4^{lm}|\}$ does not encapsulate this waveform very well.
 
 %\red{[Shorten this paragraph, combine with above.  The purpose of this paragraph is to explain why we do not follow Lovelace 2009, and this can be done with fewer words.  Although it would be handy to have a SKS Psi4 waveform, to further illustrate the problems. 
 %]}
@@ -414,11 +415,12 @@ maximum value of the Newman-Penrose waveform, $\max\{r|\Psi_4^{lm}|\}$.  The
 
 \begin{figure}
   \includegraphics[scale=0.95]{chap5/HighResComparison}
-  \caption{{\em Top Panel:} Comparison of the junk radiation profiles for our usual
+  \caption[Junk radiation profiles for CF and SKS initial data, and a
+  comparison to high resolution SKS initial data.]{{\it Top Panel:} Comparison of the junk radiation profiles for our usual
     highest resolution (N3) and an additional run at very highest
     resolution (N7). We see, especially for the $(2,0)$ mode, that the
     maximum peak of the junk radiation is much higher for N7, but
-    additional peaks are comparable or higher for N3. \newline {\em
+    additional peaks are comparable or higher for N3. \newline {\it
       Bottom Panel:} Junk radiation profile for an SKS run with the
     same parameters as in the top panel. The waveform is significantly
     different in structure from the CF waveform.
@@ -427,22 +429,21 @@ maximum value of the Newman-Penrose waveform, $\max\{r|\Psi_4^{lm}|\}$.  The
 \end{figure}
 
 As a more robust quantity that incorporates the whole waveform, and is
-less resolution dependent than $\max{|r\Psi_4^{lm}|}$, we look at the
+less resolution dependent than $\max{|R\Psi_4^{lm}|}$, we look at the
 total energy carried away from the system by gravitational waves. The
- gravitational wave energy flux is~\cite{Boyle:2008}
+ gravitational wave energy flux is(~\cite{Boyle:2008})
 \begin{equation}
-F(t) =\frac{1}{16\pi}\sum_{l,m}\dot{h}_{lm}^2(t)
+F(t) =\frac{1}{16\pi}\sum_{l,m}\dot{h}_{lm}^2(t),
 \end{equation}
-\harald{\sout{where $h=h_{+}-ih_{\times}$. $\dot{h}$ is related} with}
-$\Psi_4$ by
+where
 \begin{equation}
 \dot{h}_{lm}(t)=\int_{t_0}^{t}{\Psi_4^{lm}(t')dt'} + H_{lm}.
 \end{equation}
-\harald{\sout{where}} The $H_{lm}$  \harald{\sout{is a constant of}} integration \harald{constants}.  To measure the
-  initial pulse of radiation, we chose $t_0=0$ and $H_{lm}=0$.  The energy flux $F(t)$ is shown in
+The $H_{lm}$ are integration constants.  To measure the
+  initial pulse of radiation, we use $t_0=0$ and $H_{lm}=0$.  The energy flux, $F(t)$, is shown in
 the red curves in Fig.~\ref{fig:FluxSample} for conformally flat initial data (top
 panel) and SKS initial data (bottom panel).  The initial burst
-  is apparent in these figures; at late times $t-R\gtrsim 40M$, $F(t)$
+  is apparent in these figures; at late times $t_R\gtrsim 40M$, $F(t)$
   approaches the nearly constant energy flux of the astrophysical
   inspiral.  We are now faced with two problems: We would like to
   isolate the energy carried in junk-radiation from the energy-flux
@@ -470,7 +471,7 @@ where the cut-off time $t_C$ is chosen after the junk radiation has
 decayed, i.e. $t_C-R\gtrsim 50M$.  The energy attributed to the junk
 radiation is thus the shaded area in Fig.~\ref{fig:FluxSample}.  As
 already apparent from Fig.~\ref{fig:FluxSample}, the precise value of
-$t_C$ is irrelevant \red{not really irrelevant because we discuss it later}, because at late times $F(t)-F_{22}(t)\approx 0$.  
+$t_C$ is not extremely important, because at late times $F(t)-F_{22}(t)\approx 0$.  
 
 It remains to chose a prescription for the choice of $t_{22}$, the
 time when we deem the astrophysical waveform to ``turn on''.
@@ -504,13 +505,14 @@ approach is needed. Instead we take $t_{22}$ to correspond to the flux
 weighted centre of the junk radiation waveform. The first moment of
 $F(t)-F_{22}(t)$, in other words. So,
 \begin{equation}\label{eq:t22}
-t_{22}=\frac{\int_0^{t_J}{t(F(t)-F_0\theta(t-t_{22}))dt}}{\int_0^{t_J}{(F(t)-F_0\theta(t-t_{22}))dt}}.
+t_{22}=\frac{\int_0^{t_C}{t\left(F\left(t\right)-F_0\theta\left(t-t_{22}\right)\right)dt}}{\int_0^{t_C}{\left(F\left(t\right)-F_0\theta\left(t-t_{22}\right)\right)dt}}.
 \end{equation}
 This equation must be solved iteratively for $t_{22}$.
 
 \begin{figure}
  \includegraphics[scale=0.95]{chap5/FluxSample}
-  \caption{The flux $F(t)$ is plotted for two different runs, both
+  \caption[The flux, $F(t)$, and the computation of $E_J$ for CF and
+  SKS intitial data.]{The flux $F(t)$ is plotted for two different runs, both
     with parameters $D=15M$ and $\chi=0$. Conformally flat initial
     data is in the top panel and SKS initial data is in the bottom
     panel. The solid red curve represents the total flux, $F(t)$. The
@@ -527,7 +529,7 @@ This equation must be solved iteratively for $t_{22}$.
 %\subsubsection{Resolution of the Waveform}
 
 Several effects may influence the quantity $E_J$ computed by
-  Eqs.~(\ref{eq:EJ}) and~(\ref{eq:t22}).  {\em Numerical truncation
+  Eqs.~(\ref{eq:EJ}) and~(\ref{eq:t22}).  {\it Numerical truncation
     error} can be estimated by performing the simulations with
   different numerical resolution.  Our simulations show that in general,
   $E_J$ increases with resolution. This is because junk radiation is
@@ -538,15 +540,16 @@ $\chi=0.2$ runs at N3 and N7, as discussed earlier. We find that
 at N7, $E_J$ is about $13\%$ greater than at N3. Since we don't
 have such high resolutions runs available for each of our cases, we
 assume that we can use this same $13\%$ difference for each of our
-runs. We This also assumes that at N7 the junk
+runs. This also assumes that at N7 the junk
 radiation is nearly fully resolved, so that this difference is a good
-indication of the true value.  \red{[What about SKS -- the technology
-  is completely different, so a separate number needs to be
-  determined]} \nick{Working on something here...}
+indication of the true value. Finally, we use this same uncertainty of
+$13\%$ for the SKS runs as well - while the technology is different
+for the SKS runs, it should still be a reasonably good estimate, and
+likely a conservative estimate, of the numerical truncation error in them.
 
 %\subsubsection{Choice of $t_C$}
 
-A second uncertainty arises through the {\em choice of $t_C$}.
+A second uncertainty arises through the {\it choice of $t_C$}.
 This number is chosen manually for
 each run, introducing a
   subjective element into the analysis. Examining the flux curves in
@@ -573,7 +576,7 @@ all of ours runs.
 
 \begin{figure}
  \includegraphics[width=0.95\columnwidth]{chap5/EvsDtj}
-  \caption{$E_J$ is plotted against $\delta t_C$, representing changes
+  \caption[$E_J$ as a function of $\delta t_C$.]{$E_J$ is plotted against $\delta t_C$, representing changes
     to the selected value of $t_C$ for runs where $D=15M$,
     $\chi=0$. The results for conformally flat initial data are shown
     in the top panel, and SKS initial data in the bottom
@@ -583,7 +586,7 @@ all of ours runs.
 \end{figure}
 
 
-A third error in $E_J$ arises through {\em the finite radius
+A third error in $E_J$ arises through {\it the finite radius
     of gravitational wave extraction}.  In this study, gravitational waves are extracted at radii $R_{\rm ex}\sim 300-400M$.  Gravitational waves extracted at finite radii are subject to near-field effects which may cause the extracted
 waveforms to differ from the one that would be observed at
 infinity.  
@@ -603,28 +606,22 @@ as our error estimate. This parameter is on the order of $10\%$ for
 most of our runs. Note, however, that we still use $E_J$ and not $E_{\infty}$ as
 our measure of energy in the pulse. In Fig.~\ref{fig:EvsRextr} we illustrate an
 example of this procedure, plotting $E_J$ vs. $1/R_{ex}$ for one case,
-$D=15M \chi=0$, for both CF and SKS data.
-
-\red{[To clarify: You perform 1/R extrapolation separately for every
-  configuration? That's a lot of work.]}\nick{Yes - at every D for
-  both CF and SKS; but not at each spin. They're similar enough that I
-  use the $\chi=0$ estimate for each spin.}
+$D=15M, \chi=0$, for both CF and SKS data.
 
 \begin{figure}
   \includegraphics[scale=0.95]{chap5/EvsRextr}
-  \caption{$E_J$ as a function of $1/R_{ex}$, where $R_{ex}$ is the
+  \caption[$E_J$ as a function of $1_R/{\rm ex}$.]{$E_J$ as a function of $1/R_{ex}$, where $R_{ex}$ is the
     extraction radius. This is for the case where $D=15M$, $\chi=0$,
     with CF initial data in the left panel and SKS initial data in the
     right panel. The extrapolation
     to $1/R_{ex}\rightarrow 0$ allows us to estimate the error on
-    $E_J$ due to finite extraction radius effects. 
-    \red{[Combine data into single plot]} 
-}
+    $E_J$ due to finite extraction radius effects. }
+
   \label{fig:EvsRextr}
 \end{figure}
 
 A final factor that could influence the estimated $E_J$ is the
-{\em eccentricity of the orbit of the black holes}. Previously we argued
+{\it eccentricity of the orbit of the black holes}. Previously we argued
 that it is important for astrophysically realistic binaries to have
 low eccentricity. We now consider how it affects the junk radiation, specifically the effect on $E_J$. We examine the case $D=25M \chi=0.1$
 for CF data, as this particular case led to a fairly large range of
@@ -681,7 +678,7 @@ eccentricity of all of our runs to $e\lesssim 0.002$.
 
 \subsubsection{Mass Increase}
 Besides the energy carried away in junk radiation, we utilize two further
-diagnostics of transients \harald{\sout{due to} arising from} imperfect initial data.
+diagnostics of transients arising from imperfect initial data.
 The first diagnostic is the irreducible
 mass of the black hole, $M_{irr} = \sqrt{A/(16\pi)}$, where $A$
 is the area of the black hole's apparent horizon. 
@@ -704,12 +701,11 @@ For SKS initial data the behaviour of $M_{\rm irr}(t)$ is more
   larger increase of $M_{\rm irr}(t)$, albeit the magnitude of the
   increase is about a factor 50 smaller for SKS initial data.
   Subsequently, starting at $t\sim 40M$, the SKS-runs show a second
-  set of features, \harald{\sout{rather large amplitude}} oscillations \harald{with amplitude $\sim 2\times 10^{-5}$} lasting about
+  set of features, oscillations with amplitude $\sim 2\times 10^{-5}$ lasting about
   $60M$.  The features of these oscillations are similar to each other even for runs with different spin $\chi$.  Therefore, it is
   likely that these oscillations are caused by features in the initial
-  data set {\em away} from the black holes.
+  data set {\it away} from the black holes.
 
-{\footnotesize \red{[Revisit what to do with this text]}
 In Fig.~\ref{fig:MassIncreaseCFSKS}, curves of $M_{irr}(t)$ are
 shown at different spins, at constant $D=15M$, with Conformally flat
 initial data in the top panel, and SKS initial data in the bottom
@@ -720,11 +716,11 @@ independent, and there is not a clear way to define $\delta_M$. The
 scale of the oscillations is on the order of $10^{-5}$. Our conclusion
 is that these are numerical oscillations and the contribution from
 junk radiation is not directly measurable, and we do not seek to
-characterize their parameter space dependence any further.}
+characterize their parameter space dependence any further.
 
 \begin{figure}
  \includegraphics[width=0.95\columnwidth]{chap5/MassIncreaseCFSKS}
-  \caption{Normalized irreducible mass curves for CF data (top panel)
+  \caption[Normalized irreducible mass curves for CF and SKS data.]{Normalized irreducible mass curves for CF data (top panel)
     and SKS data (bottom panel) for all of the different spins in the
     covered parameter space and $D=15M$ remaining constant. }
   \label{fig:MassIncreaseCFSKS}
@@ -751,13 +747,13 @@ SKS initial data than for CF initial data ($\sim 10^{-5}$ vs. $\sim
 data approach our numerical truncation error, and are furthermore
 ambiguous due to the extra features apparent in
 Fig.~\ref{fig:MassIncreaseCFSKS}.  Therefore, we shall not attempt to
-quantify them \harald{\sout{below} in detail}, beyond giving upper bounds of the change on
+quantify them in detail, beyond giving upper bounds of the change on
 $M_{\rm irr}$ for SKS data.
 
 
 \begin{figure}
  \includegraphics[scale=0.95]{chap5/CFMConvergence1}
-  \caption{Convergence test of $M_{irr}(t)$ for SKS initial data in the
+  \caption[Convergence of $M_{\rm irr})(t)$ for CF initial data.]{Convergence test of $M_{irr}(t)$ for CF initial data in the
   case $D15=M$, $\chi=0.3$. The top panel shows $M_{irr}(t)$ at
   different resolutions, and the bottom panel shows the difference
   between consecutive resolutions.}
@@ -766,8 +762,11 @@ $M_{\rm irr}$ for SKS data.
 
 \begin{figure}[!htbp]
  \includegraphics[scale=0.95]{chap5/SKSMConvergence1}
-  \caption{Same as Fig.~\ref{fig:CFMConvergence1} but for SKS data
-    \red{[make same changes to figure as indicated in Fig.~6]}}
+  \caption[Convergence of $M_{\rm irr})(t)$ for SKS initial
+  data.]{Convergence test of $M_{irr}(t)$ for SKS initial data in the
+  case $D15=M$, $\chi=0.3$. The top panel shows $M_{irr}(t)$ at
+  different resolutions, and the bottom panel shows the difference
+  between consecutive resolutions.}
 
   \label{fig:SKSMConvergence1}
 \end{figure}
@@ -826,22 +825,22 @@ $\delta S(t)$
 over some suitable interval around $t_{eq}$.
 
 Analogous to Figs.~\ref{fig:CFMConvergence1}
-and~\ref{fig:SKSMConvergence1}, Figs.~\ref{fig:SKSMConvergence1} and
-~\ref{fig:CFMConvergence1} \red{[Fix figure numbers]} demonstrate convergence tests for $\delta
+and~\ref{fig:SKSMConvergence1}, Figs.~\ref{fig:CFSConvergence1} and
+~\ref{fig:SKSSConvergence1} demonstrate convergence tests for $\delta
 S(t)$, again for the case $D=15M, \chi=0.3$. Similar to what was see
 in the convergence test for $M_{\rm irr}(t)$, the CF data convergences
 rapidly, while we see no clear convergence in the SKS data going up to N6.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap5/SvsT2}
-\caption{Fractional change in spin relative to $t=0$, $\delta S = S(t)/S(t=0)-1$.  The top panel shows conformally flat initial data and the bottom panel SKS data (note the different scale).  All simulations at distance $D=15M$.}
+\caption[$\delta S(t)$ for CF and SKS initial data.]{Fractional change in spin relative to $t=0$, $\delta S = S(t)/S(t=0)-1$.  The top panel shows conformally flat initial data and the bottom panel SKS data (note the different scale).  All simulations at distance $D=15M$.}
 \label{fig:SvsT2}
 \end{figure}
 
 
 \begin{figure}
   \includegraphics[width=0.95\columnwidth]{chap5/CFSConvergence1}
-  \caption{Convergence test of $\delta S(t)$ for CF initial data in the case
+  \caption[Convergence test of $\delta S(t)$ for CF initial data.]{Convergence test of $\delta S(t)$ for CF initial data in the case
     $D=15M$, $\chi=0.3$. The top panel shows $\delta S(t)$ at different
     resolutions and the bottom panel shows the differences between
     consecutive resolutions}
@@ -849,36 +848,45 @@ rapidly, while we see no clear convergence in the SKS data going up to N6.
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S1}
+  \includegraphics[width=0.95\columnwidth]{chap5/SKSSConvergence1}
+  \caption[Convergence test of $\delta S(t)$ for SKS initial data.]{Convergence test of $\delta S(t)$ for SKS initial data in the case
+    $D=15M$, $\chi=0.3$. The top panel shows $\delta S(t)$ at different
+    resolutions and the bottom panel shows the differences between
+    consecutive resolutions}
+  \label{fig:SKSSConvergence1}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S2}
-\end{figure}
+%\begin{figure}
+%  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S1}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S3}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S2}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S4}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S3}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S5}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S4}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S6}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S5}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S7}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S6}
+%\end{figure}
 
-\begin{figure}
-  \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S8}
-\end{figure}
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S7}
+%\end{figure}
+
+%\begin{figure}
+ % \includegraphics[width=0.95\columnwidth]{chap5/dS_SKS_S8}
+%\end{figure}
 
 
 %\begin{figure}

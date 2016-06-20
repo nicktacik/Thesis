@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Mar  4 10:05:17 2013"
+@timestamp def "Tue Jun  7 19:01:58 2016"
 @with box
 @    box on
 @    box loctype view
@@ -198,7 +198,7 @@
 @    yaxis  label "\f{Symbol}d\f{}S"
 @    yaxis  label layout para
 @    yaxis  label place spec
-@    yaxis  label place 0.000000, 0.140000
+@    yaxis  label place 0.000000, 0.160000
 @    yaxis  label char size 1.310000
 @    yaxis  label font 0
 @    yaxis  label color 1
@@ -235,7 +235,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 0.990000
+@    yaxis  ticklabel char size 1.250000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
@@ -695,7 +695,8 @@
 @    yaxis  bar linewidth 1.0
 @    yaxis  label ""
 @    yaxis  label layout para
-@    yaxis  label place auto
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.100000
 @    yaxis  label char size 1.500000
 @    yaxis  label font 0
 @    yaxis  label color 1
@@ -732,7 +733,7 @@
 @    yaxis  ticklabel start 0.000000
 @    yaxis  ticklabel stop type auto
 @    yaxis  ticklabel stop 0.000000
-@    yaxis  ticklabel char size 1.500000
+@    yaxis  ticklabel char size 1.250000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
 @    yaxis  tick place both
