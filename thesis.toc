@@ -26,58 +26,36 @@
 \contentsline {subsection}{\numberline {2.5.4}Precession}{66}{subsection.2.5.4}
 \contentsline {subsection}{\numberline {2.5.5}Stellar Oscillations}{71}{subsection.2.5.5}
 \contentsline {section}{\numberline {2.6}Discussion}{76}{section.2.6}
-\contentsline {section}{\numberline {2.7}Summary }{77}{section.2.7}
-\contentsline {chapter}{\numberline {3}Gravitational and Electromagnetic Radiation from Spinning Magnetized Binary Neutron Stars}{78}{chapter.3}
-\contentsline {section}{\numberline {3.1}Chapter Overview}{78}{section.3.1}
-\contentsline {section}{\numberline {3.2}Introduction}{78}{section.3.2}
-\contentsline {section}{\numberline {3.3}Initial Data}{79}{section.3.3}
-\contentsline {section}{\numberline {3.4}Summary }{79}{section.3.4}
-\contentsline {chapter}{\numberline {4}Spinning Neutron Stars in Mixed Binaries}{80}{chapter.4}
-\contentsline {section}{\numberline {4.1}Chapter Overview}{80}{section.4.1}
-\contentsline {section}{\numberline {4.2}Chapter TDL}{80}{section.4.2}
-\contentsline {section}{\numberline {4.3}Papers to read}{81}{section.4.3}
-\contentsline {section}{\numberline {4.4}Introduction}{81}{section.4.4}
-\contentsline {section}{\numberline {4.5}Initial Data Formalism}{82}{section.4.5}
-\contentsline {section}{\numberline {4.6}Numerical Methods}{87}{section.4.6}
-\contentsline {section}{\numberline {4.7}Results}{91}{section.4.7}
-\contentsline {subsection}{\numberline {4.7.1}Initial Data Set Parameters}{91}{subsection.4.7.1}
-\contentsline {section}{\numberline {4.8}Conclusion}{94}{section.4.8}
-\contentsline {chapter}{\numberline {5}Junk Radiation in Binary Black Hole Simulations}{103}{chapter.5}
-\contentsline {section}{\numberline {5.1}Chapter Overview}{103}{section.5.1}
-\contentsline {section}{\numberline {5.2}Chapter TDL}{103}{section.5.2}
-\contentsline {section}{\numberline {5.3}Introduction}{104}{section.5.3}
-\contentsline {section}{\numberline {5.4}Numerical Methods}{108}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}The Initial Value Problem}{108}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Code}{109}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}Eccentricity Reduction}{110}{subsection.5.4.3}
-\contentsline {subsection}{\numberline {5.4.4}Simulations}{111}{subsection.5.4.4}
-\contentsline {section}{\numberline {5.5}Methodology}{111}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Pulse in the Gravitational Waveform}{112}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Uncertainty in $E_J$}{116}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}Transient behaviour in Black Hole quantities}{120}{subsection.5.5.3}
-\contentsline {subsubsection}{Mass Increase}{120}{section*.51}
-\contentsline {subsubsection}{Spin Decrease}{121}{section*.55}
-\contentsline {section}{\numberline {5.6}Results}{125}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}Energy in Junk Radiation}{125}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {5.6.2}Mass Increase}{138}{subsection.5.6.2}
-\contentsline {subsection}{\numberline {5.6.3}Spin Decrease}{139}{subsection.5.6.3}
-\contentsline {section}{\numberline {5.7}Summary }{143}{section.5.7}
-\contentsline {chapter}{\numberline {6}Improved Initial Data for Spinning Binary Neutron Stars}{144}{chapter.6}
-\contentsline {section}{\numberline {6.1}Chapter Overview}{144}{section.6.1}
-\contentsline {section}{\numberline {6.2}Introduction}{144}{section.6.2}
-\contentsline {section}{\numberline {6.3}Erroneuous code}{145}{section.6.3}
-\contentsline {section}{\numberline {6.4}Revised Code}{146}{section.6.4}
-\contentsline {section}{\numberline {6.5}Description of Bug}{147}{section.6.5}
-\contentsline {section}{\numberline {6.6}Revisiting previous results}{148}{section.6.6}
-\contentsline {subsection}{\numberline {6.6.1}Size of density oscillations}{148}{subsection.6.6.1}
-\contentsline {subsection}{\numberline {6.6.2}Magnitude of spin}{148}{subsection.6.6.2}
-\contentsline {subsection}{\numberline {6.6.3}$\chi - \Omega $ relation}{149}{subsection.6.6.3}
-\contentsline {subsection}{\numberline {6.6.4}Initial Data Convergence}{151}{subsection.6.6.4}
-\contentsline {subsection}{\numberline {6.6.5}Komar Mass}{153}{subsection.6.6.5}
-\contentsline {section}{\numberline {6.7}Higher Spin Evolutions}{154}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Evolution 1}{154}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Evolution 2}{155}{subsection.6.7.2}
-\contentsline {chapter}{\numberline {7}Conclusions \& Future Work}{157}{chapter.7}
-\contentsline {section}{\numberline {7.1}Conclusions}{157}{section.7.1}
-\contentsline {section}{\numberline {7.2}Future Work and Directions}{157}{section.7.2}
-\contentsline {chapter}{Bibliography}{158}{section.7.2}
+\contentsline {chapter}{\numberline {3}Initial Data for Spinning Neutron Stars in Mixed Binaries}{78}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{78}{section.3.1}
+\contentsline {section}{\numberline {3.2}Initial Data Formalism}{80}{section.3.2}
+\contentsline {section}{\numberline {3.3}Numerical Methods}{86}{section.3.3}
+\contentsline {section}{\numberline {3.4}Results}{91}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Initial Data Set Parameters}{91}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Convergence of the Initial Data Solver}{94}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Other Initial Data Sequences}{101}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Conclusion}{111}{section.3.5}
+\contentsline {chapter}{\numberline {4}Junk Radiation in Binary Black Hole Simulations}{113}{chapter.4}
+\contentsline {section}{\numberline {4.1}Chapter Overview}{113}{section.4.1}
+\contentsline {section}{\numberline {4.2}Chapter TDL}{113}{section.4.2}
+\contentsline {section}{\numberline {4.3}Introduction}{114}{section.4.3}
+\contentsline {section}{\numberline {4.4}Numerical Methods}{118}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}The Initial Value Problem}{118}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Code}{119}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Eccentricity Reduction}{120}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Simulations}{121}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Methodology}{121}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Pulse in the Gravitational Waveform}{122}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Uncertainty in $E_J$}{126}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Transient behaviour in Black Hole quantities}{130}{subsection.4.5.3}
+\contentsline {subsubsection}{Mass Increase}{130}{section*.54}
+\contentsline {subsubsection}{Spin Decrease}{131}{section*.58}
+\contentsline {section}{\numberline {4.6}Results}{135}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Energy in Junk Radiation}{135}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Mass Increase}{141}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Spin Decrease}{142}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}Summary }{146}{section.4.7}
+\contentsline {chapter}{\numberline {5}Conclusions \& Future Work}{147}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusions}{147}{section.5.1}
+\contentsline {section}{\numberline {5.2}Future Work and Directions}{147}{section.5.2}
+\contentsline {chapter}{Bibliography}{148}{section.5.2}

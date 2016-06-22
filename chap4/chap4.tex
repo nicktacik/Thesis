@@ -2,55 +2,9 @@
 
 \chapter{Initial Data for Spinning Neutron Stars in Mixed Binaries}
 
-%\section{Chapter Overview}
-
-%An Overview of my chapter here.
-
-%\section{Chapter TDL}
-%\begin{itemize}
-%\item Previous work on mixed binaries with spinning stars?
-%\item Plot of omega vs chi for NS spin
-%\item 3d parameter space plot
-%\item Information about how easy/difficult it is to do the solution?
-%  Number of gridpoints, constraints, its?
-%\item Geoffrey massive disk formation 
-%\item Do the high $\omega$ curves go to higher lev than 8?
-%\end{itemize}
-
-
-%\section{Papers to read}
-
-%Insert here
-
-%\section{Post-Intro}
-%\red{What are all the items I need post-intro}
-
-%\begin{itemize}
-%\item What is the code we use?
-%\item  How does it work?
-%\item What is the domain? What does it look like?
-%\item What is the resolution of the domain? How is it chosen?
-%\item Finite difference grid? Resolution?
-%\item Domain symmetries
-%%\item What equations are we solving?
-%\item Equilibrium assumption
-%\item Values of $\Omega$ and $v_r$
-
-
-
-
-%\end{itemize}
-
-
 \section{Introduction}
-
-%\red{Topics to cover in intro}
-%\begin{enumerate}
-%\item X
-%\item XX
-%\end{enumerate}
 The spectacular detection of merging binary black holes by Advanced
-LIGO (\cite{Abbott:2016blz}) has dawned the beginning of the era of gravitational wave astronomy. Black-hole - neutron star (Bh-Ns) binaries are now the only compact object binary whose existence has not been direclty confirmed. They remain, however, an important potential source of gravitational waves for advanced ground-based detectors, with an expected event rate of approximately ten per year(\cite{AbadieLSC:2010}), albeit with a large uncertainity. In addition to gravitational waves, Bh-Ns mergers can be an exciting source of electromagnetic radiation and give further clues to the violent processes that occur during the merger. If a massive disk is left from the merger, it could lead to a short-duration gamma ray burst (SGRB) and material ejected during the merger could radiate a signal such as a "kilonova"(\cite{metzger:11}).
+LIGO (\cite{Abbott:2016blz},~\cite{PhysRevLett.116.241103}) has dawned the beginning of the era of gravitational wave astronomy. Black-hole - neutron star (Bh-Ns) binaries are now the only compact object binary whose existence has not been direclty confirmed. They remain, however, an important potential source of gravitational waves for advanced ground-based detectors, with an expected event rate of approximately ten per year(\cite{AbadieLSC:2010}), albeit with a large uncertainity. In addition to gravitational waves, Bh-Ns mergers can be an exciting source of electromagnetic radiation and give further clues to the violent processes that occur during the merger. If a massive disk is left from the merger, it could lead to a short-duration gamma ray burst (SGRB) and material ejected during the merger could radiate a signal such as a "kilonova"(\cite{metzger:11}).
 
 Numerical relativity simulations are important to accurately study
 both the gravitational waves and electromagnetic emission produced in
@@ -363,7 +317,7 @@ spectral methods are suitable and exponentical convergence can be
 achieved. The resolution of each domain is synonymous with the
 number of colocation points used. They are chosen manually at the
 start of the initial data solve, and then modified several times using
-an adaptive scheme. \red{Give details.} To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
+an adaptive scheme (see step  To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
 \begin{equation}
 N^{1/3}=\left(\sum N_i\right)^{1/3},
 \end{equation}
@@ -402,7 +356,9 @@ $w$ is half the coordinate separation between them.
 Let's now discuss the algorithm we use to solve for the initial data. 
 
 \begin{enumerate}
-\item If this is the first resolution (i.e. step 10 has not been
+\item 
+\label{it:1}
+If this is the first resolution (i.e. step~\ref{it:secondlast} has not been
   completed once yet), set $\omega^i=0$, otherwise set
   to the desired value. This has been found to help with overall
   convergence. Additionally, impose a maximum radius out to which to
@@ -410,7 +366,9 @@ Let's now discuss the algorithm we use to solve for the initial data.
   material at high radius can lead to spurious large velocities,
   especially when the neutron star spin is large.
 
-\item Solve the non-linear XCTS equations for the metric variables (\cref{eq:XCTS-Shift,eq:XCTS-ConformalFactor,eq:XCTS-Lapse} )
+\item 
+\label{it:solve}
+Solve the non-linear XCTS equations for the metric variables (\cref{eq:XCTS-Shift,eq:XCTS-ConformalFactor,eq:XCTS-Lapse} )
   $X=\left(\beta^i,\Psi,\alpha\Psi\right)$ assuming the matter source
   terms are fixed. Update the metric variables using a relaxation
   scheme
@@ -426,7 +384,14 @@ We use $\lambda=0.3$.
   impose equatorial symmetry. This will be speed convergence and
   decrease computational cost.
 
-\item Locate the surface of the star. The surface of the star is
+\item
+\label{it:toplevelparamsolve}
+ If already at a sufficiently high AMR resolution, skip to step~\ref{it:omega}, otherwise proceed to step~\ref{it:surface}. We generally find that after completed the first four resolutions, 
+the stellar and black hole parameters are already computed to a good enough accuracy, so therefore those steps can be skipped to decrease computational cost.
+
+\item 
+\label{it:surface}
+Locate the surface of the star. The surface of the star is
   represented in terms of spherical harmonics
 \begin{equation}
 \label{eq:NSSurf}
@@ -451,11 +416,6 @@ drive $M_{\rm BH}$ to the desired value by applying (\cite{Buchman:2012dw})
 where $M_{\rm BH}$ is the measured value in the initial data solve and
 $M_{\rm BH}^{*}$ is the desired value.
 
-\item If desired, adjust the orbital angular frequency using
-  Eq.~\ref{eq:OmegaDriver}, which, after exapnding the shift as 
-$\beta^i=\beta^i_0 +
-\vec{\Omega}\times\vec{r} + \dot{a}\vec{r}$, is a second-order
-equation for $\Omega$.
 \item Compute the spin of the BH by evaluating Eq.~\ref{eq:BhSpin}. Then
   modify the vector $\Omega^i_{\rm BH}$ in Eq.~\ref{eq:BhBoundary3} to drive
   the black hole spin to the target value,  by applying (\cite{Buchman:2012dw})
@@ -466,24 +426,38 @@ equation for $\Omega$.
 \end{equation}
 where $\chi^i_{\rm BH}$ is the computed black hole spin, and $\chi_{\rm
     BH}^{*i}$ is the target spin.
+
+\item
+\label{it:omega}
+ If desired, adjust the orbital angular frequency using
+  Eq.~\ref{eq:OmegaDriver}, which, after exapnding the shift as 
+$\beta^i=\beta^i_0 +
+\vec{\Omega}\times\vec{r} + \dot{a}\vec{r}$, is a second-order
+equation for $\Omega$.
+
 \item Fix the Euler constant by evaluating the integral
 \begin{equation}
 M_{B}=\int \rho_0\Psi^6\gamma_ndV
 \end{equation}
 as a function of the Euler
-constant, and using the secant method to drive the baryon mass to the
-desired value. \red{How does this actually work?}
+constant $C$ (since $C$ is a function of $h$ and $h$ is a function of $\rho_0$), and using the secant method to drive the baryon mass to the
+desired value.
 
 \item Solve the elliptic equations for the velocity potential, $\phi$,
   and update using the same relaxation scheme as described above.
 
-\item Check whether all equations satisfied to the desired
-  accuracy. If so, proceed to step 11. Otherwise return to step 2.
+\item
+\label{it:secondlast}
+ Check whether all equations satisfied to the desired
+  accuracy. If so, proceed to step~\ref{it:final}. Otherwise return to step~\ref{it:solve}.
 
-\item Compute the truncation error for the current solution by
+\item 
+\label{it:final}
+Compute the truncation error for the current solution by
   examining the spectral coefficients of the metric variables. If the
-  truncation error is too large, adjust the number of grid points and
-  return to step 1.
+  truncation error is too large (generally we use $10^{-9}$ as the criterion), adjust the number of grid points and
+  return to step~\ref{it:1}. This adaptive refinement is based on the target truncation error and the measured convergence rate of the solution. See \cite{Szilagyi:2014fna} for a complete description
+of this procedure.
 
 \end{enumerate}
 
@@ -500,8 +474,7 @@ Let us begin by discussing the parameters for the initial data sets
 that will be used in this work. We start from the six BH-NS
 configurations described in Table 1 of \cite{Foucart:2013a}. All
 binaries have a mass ratio $q=7$ and a black hole spin magnitude of
-$\chi_{\rm BH}=0.9$. \red{Harald says - ``define $M_{\rm ADM}$ up
-  front''... not sure what he means.}The neutron star in each binary has
+$\chi_{\rm BH}=0.9$. The neutron star in each binary has
 an ADM mass of $M^{\rm Ns}_{\rm ADM}=1.4M_{\odot}$ - note that this is
 distinct from the ADM energy, $E_{\rm ADM}$ of the full binary. In
 practice, this means that it is fixed to have the same baryon mass as
@@ -617,51 +590,16 @@ sensitivity to the NS spin should be tested. If the material is less
 strongly bound to the star because of centrifugal forces arising from
 the spin, then the stars should disrupt earlier.
 
-
-In addition to these parameters, we consider several other sequences
-of Bh-Ns initial data sets to verify the robustness of the solutions across
-the whole parameter space. First, we consider a sequence of where we vary the neutron star spin from
-$\chi_{\rm NS}=0$ to $\chi_{\rm NS}\sim0.7$, keeping it aligned with the orbital angular momentum. In these initial data sets, the other binary parameters are the same
-as in the {\tt R14i0} runs. Namely, the neutron star mass, equation of state, black hole mass, black hole spin, initial separation and orbital angular frequency.
-
-Next, we consider a sequence of runs where we vary the black hole spin
-from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$, while keeping the other binary parameters as in the {\tt R14i0$\Uparrow$} run.
-
-Finally, we consider a sequence of runs where we vary the mass ratio
-from $q=2$ to $q=10$. In these runs the other binary parameters are
-the same as in the {\tt R14i0$\Uparrow$} run. In particular, the
-orbital parameters $M\Omega$ and $D/M$ are constant. \red{Imrpove the
-  discussion below.}While not the
-most accurate way of choosing these parameters, it is a simple method
-that is sufficient for our purposes. To assess the accuracy of this
-approximation, we can look at the Post-Newtonian expansion in Eq. 228 of \cite{Blanchet2006}:
-\begin{equation}
-\Omega^2=\frac{GM}{r^3}\left(1+(-3+\nu)\gamma+\left(6+\frac{41}{4}\nu+\nu^2\right)\gamma^2+...\right)
-\end{equation}
-where $\nu$ is the symmetric mass ratio, $\nu=q/(1+q)^2$, and $\gamma=GM/Dc^2$. Keeping $D$ and $M$ constant, the quantity $M\Omega$ varies by approximately 3\% in the mass ratio range we consider.
-Thus, while this approximation will induce a small eccentricity of a similar order, it's not a large enough difference to invalidate our results.
-
-Figure~\ref{fig:3dparam} summarizes all the initial data sets along the axes of $\chi_{\rm NS}$, $\chi_{\rm BH}$ and $q$.
-
-\begin{figure}
-\includegraphics[width=0.95\columnwidth]{chap4/3dparam.png}
-\caption[3d parameter space plot of Bh-Ns initial data sets.]{\label{fig:3dparam}
-\red{Re-do plot to put a big open circle in the middle.}
-Parameter space exploration. Starting from {\tt
-  R14i60$\Uparrow$} (big open circle) we vary (i) the Bh spin
-$\chi_{\rm BH}$, (ii) the Ns spin $\chi_{\rm NS}$ and (iii) the black
-hole mass $M_{\rm BH}$, indicated by the mass-ration $q$.}
-\end{figure}
-
 \subsection{Convergence of the Initial Data Solver}
-To assess the convergence of the initial data solver we will begin by looking at the convergence of the iterative part of the solver. That is, the convergence of steps 1-10 in the iterative procedure
+To assess the convergence of the initial data solver we will begin by looking at the convergence of the iterative part of the solver. That is, the convergence of steps 1-12 in the iterative procedure
 described above. We will first focus on one particular initial data
 set of the 36 in Tab~\ref{Tab:36Sets} - namely the {\tt
   R14i60$\Uparrow$} initial data set. The results we present for {\tt
   R14i60$\Uparrow$} are representative for all of the 36 sets considered.
 
 We begin by looking at the convergence of the Euler constant, $C$. In figure~\ref{Fig:EulerConv} we plot the absolute difference in $C$ between neighbouring iterations for the eight
-different resolutions used in the initial data solve. \red{Expand explanation}In our notation, {\tt R1} is the first (lowest) resolution, {\tt R2} is the second, etc. In the figure we see that at a given resolution these differences
+different resolutions used in the initial data solve. %\red{Expand explanation}In our notation, {\tt R1} is the first (lowest) resolution, {\tt R2} is the second, etc. 
+In the figure we see that at a given resolution these differences
 decrease exponentially with iteration as expected for the relaxation
 scheme employed (cf. Eq.~\ref{eq:Relaxation}). Meanwhile the differences also decrease with increasing resolution. This all shows that the initial data solver is working as it should. Note that although we've only shown
 this plot for the {\tt R14i60$\Uparrow$} inital data set, we find similar results for all the other initial data sets we consider.
@@ -670,12 +608,10 @@ this plot for the {\tt R14i60$\Uparrow$} inital data set, we find similar result
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/EulerConv}
 \caption[Convergence of the Euler constant for the {\tt
-  R14160$\Uparrow$}]{\label{Fig:EulerConv}
-\red{Replace RN with $N^{1/3}\approx 33.0$ etc.}
+  R1460$\Uparrow$}]{\label{Fig:EulerConv}
 Absolute difference between neighbouring iterations of the Euler
-constant for the {\tt R14i160$\Uparrow$} initial data set. The eight
-curves {\tt R1}-{\tt R8} are the eight different resolutions {\red
-  explain better}
+constant for the {\tt R14i60$\Uparrow$} initial data set. The eight
+curves are the eight different resolutions
 used in the initial data solve.}
 \end{figure}
 
@@ -698,16 +634,15 @@ difference is plotted as a funciton of iteration, for four different
 resolutions. Note that the previous plot had eight different
 resolutions, while this one only has four. This is because the black
 hole spin is only computed for the first four resolutions - afterwards
-it is no longer solved adjusted. \red{Explain why.} We note that in general we see a decrease in this difference with iteration, especially at the first resolution, therefore showing that the iterative solver is correctly driving the the black hole properties to the target values.
+it is no longer solved adjusted (cf. Step~\ref{it:toplevelparamsolve}) We note that in general we see a decrease in this difference with iteration, especially at the first resolution, therefore showing that the iterative solver is correctly driving the the black hole properties to the target values.
 We also note that this difference decrease with resolution, and that
 we are able to achieve an accuracy of about $10^{-5}$ in the BH spin
-and mass. \red{Discuss sawtooth pattern in the figure.}
+and mass. \red{Can we understand this sawtooth pattern?}
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/BHSpinConv}
 \caption[Convergence of black hole spin and
-mass.]{\label{Fig:BHSpinConv} \red{Make this plot less confusing based
-    on Harald's suggestions.}Plotted is the fractional difference from the target black hole spin and black hole mass in the {\tt R14i60$\Uparrow$} initial data set as a function of iteration. The four colours represent 
+mass.]{\label{Fig:BHSpinConv}Plotted is the fractional difference from the target black hole spin and black hole mass in the {\tt R14i60$\Uparrow$} initial data set as a function of iteration. The four colours represent 
 the four different resolutions at which the black hole spin is measured. The solid curves are for the $\hat{x}$ component of the BH spin, the dashed curves for the $\hat{z}$ component of the BH spin, and
 the dotted curves are for the irreducible mass of the BH.}
 \end{figure}
@@ -720,19 +655,19 @@ The Hamiltonian constraint is computed as
 H=||\frac{R_{\Psi}}{8\Psi^5}||
 \end{equation}
 where $R_{\Psi}$ is the residual of Eq.~\ref{eq:XCTS-ConformalFactor}
-and $||.||$ represents the $L2$ norm over the computational
+and $||.||$ represents the $L2$ norm over the computationalT
 domain. Similarly, the momentum constraint is computed as
 \begin{equation}
 M = ||\frac{R_{\beta}}{2\alpha\Psi^4}||
 \end{equation}
 where $R_{\beta}$ is the residual of Eq.~\ref{eq:XCTS-Shift}.
 The constraints for this ID set are shown in figure~\ref{fig:HamMom}. We find exponential convergence in the constraints, as expected for spectral methods. The most notable feature
-is that at {\rm R2} the constraints are higher than would be expected
+is that at the second resolution the constraints are higher than would be expected
 from the trend, otherwise. This is because the neutron star spin is
-only "turned on" at {\rm R2} (cf. Step 1), and so an additional amount of
+only "turned on" during the second resolution (cf. step~\ref{it:1}), and so an additional amount of
 solver time is needed to adjust to this change.
 \begin{figure}\includegraphics[width=0.95\columnwidth]{chap4/HamMom}
-\caption[Hamiltonian and momentum constraints of the {\tt R14i160$\Uparrow$} ID set]{\label{fig:HamMom} The Hamiltonian and momentum constraints for the {\tt R14i160$\Uparrow$} initial data set
+\caption[Hamiltonian and momentum constraints of the {\tt R14i60$\Uparrow$} ID set]{\label{fig:HamMom} The Hamiltonian and momentum constraints for the {\tt R14i60$\Uparrow$} initial data set
 as a function of resolution. We find exponential convergence in both.}
 \end{figure}
 
@@ -748,7 +683,7 @@ quantity,
 where $N$ represents the current resolution, and $*$ represents the
 highest resolution. This quantity is plotted in
 figure~\ref{fig:SpinDiff}. Similar to the black hole surface, the
-neutron star surface is only computed for the first four resolutions \red{Why?},
+neutron star surface is only computed for the first four resolutions,
 and so we have three data points shown. We find exponential
 convergence in this quantity. We also look at the convergence of the
 neutron star spin $\chi_{\rm NS}$ measured at each resolution. In
@@ -770,12 +705,12 @@ resolution, so by construction the first data point is artificially large.
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/SpinDiff}
 \caption[Neutron star surface and spin accuracy.]{\label{fig:SpinDiff}
-\red{Does this plot make sense?}
+\red{Re-visit this plot}
   Accuracy of neutron star properties. Plotted are, as a function of resolution the accuracy of the computation of the neutron star
   surface, $\Delta c$, as defined in Eq.~\ref{eq:NSSurf2} (solid black
   curve), and the fractional difference between neighbouring
   resolutions in the measured neutron star spin $\chi_{\rm NS}$ (dashed red
-  curve). This is for the {\tt R14i160$\Uparrow$} ID set.}
+  curve). The first data point is omitted for the latter curve since it is artifically high by construction - the Ns spin is set to zero during the first resolution. This is for the {\tt R14i60$\Uparrow$} ID set.}
 \end{figure}
 
 The above data all show that we have established the convergence of
@@ -784,8 +719,39 @@ iterative solver, the black hole properties, neutron star properties,
 and the constraints.
 
 \subsection{Other Initial Data Sequences}
-\red{Move text from Fig4.2 here}We now turn to three more initial data sequences to help fill out the
-Bh-Ns parameter space, as shown in Fig.~\ref{fig:3dparam}. We begin by
+In addition to the parameters discussed above, we consider several other sequences
+of Bh-Ns initial data sets to verify the robustness of the solutions across
+the whole parameter space. First, we consider a sequence of where we vary the neutron star spin from
+$\chi_{\rm NS}=0$ to $\chi_{\rm NS}\sim0.7$, keeping it aligned with the orbital angular momentum. In these initial data sets, the other binary parameters are the same
+as in the {\tt R14i0} runs. Namely, the neutron star mass, equation of state, black hole mass, black hole spin, initial separation and orbital angular frequency.
+
+Next, we consider a sequence of runs where we vary the black hole spin
+from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$, while keeping the other binary parameters as in the {\tt R14i0$\Uparrow$} run.
+
+Finally, we consider a sequence of runs where we vary the mass ratio
+from $q=2$ to $q=10$. In these runs the other binary parameters are
+the same as in the {\tt R14i0$\Uparrow$} run. In particular, the
+orbital parameters $M\Omega$ and $D/M$ are constant. While not the
+most accurate way of choosing these parameters, as it is only correct to Newtonian order, it is a very simple method
+that is sufficient for our purposes, as it will only induce a small orbital eccentriccity. To assess the accuracy of this approximation, we use the post-Newtonian expansion in Eq. 228 of \cite{Blanchet2006}:
+\begin{equation}
+\Omega^2=\frac{GM}{r^3}\left(1+(-3+\nu)\gamma+\left(6+\frac{41}{4}\nu+\nu^2\right)\gamma^2+...\right)
+\end{equation}
+where $\nu$ is the symmetric mass ratio, $\nu=q/(1+q)^2$, and $\gamma=GM/Dc^2$. Keeping $D$ and $M$ constant, the quantity $M\Omega$ varies by approximately 3\% in the mass ratio range we consider.
+Thus, while this approximation will induce a small eccentricity of a similar order, it's not a large enough difference to invalidate our results.
+
+Figure~\ref{fig:3dparam} summarizes all the initial data sets along the axes of $\chi_{\rm NS}$, $\chi_{\rm BH}$ and $q$.
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{chap4/3dparam.png}
+\caption[3d parameter space plot of Bh-Ns initial data sets.]{\label{fig:3dparam}
+Parameter space exploration. Starting from {\tt
+  R14i60$\Uparrow$} (large red circle) we vary (i) the Bh spin
+$\chi_{\rm BH}$, (ii) the Ns spin $\chi_{\rm NS}$ and (iii) the black
+hole mass $M_{\rm BH}$, indicated by the mass-ration $q$.}
+\end{figure}
+
+We begin by
 varying the neutron star spin from $\chi=0$ ($\omega=0$) to $\chi\sim0.7$,
 corresponding to $\omega\sim0.22$. The parameters in this
 sequence are otherwise the same as in the {\tt R14i0} data sets, and the neutron star spin is kept aligned with the orbital
@@ -794,10 +760,10 @@ Hamiltonian and momentum constraints for a subset of the generated
 initial data sets, with $\chi\sim{0.1,0.3,0.5,0.7}$. This is shown in
 Fig.~\ref{fig:OmegaSeqHamMom}. We note that in general we see
 exponential convergence, as expected, but there are a few features
-worth discussing in the data. \red{Fix wording of next two sentences.}The size of the bump at {\tt R2} as noted
-earlier, due to the spin turning on, is a monotonically increasing function of spin, as we might
-expect. The larger the spin that gets turned on, the more difficult it
-is for the solver to adjust. We also note that at high resolution, in
+worth discussing in the data.
+As discussed earlier, the constraints at the second resolution are higher than expected because the spin is "turned on" at the second resolution.
+The size of this feature at is a monotonically increasing function of spin, as we might
+expect, as the solver has a more difficult time adjusting to a larger spin being abruptly turned on. We also note that at high resolution, in
 the $\chi\sim 0.7$ curve, we lose exponential convergence and the
 curves flatten out around $10^{-6}$.  \red{Plot $\delta~C$ for
   different $\chi_{\rm NS}$.}This is likely a sign that the accuracy of the
@@ -844,8 +810,7 @@ $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$, keeping it aligned with the orbital a
 momentum.
  The other binary parameters are kept the same
 as in the ${\tt R14i0\Uparrow}$ initial data set; that is $\chi_{\rm
-  NS}\sim0.4$ and $q=7$. In Figs.~\ref{fig:chiSeqHam} and
-~\ref{fig:chiSeqMom} we plot the Hamiltonian and momentum constraints,
+  NS}\sim0.4$ and $q=7$. In Figs.~\ref{fig:chiSeqHam} we plot the Hamiltonian and momentum constraints,
 respectively, for this sequence. We find exponential convergence in
 all cases. It is interesting to note that the constraints seem to be
 lowest at the highest black hole spins, $\chi_{\rm BH}=0.95$ and
@@ -854,14 +819,9 @@ challenging cases.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chiSeqHam}
-\caption[Hamiltonian constraint for the sequence in $\chi_{\rm BH}$.]{\label{fig:chiSeqHam}Hamiltonian constraint versus
+\caption[Hamiltonian and momentum for the sequence in $\chi_{\rm BH}$.]{\label{fig:chiSeqHam}Hamiltonian (top panel) and momentum (bottom panel) constraints versus
   resolution for our sequence of binaries where the black-hole spin is
   varied from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the mass ratio is $q=7$. We find exponential convergence in all cases.}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=0.95\columnwidth]{chap4/chiSeqMom}
-\caption[Momentum constraints for the sequence in $\chi_{\rm BH}$.]{\label{fig:chiSeqMom} Momentum constraint versus resolution for our sequence of binaries where the black-hole spin is varied from $\chi_{\rm BH}=0$ to $\chi_{\rm BH}=0.99$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the mass ratio is $q=7$. We find exponential convergence in all cases.}
 \end{figure}
 
 Since in this work we are largely concerned with neutron star spin, it
@@ -875,7 +835,7 @@ dropping by less than 1\% between $\chi_{\rm BH}=0$ and $\chi_{\rm BH}=0.99$.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/chichi}
-\caption[\red{add}]{\label{fig:chichi}Neutron star spin $\chi_{\rm NS}$ as a fucntion of black hole spin $\chi_{\rm BH}$ for this sequence. We notice a small downward linear trend.}
+\caption[Measured neutron star spin plotted as a function of black hole spin.]{\label{fig:chichi}Neutron star spin $\chi_{\rm NS}$ as a function of black hole spin $\chi_{\rm BH}$ for this sequence. We notice a small downward linear trend.}
 \end{figure}
 
 
@@ -887,26 +847,15 @@ the same as in the ${\tt R14i0\Uparrow}$ initial data set and we keep the
 orbtial parameters $M\Omega$ and $D/M$ constant. As discussed above,
 we expect that this will induce a eccentricity of a few percent. To
 assess convergence, we plot the Hamiltonian and momentum constraints
-for this sequence in Figs.~\ref{fig:qSeqHam} and
-~\ref{fig:qSeqMom}. We find exponential convergence in all
+for this sequence in Fig.~\ref{fig:qSeqHam}. We find exponential convergence in all
 cases. Interestingly, no clear pattern in $q$-space emerges.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/qSeqHam}
-\caption[Hamiltonian constraint for the $q$ sequence.]{\label{fig:qSeqHam}Hamiltonian constraint versus resolution for our sequence of binaries where the mass ratio is varied from $q=2$ up to $q=10$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the black hole spin is $\chi_{\rm BH}=0.9$. We find exponential convergence, as expected, in all cases.}
+\caption[Hamiltonian and momentum constraint for the $q$ sequence.]{\label{fig:qSeqHam}Hamiltonian (top panel) and momentum (bottom panel) constraints versus resolution for our sequence of binaries where the mass ratio is varied from $q=2$ up to $q=10$. The neutron star spin is constant at $\chi_{\rm NS}\sim 0.4$ and the black hole spin is $\chi_{\rm BH}=0.9$. We find exponential convergence, as expected, in all cases.}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=0.95\columnwidth]{chap4/qSeqMom}
-\caption[Momemntum constraint for the $q$
-sequence.]{\red combine with previous plot}{\label{fig:qSeqMom}Momentum constraint versus resolution
-  for our sequence of binaries where the mass ratio is varied from
-  $q=2$ up to $q=10$. The neutron star spin is constant at $\chi_{\rm
-    NS}\sim 0.4$ and the black hole spin is $\chi_{\rm BH}=0.9$. We
-  find exponential convergence, as expected, in all cases.} 
-\end{figure}
-
-\red{Move 4.33 + discussion here.}As with the previous sequence, it is interesting to look at the
+As with the previous sequence, it is interesting to look at the
 properties of $\chi_{\rm NS}$ as a function of $q$. This is shown in
 Fig~\ref{fig:qchi}. Although there is not a great amount of variation,
 apart from $q=2$, there is a clear trend of
@@ -914,8 +863,7 @@ $\chi_{\rm NS}$ decreasing with $q$. Again, howveer, the effect is quite small a
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap4/qchi}
 \caption[$\chi_{\rm NS}$ as a function of mass ratio
-$q$.]{\label{fig:qchi}\red{Add little ticks on x-axis. Extend chimax
-    to 1.}Neutron star spin $\chi_{\rm
+$q$.]{\label{fig:qchi}Neutron star spin $\chi_{\rm
     NS}$ as a function of mass ratio $q$ for this sequence. We notice
   a small downward trend for $q \geq 3$.}
 \end{figure}
@@ -937,4 +885,4 @@ by the black hole, and how it affects the disk that is formed. The
 phase evolution can also be examined and compared to Post-Newtonian or
 other analytic predictions such as Effective-One-Body (EOB). In long
 and accurate simulations, the coupling of the neutron star spin to the
-dynamic tides \red{cite Hinderer et al 2016} could become important in this kind of comparison. Another interesting route to explore could be to see how large of a disk can be produced in Bh-Ns simulations. \cite{Lovelace:2013vma} create a very large disk with a black hole spin of $\chi=0.97$ and mass ratio $q=3$ - a highly spinning neutron star with less strongly bound material may be able to increase this disk mass even further.
+dynamic tides (\cite{Hinderer:2016eia}) could become important in this kind of comparison. Another interesting route to explore could be to see how large of a disk can be produced in Bh-Ns simulations. \cite{Lovelace:2013vma} create a very large disk with a black hole spin of $\chi=0.97$ and mass ratio $q=3$ - a highly spinning neutron star with less strongly bound material may be able to increase this disk mass even further.

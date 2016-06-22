@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Thu May 26 18:16:06 2016"
+@timestamp def "Mon Jun 20 16:28:37 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -233,7 +233,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.790625, 0.9359375
+@    legend 0.7375, 0.93125
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -302,7 +302,7 @@
 @    s8 errorbar riser clip off
 @    s8 errorbar riser clip length 0.100000
 @    s8 comment "Backward difference of set 0"
-@    s8 legend  "R1"
+@    s8 legend  "N\S1/3\N~33.3"
 @    s9 hidden false
 @    s9 type xy
 @    s9 symbol 0
@@ -351,7 +351,7 @@
 @    s9 errorbar riser clip off
 @    s9 errorbar riser clip length 0.100000
 @    s9 comment "Backward difference of set 1"
-@    s9 legend  "R2"
+@    s9 legend  "N\S1/3\N~39.9"
 @    s10 hidden false
 @    s10 type xy
 @    s10 symbol 0
@@ -400,7 +400,7 @@
 @    s10 errorbar riser clip off
 @    s10 errorbar riser clip length 0.100000
 @    s10 comment "Backward difference of set 2"
-@    s10 legend  "R3"
+@    s10 legend  "N\S1/3\N~46.1"
 @    s11 hidden false
 @    s11 type xy
 @    s11 symbol 0
@@ -449,7 +449,7 @@
 @    s11 errorbar riser clip off
 @    s11 errorbar riser clip length 0.100000
 @    s11 comment "Backward difference of set 3"
-@    s11 legend  "R4"
+@    s11 legend  "N\S1/3\N~53.3"
 @    s12 hidden false
 @    s12 type xy
 @    s12 symbol 0
@@ -498,7 +498,7 @@
 @    s12 errorbar riser clip off
 @    s12 errorbar riser clip length 0.100000
 @    s12 comment "Backward difference of set 4"
-@    s12 legend  "R5"
+@    s12 legend  "N\S1/3\N~60.4"
 @    s13 hidden false
 @    s13 type xy
 @    s13 symbol 0
@@ -547,7 +547,7 @@
 @    s13 errorbar riser clip off
 @    s13 errorbar riser clip length 0.100000
 @    s13 comment "Backward difference of set 5"
-@    s13 legend  "R6"
+@    s13 legend  "N\S1/3\N~67.5"
 @    s14 hidden false
 @    s14 type xy
 @    s14 symbol 0
@@ -596,7 +596,7 @@
 @    s14 errorbar riser clip off
 @    s14 errorbar riser clip length 0.100000
 @    s14 comment "Backward difference of set 6"
-@    s14 legend  "R7"
+@    s14 legend  "N\S1/3\N~74.3"
 @    s15 hidden false
 @    s15 type xy
 @    s15 symbol 0
@@ -645,7 +645,7 @@
 @    s15 errorbar riser clip off
 @    s15 errorbar riser clip length 0.100000
 @    s15 comment "Backward difference of set 7"
-@    s15 legend  "R8"
+@    s15 legend  "N\S1/3\N~79.5"
 @target G0.S8
 @type xy
 0 0.025947969

@@ -63,7 +63,47 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon May  9 17:57:06 2016"
+@timestamp def "Mon Jun 20 17:21:50 2016"
+@with string
+@    string on
+@    string loctype view
+@    string 0.434375, 0.7984375
+@    string color 1
+@    string rot 0
+@    string font 0
+@    string just 0
+@    string char size 1.500000
+@    string def "N\S1/3\N~33.3"
+@with string
+@    string on
+@    string loctype view
+@    string 0.4359375, 0.5046875
+@    string color 2
+@    string rot 0
+@    string font 0
+@    string just 0
+@    string char size 1.500000
+@    string def "N\S1/3\N~39.0"
+@with string
+@    string on
+@    string loctype view
+@    string 0.4390625, 0.4015625
+@    string color 4
+@    string rot 0
+@    string font 0
+@    string just 0
+@    string char size 1.500000
+@    string def "N\S1/3\N~46.1"
+@with string
+@    string on
+@    string loctype view
+@    string 0.440625, 0.3140625
+@    string color 15
+@    string rot 0
+@    string font 0
+@    string just 0
+@    string char size 1.500000
+@    string def "N\S1/3\N~53.3"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -110,7 +150,7 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 0, 1e-07, 175, 1
+@    world 0, 1e-07, 150, 1
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.150000, 0.150000, 0.950000, 0.950000
@@ -142,7 +182,7 @@
 @    xaxis  label place normal
 @    xaxis  tick on
 @    xaxis  tick major 50
-@    xaxis  tick minor ticks 0
+@    xaxis  tick minor ticks 2
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
@@ -233,7 +273,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.7671875, 0.9421875
+@    legend 0.771875, 0.4875
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -302,7 +342,7 @@
 @    s0 errorbar riser clip off
 @    s0 errorbar riser clip length 0.100000
 @    s0 comment "Col5[Lev1/FID.dat]"
-@    s0 legend  "R1 - \f{Symbol}c\f{}\sX"
+@    s0 legend  "\f{Symbol}c\f{}\sX"
 @    s1 hidden false
 @    s1 type xy
 @    s1 symbol 0
@@ -351,7 +391,7 @@
 @    s1 errorbar riser clip off
 @    s1 errorbar riser clip length 0.100000
 @    s1 comment "Col7[Lev1/FID.dat]"
-@    s1 legend  "R1 - \f{Symbol}c\f{}\sZ"
+@    s1 legend  "\f{Symbol}c\f{}\sZ"
 @    s2 hidden false
 @    s2 type xy
 @    s2 symbol 0
@@ -400,7 +440,7 @@
 @    s2 errorbar riser clip off
 @    s2 errorbar riser clip length 0.100000
 @    s2 comment "/cita/h/home-1/tacik/Research/Thesis/chap4/Mass1.dat"
-@    s2 legend  "R1 - M"
+@    s2 legend  "M"
 @    s3 hidden false
 @    s3 type xy
 @    s3 symbol 0
@@ -449,7 +489,7 @@
 @    s3 errorbar riser clip off
 @    s3 errorbar riser clip length 0.100000
 @    s3 comment "Col5[Lev2/FID.dat]"
-@    s3 legend  "R2 - \f{Symbol}c\f{}\sX"
+@    s3 legend  ""
 @    s4 hidden false
 @    s4 type xy
 @    s4 symbol 0
@@ -498,7 +538,7 @@
 @    s4 errorbar riser clip off
 @    s4 errorbar riser clip length 0.100000
 @    s4 comment "Col7[Lev2/FID.dat]"
-@    s4 legend  "R2 - \f{Symbol}c\f{}\sZ"
+@    s4 legend  ""
 @    s5 hidden false
 @    s5 type xy
 @    s5 symbol 0
@@ -547,14 +587,14 @@
 @    s5 errorbar riser clip off
 @    s5 errorbar riser clip length 0.100000
 @    s5 comment "/cita/h/home-1/tacik/Research/Thesis/chap4/Mass2.dat"
-@    s5 legend  "R2 - M"
+@    s5 legend  ""
 @    s6 hidden false
 @    s6 type xy
 @    s6 symbol 0
 @    s6 symbol size 1.000000
-@    s6 symbol color 15
+@    s6 symbol color 4
 @    s6 symbol pattern 1
-@    s6 symbol fill color 15
+@    s6 symbol fill color 4
 @    s6 symbol fill pattern 0
 @    s6 symbol linewidth 1.0
 @    s6 symbol linestyle 1
@@ -564,7 +604,7 @@
 @    s6 line type 1
 @    s6 line linestyle 1
 @    s6 line linewidth 1.0
-@    s6 line color 15
+@    s6 line color 4
 @    s6 line pattern 1
 @    s6 baseline type 0
 @    s6 baseline off
@@ -586,7 +626,7 @@
 @    s6 avalue offset 0.000000 , 0.000000
 @    s6 errorbar on
 @    s6 errorbar place both
-@    s6 errorbar color 15
+@    s6 errorbar color 4
 @    s6 errorbar pattern 1
 @    s6 errorbar size 1.000000
 @    s6 errorbar linewidth 1.0
@@ -596,14 +636,14 @@
 @    s6 errorbar riser clip off
 @    s6 errorbar riser clip length 0.100000
 @    s6 comment "Col5[Lev3/FID.dat]"
-@    s6 legend  "R3 - \f{Symbol}c\f{}\sX"
+@    s6 legend  ""
 @    s7 hidden false
 @    s7 type xy
 @    s7 symbol 0
 @    s7 symbol size 1.000000
-@    s7 symbol color 15
+@    s7 symbol color 4
 @    s7 symbol pattern 1
-@    s7 symbol fill color 15
+@    s7 symbol fill color 4
 @    s7 symbol fill pattern 0
 @    s7 symbol linewidth 1.0
 @    s7 symbol linestyle 1
@@ -613,7 +653,7 @@
 @    s7 line type 1
 @    s7 line linestyle 3
 @    s7 line linewidth 2.0
-@    s7 line color 15
+@    s7 line color 4
 @    s7 line pattern 1
 @    s7 baseline type 0
 @    s7 baseline off
@@ -635,7 +675,7 @@
 @    s7 avalue offset 0.000000 , 0.000000
 @    s7 errorbar on
 @    s7 errorbar place both
-@    s7 errorbar color 15
+@    s7 errorbar color 4
 @    s7 errorbar pattern 1
 @    s7 errorbar size 1.000000
 @    s7 errorbar linewidth 1.0
@@ -645,14 +685,14 @@
 @    s7 errorbar riser clip off
 @    s7 errorbar riser clip length 0.100000
 @    s7 comment "Col7[Lev3/FID.dat]"
-@    s7 legend  "R3 - \f{Symbol}c\f{}\sZ"
+@    s7 legend  ""
 @    s8 hidden false
 @    s8 type xy
 @    s8 symbol 0
 @    s8 symbol size 1.000000
-@    s8 symbol color 15
+@    s8 symbol color 4
 @    s8 symbol pattern 1
-@    s8 symbol fill color 15
+@    s8 symbol fill color 4
 @    s8 symbol fill pattern 0
 @    s8 symbol linewidth 1.0
 @    s8 symbol linestyle 1
@@ -662,7 +702,7 @@
 @    s8 line type 1
 @    s8 line linestyle 2
 @    s8 line linewidth 3.0
-@    s8 line color 15
+@    s8 line color 4
 @    s8 line pattern 1
 @    s8 baseline type 0
 @    s8 baseline off
@@ -684,7 +724,7 @@
 @    s8 avalue offset 0.000000 , 0.000000
 @    s8 errorbar on
 @    s8 errorbar place both
-@    s8 errorbar color 15
+@    s8 errorbar color 4
 @    s8 errorbar pattern 1
 @    s8 errorbar size 1.000000
 @    s8 errorbar linewidth 1.0
@@ -694,14 +734,14 @@
 @    s8 errorbar riser clip off
 @    s8 errorbar riser clip length 0.100000
 @    s8 comment "/cita/h/home-1/tacik/Research/Thesis/chap4/Mass3.dat"
-@    s8 legend  "R3 - M"
+@    s8 legend  ""
 @    s9 hidden false
 @    s9 type xy
 @    s9 symbol 0
 @    s9 symbol size 1.000000
-@    s9 symbol color 4
+@    s9 symbol color 15
 @    s9 symbol pattern 1
-@    s9 symbol fill color 4
+@    s9 symbol fill color 15
 @    s9 symbol fill pattern 0
 @    s9 symbol linewidth 1.0
 @    s9 symbol linestyle 1
@@ -711,7 +751,7 @@
 @    s9 line type 1
 @    s9 line linestyle 1
 @    s9 line linewidth 2.0
-@    s9 line color 4
+@    s9 line color 15
 @    s9 line pattern 1
 @    s9 baseline type 0
 @    s9 baseline off
@@ -733,7 +773,7 @@
 @    s9 avalue offset 0.000000 , 0.000000
 @    s9 errorbar on
 @    s9 errorbar place both
-@    s9 errorbar color 4
+@    s9 errorbar color 15
 @    s9 errorbar pattern 1
 @    s9 errorbar size 1.000000
 @    s9 errorbar linewidth 1.0
@@ -743,14 +783,14 @@
 @    s9 errorbar riser clip off
 @    s9 errorbar riser clip length 0.100000
 @    s9 comment "Col5[Lev4/FID.dat]"
-@    s9 legend  "R4 - \f{Symbol}c\f{}\sX"
+@    s9 legend  ""
 @    s10 hidden false
 @    s10 type xy
 @    s10 symbol 0
 @    s10 symbol size 1.000000
-@    s10 symbol color 4
+@    s10 symbol color 15
 @    s10 symbol pattern 1
-@    s10 symbol fill color 4
+@    s10 symbol fill color 15
 @    s10 symbol fill pattern 0
 @    s10 symbol linewidth 1.0
 @    s10 symbol linestyle 1
@@ -760,7 +800,7 @@
 @    s10 line type 1
 @    s10 line linestyle 3
 @    s10 line linewidth 2.0
-@    s10 line color 4
+@    s10 line color 15
 @    s10 line pattern 1
 @    s10 baseline type 0
 @    s10 baseline off
@@ -782,7 +822,7 @@
 @    s10 avalue offset 0.000000 , 0.000000
 @    s10 errorbar on
 @    s10 errorbar place both
-@    s10 errorbar color 4
+@    s10 errorbar color 15
 @    s10 errorbar pattern 1
 @    s10 errorbar size 1.000000
 @    s10 errorbar linewidth 1.0
@@ -792,14 +832,14 @@
 @    s10 errorbar riser clip off
 @    s10 errorbar riser clip length 0.100000
 @    s10 comment "Col7[Lev4/FID.dat]"
-@    s10 legend  "R4 - \f{Symbol}c\f{}\sZ"
+@    s10 legend  ""
 @    s11 hidden false
 @    s11 type xy
 @    s11 symbol 0
 @    s11 symbol size 1.000000
-@    s11 symbol color 4
+@    s11 symbol color 15
 @    s11 symbol pattern 1
-@    s11 symbol fill color 4
+@    s11 symbol fill color 15
 @    s11 symbol fill pattern 0
 @    s11 symbol linewidth 1.0
 @    s11 symbol linestyle 1
@@ -809,7 +849,7 @@
 @    s11 line type 1
 @    s11 line linestyle 2
 @    s11 line linewidth 3.0
-@    s11 line color 4
+@    s11 line color 15
 @    s11 line pattern 1
 @    s11 baseline type 0
 @    s11 baseline off
@@ -831,7 +871,7 @@
 @    s11 avalue offset 0.000000 , 0.000000
 @    s11 errorbar on
 @    s11 errorbar place both
-@    s11 errorbar color 4
+@    s11 errorbar color 15
 @    s11 errorbar pattern 1
 @    s11 errorbar size 1.000000
 @    s11 errorbar linewidth 1.0
@@ -841,7 +881,7 @@
 @    s11 errorbar riser clip off
 @    s11 errorbar riser clip length 0.100000
 @    s11 comment "/cita/h/home-1/tacik/Research/Thesis/chap4/Mass4.dat"
-@    s11 legend  "R4 - M"
+@    s11 legend  ""
 @target G0.S0
 @type xy
 0 1

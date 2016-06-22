@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Thu May 26 18:11:42 2016"
+@timestamp def "Mon Jun 20 15:12:20 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -110,7 +110,7 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world -0.01, 0.403, 1, 0.40701
+@    world -0.01, 0.403, 1.01, 0.40701
 @    stack world 0, 0, 0, 0
 @    znorm 1
 @    view 0.150000, 0.150000, 0.950000, 0.950000
@@ -142,7 +142,7 @@
 @    xaxis  label place normal
 @    xaxis  tick on
 @    xaxis  tick major 0.2
-@    xaxis  tick minor ticks 0
+@    xaxis  tick minor ticks 1
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in

@@ -27,40 +27,34 @@
 \contentsline {figure}{\numberline {2.21}{\ignorespaces The Fourier transforms of the central density in all three of our runs.}}{73}{figure.caption.35}
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Fourier transforms of several different quantities in the {\tt S.4z} run.}}{75}{figure.caption.36}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Visualization of the Bh-Ns domain decomposition.}}{87}{figure.caption.37}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Convergence of the Euler constant for the {\tt R1460$\delimiter "322A37E $}}}{95}{figure.caption.38}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Convergence of black hole spin and mass.}}{97}{figure.caption.39}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Hamiltonian and momentum constraints of the {\tt R14i60$\delimiter "322A37E $} ID set}}{99}{figure.caption.40}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Neutron star surface and spin accuracy.}}{100}{figure.caption.41}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 3d parameter space plot of Bh-Ns initial data sets.}}{102}{figure.caption.42}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Constraints for the $\chi _{\rm NS}$ sequence.}}{104}{figure.caption.43}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $\chi _{\rm NS}$ as a function of $\omega _{\rm NS}$ for bh-ns binaries}}{105}{figure.caption.44}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Hamiltonian and momentum for the sequence in $\chi _{\rm BH}$.}}{107}{figure.caption.45}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Measured neutron star spin plotted as a function of black hole spin.}}{108}{figure.caption.46}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Hamiltonian and momentum constraint for the $q$ sequence.}}{109}{figure.caption.47}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces $\chi _{\rm NS}$ as a function of mass ratio $q$.}}{110}{figure.caption.48}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Visualization of the Bh-Ns domain decomposition.}}{88}{figure.caption.37}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \leavevmode {\color {Red}add}}}{95}{figure.caption.38}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \leavevmode {\color {Red}add}}}{96}{figure.caption.39}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \leavevmode {\color {Red}add}}}{97}{figure.caption.40}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces \leavevmode {\color {Red}add}}}{98}{figure.caption.41}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \leavevmode {\color {Red}add}}}{99}{figure.caption.42}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces \leavevmode {\color {Red}add}}}{100}{figure.caption.43}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces \leavevmode {\color {Red}add}}}{101}{figure.caption.44}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \leavevmode {\color {Red}add}}}{102}{figure.caption.45}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces A typical run illustrating the spurious burst of junk radiation. We see at early times a burst of high-frequency, high-amplitude radiation. At later times, the $(2,0)$ mode dies out, and the $(2,2)$ mode settles into the usual inspiral-type radiation\relax }}{106}{figure.caption.46}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces {\em Top Panel:} Comparison of the junk radiation profiles for our usual highest resolution (N3) and an additional run at very highest resolution (N7). We see, especially for the $(2,0)$ mode, that the maximum peak of the junk radiation is much higher for N7, but additional peaks are comparable or higher for N3. \newline {\em Bottom Panel:} Junk radiation profile for an SKS run with the same parameters as in the top panel. The waveform is significantly different in structure from the CF waveform. \relax }}{113}{figure.caption.47}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The flux $F(t)$ is plotted for two different runs, both with parameters $D=15M$ and $\chi =0$. Conformally flat initial data is in the top panel and SKS initial data is in the bottom panel. The solid red curve represents the total flux, $F(t)$. The dashed blue curve represents $F_{22}(t)$, the astrophysical flux that we subtract from $F(t)$. The shaded area between the two curves is the energy in junk radiation, $E_J$. \relax }}{115}{figure.caption.48}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces $E_J$ is plotted against $\delta t_C$, representing changes to the selected value of $t_C$ for runs where $D=15M$, $\chi =0$. The results for conformally flat initial data are shown in the top panel, and SKS initial data in the bottom panel. Typical changes in $E_J$ are on the order of a few percent.\relax }}{117}{figure.caption.49}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces $E_J$ as a function of $1/R_{ex}$, where $R_{ex}$ is the extraction radius. This is for the case where $D=15M$, $\chi =0$, with CF initial data in the left panel and SKS initial data in the right panel. The extrapolation to $1/R_{ex}\rightarrow 0$ allows us to estimate the error on $E_J$ due to finite extraction radius effects. \leavevmode {\color {Red}[Combine data into single plot]} \relax }}{119}{figure.caption.50}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Normalized irreducible mass curves for CF data (top panel) and SKS data (bottom panel) for all of the different spins in the covered parameter space and $D=15M$ remaining constant. \relax }}{122}{figure.caption.52}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Convergence test of $M_{irr}(t)$ for SKS initial data in the case $D15=M$, $\chi =0.3$. The top panel shows $M_{irr}(t)$ at different resolutions, and the bottom panel shows the difference between consecutive resolutions.\relax }}{123}{figure.caption.53}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Same as Fig.\nobreakspace {}\ref {fig:CFMConvergence1} but for SKS data \leavevmode {\color {Red}[make same changes to figure as indicated in Fig.\nobreakspace {}6]}\relax }}{124}{figure.caption.54}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Fractional change in spin relative to $t=0$, $\delta S = S(t)/S(t=0)-1$. The top panel shows conformally flat initial data and the bottom panel SKS data (note the different scale). All simulations at distance $D=15M$.\relax }}{126}{figure.caption.56}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Convergence test of $\delta S(t)$ for CF initial data in the case $D=15M$, $\chi =0.3$. The top panel shows $\delta S(t)$ at different resolutions and the bottom panel shows the differences between consecutive resolutions\relax }}{127}{figure.caption.57}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Energy in junk radiation as a function of $\chi $ at various initial separations, for conformally flat initial data (left panel) and SKS initial data (right panel). Within the uncertainty limit, there is virtually no dependence of $E_J$ on $\chi $ \relax }}{136}{figure.caption.66}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Log-log plot of the energy in junk radiation as a function of initial separation for binaries where $\chi =0$. The black circles and red squares denote conformally flat and SKS initial data, respectively. The dotted lines are power law fits, with indices of $\sim -2.79$ and $\sim -2.55$ respectively.\relax }}{137}{figure.caption.67}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces $\delta M_{\rm eq}$ as a function of initial separation for CF initial data. The dotted lines are the best fits to a power law plus a constant offset.\relax }}{138}{figure.caption.68}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces $\delta M_{eq}$ as a function of black hole spin $\chi $ for CF initial data, evaluated at each different initial separation.\relax }}{140}{figure.caption.69}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces $\delta S_{\rm eq}$ vs. $D$ for CF initial data. The dotted curves are the best fit power law plus constant offsets.\relax }}{141}{figure.caption.70}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Semi-log plot of $\delta S_{\rm eq}$ as a function of $\chi $ for CF data. The dotted lines are the best fit exponentials.\relax }}{142}{figure.caption.71}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Normalized density oscillations for the S0.4z run from \cite {Tacik:2015tja} and from a new run with the same parameters.\relax }}{149}{figure.caption.72}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Dimensionless spin, $\chi =\frac {J}{M_{\rm ADM}^2}$, measured during the evolution of the S0.4z run from\nobreakspace {}\cite {Tacik:2015tja} with the old code and the new code.\relax }}{150}{figure.caption.73}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces $\chi $ as a function of $\Omega $ in the initial data. The black curve is from Fig. 8 of \cite {Tacik:2015tja}, while the red curve is generated with the bug fixed.\relax }}{151}{figure.caption.74}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Hamiltonian and Momentum constraints for the new and old code, for the S0.4z run.\relax }}{152}{figure.caption.75}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Fractional convergence of the ADM energy and ADM angular momentum for the new and old codes.\relax }}{153}{figure.caption.76}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Convergence of the spin measured in the initial data for the new and old codes.\relax }}{154}{figure.caption.77}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces A snapshot of an evolution with $\Omega =0.019$. The top panel shows the normalized density oscillations. The bottom-left panel shows the measured spin of a star. The bottom-right panel shows the orbtis of the stars as they inspiral.\relax }}{155}{figure.caption.78}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Density oscillations and and measured spin for evolution 2. This run has only recently begun.\relax }}{156}{figure.caption.79}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces A typical run illustrating junk radation.}}{116}{figure.caption.49}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Junk radiation profiles for CF and SKS initial data, and a comparison to high resolution SKS initial data.}}{123}{figure.caption.50}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The flux, $F(t)$, and the computation of $E_J$ for CF and SKS intitial data.}}{125}{figure.caption.51}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces $E_J$ as a function of $\delta t_C$.}}{128}{figure.caption.52}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces $E_J$ as a function of $1_R/{\rm ex}$.}}{129}{figure.caption.53}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Normalized irreducible mass curves for CF and SKS data.}}{132}{figure.caption.55}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Convergence of $M_{\rm irr})(t)$ for CF initial data.}}{133}{figure.caption.56}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Convergence of $M_{\rm irr})(t)$ for SKS initial data.}}{134}{figure.caption.57}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces $\delta S(t)$ for CF and SKS initial data.}}{136}{figure.caption.59}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Convergence test of $\delta S(t)$ for CF initial data.}}{137}{figure.caption.60}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Convergence test of $\delta S(t)$ for SKS initial data.}}{138}{figure.caption.61}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Energy in junk radiation as a function of $\chi $ at various initial separations, for conformally flat initial data (left panel) and SKS initial data (right panel). Within the uncertainty limit, there is virtually no dependence of $E_J$ on $\chi $ \relax }}{139}{figure.caption.62}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Log-log plot of the energy in junk radiation as a function of initial separation for binaries where $\chi =0$. The black circles and red squares denote conformally flat and SKS initial data, respectively. The dotted lines are power law fits, with indices of $\sim -2.79$ and $\sim -2.55$ respectively.\relax }}{140}{figure.caption.63}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces $\delta M_{\rm eq}$ as a function of initial separation for CF initial data. The dotted lines are the best fits to a power law plus a constant offset.\relax }}{141}{figure.caption.64}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces $\delta M_{eq}$ as a function of black hole spin $\chi $ for CF initial data, evaluated at each different initial separation.\relax }}{143}{figure.caption.65}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces $\delta S_{\rm eq}$ vs. $D$ for CF initial data. The dotted curves are the best fit power law plus constant offsets.\relax }}{144}{figure.caption.66}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Semi-log plot of $\delta S_{\rm eq}$ as a function of $\chi $ for CF data. The dotted lines are the best fit exponentials.\relax }}{145}{figure.caption.67}
 \addvspace {10\p@ }
