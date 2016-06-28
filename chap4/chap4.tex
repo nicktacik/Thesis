@@ -4,39 +4,48 @@
 
 \section{Introduction}
 The spectacular detection of merging binary black holes by Advanced
-LIGO (\cite{Abbott:2016blz},~\cite{PhysRevLett.116.241103}) has dawned the beginning of the era of gravitational wave astronomy. Black-hole - neutron star (Bh-Ns) binaries are now the only compact object binary whose existence has not been direclty confirmed. They remain, however, an important potential source of gravitational waves for advanced ground-based detectors, with an expected event rate of approximately ten per year(\cite{AbadieLSC:2010}), albeit with a large uncertainity. In addition to gravitational waves, Bh-Ns mergers can be an exciting source of electromagnetic radiation and give further clues to the violent processes that occur during the merger. If a massive disk is left from the merger, it could lead to a short-duration gamma ray burst (SGRB) and material ejected during the merger could radiate a signal such as a "kilonova"(\cite{metzger:11}).
+LIGO (\cite{PhysRevLett.116.241103},~\cite{Abbott:2016blz}) has dawned the beginning of the era of gravitational wave astronomy. Black-hole - neutron star (Bh-Ns) binaries are now the only compact object binary whose existence has not been direclty confirmed. They remain, however, an important potential source of gravitational waves for advanced ground-based detectors, with an expected event rate of approximately ten per year(\cite{AbadieLSC:2010}), albeit with a large uncertainity. In addition to gravitational waves, Bh-Ns mergers can be an exciting source of electromagnetic radiation and give further clues to the violent processes that occur during the merger. If a massive disk is left from the merger, it could lead to a short-duration gamma ray burst (SGRB) and material ejected during the merger could radiate a signal such as a "kilonova"(\cite{metzger:11}).
 
 Numerical relativity simulations are important to accurately study
 both the gravitational waves and electromagnetic emission produced in
-Bh-Ns mergers. The parameter space for Bh-Ns binary simulations is
+Bh-Ns mergers.  The parameter space for Bh-Ns binary simulations is
 relatively large. The mass ratio, $q$, and black hole spin, $\vec{\chi}$, have been of particular interest in numerical simulations. \red{cites}
 %Neutron star equation of state has also been of interest in more recent simulations that can incorporate more microphysics. 
-\cite{Foucart2012} gave a semi-analytic description of how this
-combination (of mass ratio and spin magnitude) can predict when
-neutron star disruption occurs. The neutron star equation of state is also of
+%\cite{Foucart2012} gave a semi-analytic description of how this
+%combination (of mass ratio and spin magnitude) can predict when
+%neutron star disruption occurs. 
+The neutron star equation of state is also of
 great interest, especially in more recent simulations that can
 incorporate more microphysics. \red{cites} The size of the star is directly
 linked to when tidal disruption occurs. One aspect that has not been
 studied, however, is the effect of neutron star spin, as all
-simulations to date use irrotational neutron stars in their Bh-NS
-binaries. For Ns-Ns binaries, in constrast, A significant number of studies, however, investigate spinning neutron stars in Ns-Ns binaries (\cite{Baumgarte:2009fw},~\cite{Tichy:2011gw},~\cite{East:2012zn},~\cite{Tichy:2012rp},~\cite{Bernuzzi:2013rza},~\cite{Kastaun:2013mv},~\cite{Tsatsin:2013jca},~\cite{Dietrich:2015pxa},~\cite{East:2015yea},~\cite{Tsokaros:2015fea},~\cite{Tacik:2015tja}). Since no Bh-NS binaries have been directly observed, the NS spins are, at least observationally, unconstrained. Spinning NS will affect the gravitational waveforms and cause the inspiral to proceed more slowly (for spin-aligned NS). The spin can be important for gravitational wave detection and can cause appreciable mismatch with non-spinning templates, especially at lower Bh-Ns mass ratios (\cite{Ajith:2011ec}). The spin could also affect the time of NS disruption, as the stellar material will be less tightly bound to the stellar surface.
+simulations to date use irrotational neutron stars in their Bh-Ns
+binaries. For Ns-Ns binaries, in constrast, a significant number of
+studies, investigate spinning neutron stars in Ns-Ns binaries
+(\cite{Baumgarte:2009fw},~\cite{Tichy:2011gw},~\cite{East:2012zn},~\cite{Tichy:2012rp},~\cite{Bernuzzi:2013rza},~\cite{Kastaun:2013mv},~\cite{Tsatsin:2013jca},~\cite{Dietrich:2015pxa},~\cite{East:2015yea},~\cite{Tsokaros:2015fea},~\cite{Tacik:2015tja}). Since
+no Bh-Ns binaries have been directly observed, the Ns spins are, at
+least observationally, unconstrained. A spinning neutron star will affect the gravitational waveforms and cause the inspiral to proceed more slowly (for spin-aligned Ns). The spin can be important for gravitational wave detection and can cause appreciable mismatch with non-spinning templates, especially at lower Bh-Ns mass ratios (\cite{Ajith:2011ec}). The spin could also affect the time of Ns disruption, as the stellar material will be less tightly bound to the stellar surface.
 
 Recently, \cite{Tacik:2015tja} used the {\tt SpEC} code to create and
 evolve initial data sets of binary neutron star systems with arbitrary
 spins. In this chapter, we extend this code to create initial data for
 Bh-Ns systems where the neutron star spin is arbitrary. The structure of this
-chapter is as follows: In section~\ref{sec:Bh-NSIDF}, we review standard numerical relativity initial data formalism, as well as the formalism
-developed in \cite{Tichy:2011gw} to create binaries with spinning NS,
-and discuss how this is extended to Bh-NS systems. In section~\ref{sec:NumMethods} we discuss the numerical methods used by our initial data solver.
-In section~\ref{sec:Results}, we create a number of initial data sets to demonstrate the robustness of our solvers. We extend the results of~\cite{Foucart:2013a} to incorporate different neutron star spins,
-and we also create a variety of initial data sets with various values of neutron star spin, black hole spin, and mass ratio, to demonstrate robustness across the Bh-Ns parameter space. We demonstrate initial data convergence and investigate properties of the solution. Finally, we conclude the chapter in section~\ref{sec:Conc}.
+chapter is as follows: In section~\ref{sec:Bh-NSIDF}, we review the standard numerical relativity initial data formalism, as well as the formalism
+developed in \cite{Tichy:2011gw} to create binaries with spinning Ns,
+and discuss how this is extended to Bh-Ns systems. In section~\ref{sec:BhNSNumMethods} we discuss the numerical methods used by our initial data solver.
+In section~\ref{sec:BhNSResults}, we create a number of initial data sets to demonstrate the robustness of our solvers. We extend the results of~\cite{Foucart:2013a} to incorporate different neutron star spins,
+and we also create a variety of initial data sets with various values
+of neutron star spin, black hole spin, and mass ratio, to demonstrate
+robustness across the Bh-Ns parameter space. We demonstrate initial
+data convergence and investigate properties of the solution. Finally,
+we conclude the chapter in section~\ref{sec:Conc}.In this chapter we use units where $G=c=M_{\odot}=1$.
 
 \section{Initial Data Formalism}
 \red{Consider shortening this section and instead reference previous sections.}
 \label{sec:Bh-NSIDF}
 In this section we will discuss the formalism used to solve the
 Einstein field equations and create quasi-equilibrium initial data for
-BH-NS binaries with spinning neutron
+Bh-Ns binaries with spinning neutron
 stars. We begin with the $3+1$ decomposition of the space-time metric
 tensor,
 \begin{equation}
@@ -58,7 +67,7 @@ where $\gamma_{\mu\nu}=g_{\mu\nu}+n_{\mu}n_{\nu}.$ and $\mathcal{L}_n$
 is the Lie derivative in the direction of the $n^{\mu}$. We restrict our
 attention to the spatial part of the extrinsic curvature, $K^{ij}$,
 since $n_{\mu}K^{\mu\nu}=0$ by construction. It is convenient to
-decmopose it into its trace and trace-free parts,
+decompose it into its trace and trace-free parts,
 \begin{equation}
 K^{ij} = A^{ij}+\frac{1}{3}K\gamma_{ij}.
 \end{equation}
@@ -133,7 +142,7 @@ $\tilde{S}$, and $\tilde{J}^i$. The free data are $\gamma_{ij}$,
 $\tilde{u}_{ij}$, $K$ and $\partial_t K$. $\tilde{u}_{ij}=0$ and
 $\partial_t K=0$ are natural choices in a coordinate system corotating
 with the binary. The
-choice of the conformal metric will be discussed in section~\ref{sec:NumMethods}.
+choice of the conformal metric will be discussed in section~\ref{sec:BhNSNumMethods}.
 
 Let us now further discuss the matter content of the neutron star. The
 energy density of the fluid is $\rho=\rho_0\left(1+\epsilon\right)$,
@@ -146,20 +155,21 @@ It is convenient to introduce the following projections of the four
 velocity $u^{\mu}$ and the three-velocity $U^{\mu}$:
 \begin{eqnarray}
 u^{\mu} &=& \gamma_n\left(n^u+U^\mu\right), \\
-U^{\mu}n_{\mu}&=&0.\\
+U^{\mu}n_{\mu}&=&0,\\
 U^i_0 &=& \frac{\beta^i}{\alpha}, \\
 \gamma_0 &=& \left(1 - \gamma_{ij}U^i_0U^j_0\right)^{-1/2}, \\
 \gamma_n &=& \left(1 - \gamma_{ij}U^iU^j\right)^{-1/2}, \\
-\gamma &=& \gamma_n\gamma_0\left(1-\gamma_{ij}U^iU^j_0\right), 
+\gamma &=& \gamma_n\gamma_0\left(1-\gamma_{ij}U^iU^j_0\right).
 \end{eqnarray}
 Following \cite{Tichy:2011gw}, the three-velocity is written as the sum
 of an irrotational part (the gradient of a potential $\phi$) and a
-rotational part $W$:
+rotational part $W^i$,
 \begin{equation}
 U^i =
 \frac{\Psi^{-4}\tilde{\gamma}^{ij}}{h\gamma_n}\left(\partial_j\phi+W_j\right).
 \end{equation}
-$W$ is a freely chosen, divergence-free, vector field in this formalism; we will discuss this choice in section~\ref{sec:NumMethods}.
+$W^i$ is a freely chosen, divergence-free vector field in this
+formalism; we will discuss the choice of $W^i$ in section~\ref{sec:BhNSNumMethods}.
 
 The matter fluid must satisfy the continuity equation and the Euler
 equation. 
@@ -168,7 +178,7 @@ Under the assumptions made in \cite{Tichy:2011gw}, the continuity equation is a 
 \label{eq:Continuity1}
 \frac{\rho_0}{h}\nabla^{\mu}\nabla_{\mu}\phi+\left(\nabla^{\mu}\phi\right)\nabla_{\mu}\frac{\rho_0}{h}=0.
 \end{equation}
-Following \cite{Tichy:2011gw} this can be re-written as
+This can be re-written as
 \begin{eqnarray}
 \label{eq:Continuity2}
 \rho_0\,\bigg\{\!\!-\tilde{\gamma}^{ij}\partial_i\big(\partial_j\phi+W_j\big)  &+& \frac{h\beta^i\Psi^4}{\alpha}\partial_i\gamma_n + hK\gamma_n\Psi^4+\Big[\tilde{\gamma}^{ij}\tilde{\Gamma}^k_{ij}+\gamma^{ik}\partial_i\big(\ln \frac{h}{\alpha\Psi^2}\big)\Big] 
@@ -221,11 +231,11 @@ where $s^i=\Psi^{-2}\tilde{s}^i$ is the outward pointing unit normal to the appa
 surface, $h^{ij}$ is the 2-metric on the surface, $x_i$ are the
 Cartesian coordinates relative to the centre of the black hole and $\Omega_j^{BH}$ is a
 free vector that determines the spin of the black hole.
-The force balance equation at the centre of the NS is 
+The force balance equation at the centre of the neutron star, $c^i$ is 
 \begin{equation}
-\nabla\log h=0 \qquad {\rm on}~x^i=c^i.
+\nabla\log h=0 \qquad {\rm at}~x^i=c^i.
 \end{equation}
-We can re-write this equation as 
+We can re-write this equation as (\cite{Tichy:2011gw}) 
  \begin{equation}
 \label{eq:OmegaDriver}
 \nabla\ln\left(\alpha^2-\gamma_{ij}\beta^{i}\beta^{j}\right)=-2\nabla\ln\Gamma,
@@ -246,7 +256,7 @@ best guess for the orbital frequency. Alternatively, eccentricity
 removal techniques, such as those used in \cite{Tacik:2015tja} can be
 used to find the best value of the orbital frequency.
 
-$W^i$ is chosen as as to give the NS a uniform rotational
+$W^i$ is chosen as as to give the Ns a uniform rotational
 profile. Following our work in \cite{Tacik:2015tja}, we use
 \begin{equation}
 \label{eq:RotationTerm}
@@ -263,8 +273,10 @@ S=\frac{1}{8\pi}\oint_{\mathcal{H}}\phi^is^jK_{ij}dA.
  the exact aziumuthal Killing vector field generated by this symmetry.
 Since aziumuthal symmetry is not present in a binary system, we
 instead use an {\it approximate} Killing vector. It is computed by solving a
-shear minimization eigenvalue problem - see \cite{Cook2007,Lovelace2008}  for details.The dimensionless spin is defined as
+shear minimization eigenvalue problem - see
+\cite{Cook2007,Lovelace2008}  for details. The dimensionless spin is defined as
 \begin{equation}
+\label{eq:ChiDef}
 \chi=\frac{S}{M^2}
 \end{equation}
 where $M$ is the Christodoulou mass
@@ -278,25 +290,27 @@ M_{\rm irr}=\sqrt{A/16\pi}.
 The same method is used to compute the dimensionless spin of the
 neutron star. In particular we use Eq.~\ref{eq:BhSpin}, with
 $\mathcal{H}$ replaced by the neutron star's surface, as defined in
-Eq.~\label{eq:NSSurf} to compute the star's angular momentum. Its
+Eq.~\ref{eq:NSSurf} to compute the star's angular momentum. Its
 Arnowitt-Deser-Misner (ADM) mass is used as the normalization to
-compute its dimensionless spin. In particular, we use the ADM mass of
+compute its dimensionless spin, analogous to the Christodoulou mass in
+Eq.~\ref{eq:ChiDef}. In particular, we use the ADM mass of
 an analogous rotating star with the same angular momentum in
 isolation, since the ADM mass of the star in a binary in not directly
 measurable. \cite{Tacik:2015tja} showed that this method of computing
 neutron star spin was robust and accurate.
 
 \section{Numerical Methods}
-\label{sec:NumMethods}
+\label{sec:BhNSNumMethods}
 The XCTS equations
 (\cref{eq:XCTS-Shift,eq:XCTS-ConformalFactor,eq:XCTS-Lapse} and the
-continuity equation (Eq.~\ref{eq:Continuity2} for $\phi$ form a set
+continuity equation (Eq.~\ref{eq:Continuity2}) form a set
 of six non-linear coupled elliptic equations that we must now solve. We use the
 pseduo-spectral multi-grid elliptic solver developed in
-\cite{Pfeiffer2003} and enhanced in \cite{FoucartEtAl:2008} to incorporate matter. The computational domain is divided into a number of subdomains. A small cube is placed at the centre of the NS. Overlapping this cube is a spherical shell whose outer boundary deforms to fit the NS surface. These are surrounded by an additional spherical shell. The black hole is represented by two concentric spherical shells. Their inner bounday is required to be an apparent horizon. Three rectangular parallelpipeds surround the axis passing through the centres of the Bh and the Ns - one between them and one on each side of the objects. An additional eight cylindrical shells are placed around the same axis to cover the intermediate field region. The far-field region is covered by a large spherical shell whose outer boundary is placed at $R=10^{10}$ using an inverse radial mapping. This domain is visualized in Fig.~\ref{fig:BhNsDomain}.
-
+\cite{Pfeiffer2003} and enhanced to
+incorporate matter in \cite{FoucartEtAl:2008}. The computational domain is divided into a number
+of subdomains. A small cube is placed at the centre of the neutron star. Overlapping this cube is a spherical shell whose outer boundary deforms to fit the stellar surface. These are surrounded by an additional spherical shell. The black hole is represented by two concentric spherical shells. Their inner bounday is required to be an apparent horizon. Three rectangular parallelpipeds surround the axis passing through the centres of the Bh and the Ns - one between them and one on each side of the objects. An additional eight cylindrical shells are placed around the same axis to cover the intermediate field region. The far-field region is covered by a large spherical shell whose outer boundary is placed at $R=10^{10}$ using an inverse radial mapping. This domain is visualized in Fig.~\ref{fig:BhNsDomain}.
 \begin{center}
-\begin{figure}[!ht]
+\begin{figure}
 \includegraphics[scale=0.45]{chap4/BhNsDomain.png}
 \caption[Visualization of the Bh-Ns domain
 decomposition.]{Visualization of the Bh-Ns domain decomposition. The
@@ -305,32 +319,32 @@ decomposition.]{Visualization of the Bh-Ns domain decomposition. The
   various cylinders and rectangular parallelpipeds in the
   domain. \red{[Make this look nicer]}}
 \label{fig:BhNsDomain}
-
 \end{figure}
 \end{center}
-
 All variables (metric and hydrodynamical) are decomposed on sets of
-basis functions on each subdomain. Finite difference schemes are
+basis functions on each subdomain. The type of basis function used
+depends on the topology on the subdomain. Finite difference schemes are
 needed for hydrodynamical quantities during evolutions so as to
 capture shocks, but for initial data, where shocks are not present,
 spectral methods are suitable and exponentical convergence can be
 achieved. The resolution of each domain is synonymous with the
 number of colocation points used. They are chosen manually at the
 start of the initial data solve, and then modified several times using
-an adaptive scheme (see step  To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
+an adaptive scheme (see step~\ref{it:final}).  To discuss the resolution of the computational domain for the purpose of convergence tests, we will use the notation
 \begin{equation}
-N^{1/3}=\left(\sum N_i\right)^{1/3},
+N^{1/3}=\left(\sum_{i\in{\rm Subdomains}} N_i\right)^{1/3},
 \end{equation}
 where we are summing the colocation points of all of the
-subdomains. This gives an indication of the average resolution per dimension.A typical initial data solve starts with, $N^{1/3}\sim 33$ and end with $N^{1/3}\sim 80$
+subdomains. This gives an indication of the average resolution per
+dimension. A typical initial data solve starts with, $N^{1/3}\sim 33$ and end with $N^{1/3}\sim 80$.
 
 Construction of initial data begins by choosing values for the
 physical parameters in the problem we aim to achieve. In particular,
 these are: parameters of the black hole,
 \begin{itemize}
 \item The black hole mass, $M_{\rm BH}$,
-\item The black hole's target dimensionless spin vector,
-  $\vec{\chi}_{\rm BH}$.
+\item The black hole's dimensionless spin vector,
+  $\vec{\chi}_{\rm BH}$,
 \end{itemize}
 parameters of the neutron star,
 \begin{itemize}
@@ -346,7 +360,7 @@ and orbital paramters,
 \end{itemize}
 Additionally,  a perscription is required for the free
 metric variables, $\tilde{g}_{ij}$ and $K$. We use the following: near the black hole they
-are equal to the values for a black hole with the same spin and boost
+are equal to the values for an isolated black hole with the same spin and boost
 velocity,
 written in Kerr-Schild coordinates. Near the neutron star, they are a
 conformally flat metric and $K=0$. They fall-off from the black hole
@@ -361,10 +375,11 @@ Let's now discuss the algorithm we use to solve for the initial data.
 If this is the first resolution (i.e. step~\ref{it:secondlast} has not been
   completed once yet), set $\omega^i=0$, otherwise set
   to the desired value. This has been found to help with overall
-  convergence. Additionally, impose a maximum radius out to which to
+  convergence, especially for high neutron star spins. Additionally, impose a maximum radius out to which to
   apply $W^i=\epsilon^{ijk}\omega^jr^k$, otherwise low density
   material at high radius can lead to spurious large velocities,
-  especially when the neutron star spin is large.
+  especially when the neutron star spin is large, or when the black
+  hole mass is much larger than the neutron star mass.
 
 \item 
 \label{it:solve}
@@ -386,8 +401,8 @@ We use $\lambda=0.3$.
 
 \item
 \label{it:toplevelparamsolve}
- If already at a sufficiently high AMR resolution, skip to step~\ref{it:omega}, otherwise proceed to step~\ref{it:surface}. We generally find that after completed the first four resolutions, 
-the stellar and black hole parameters are already computed to a good enough accuracy, so therefore those steps can be skipped to decrease computational cost.
+ If already at a sufficiently high resolution, skip to step~\ref{it:omega}, otherwise proceed to step~\ref{it:surface}. We generally find that after completed the first four resolutions, 
+the stellar and black hole parameters are already computed to a sufficient accuracy, so therefore those steps can be skipped to decrease computational cost.
 
 \item 
 \label{it:surface}
@@ -407,7 +422,8 @@ P_{\rm ADM}^i = \frac{1}{8\pi}\oint_{S_{\infty}}K^{ij}dS_j.
 If its norm has changed by less than 10\% in the last iteration, move
 the centre of the BH so as to zero-out the momentum of the
 system. In particular, find $\delta c$ satisfying $\vec{\delta c}
-\times \vec{\Omega_0}=\vec{P}_{\rm ADM}$. Additionally, modify the radius of the excision surface to
+\times \vec{\Omega_0}=\vec{P}_{\rm ADM}$. Additionally, modify the
+radius of the excision surface, $r_{\rm ex}$, to
 drive $M_{\rm BH}$ to the desired value by applying (\cite{Buchman:2012dw})
 \begin{equation}
 \delta r_{\rm ex} = -r_{\rm ex} \frac{M_{\rm BH} - M_{\rm
@@ -462,7 +478,7 @@ of this procedure.
 \end{enumerate}
 
 \section{Results}
-\label{sec:Results}
+\label{sec:BhNSResults}
 
 %\subsection{bla}
 %In this section we will demonstrate that we are able to construct robust initial data for generic bh-ns binaries with a spinning neutron star. To begin, we will focus on two axes of the mutli-dimensional parameter space - mass ratio and black-hole spin - while keeping the NS parameters fixed. In particular, we use a neutron star wtih ADM mass, $M_{\rm ADM}=1.4M_{\odot}$, equation of state $P=\kappa\rho_0^\Gamma\left(\Gamma=2.0, \kappa=101.45\right)$ and spin parameter, $\vec{\omega_{\rm NS}}=0.017\hat{z}$, corresponding to a dimensionless spin $\vec{\chi_{\rm NS}}\sim0.4\hat{z}$. The black hole is given a mass, $M_{\rm BH}=qM_{\rm ADM}$ and a dimensionless spin $\vec{\chi_{\rm BH}}=\chi\hat{z}$. In the first initial data sqeuence, we keep $q=7$ fixed, and vary $q=\{0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95\}$. In the second initial data sequence, we keep $\chi=0.9$ fixed and vary $q=\{2,3,4,5,6,7,8,9,10\}$. In each case, the BH and the NS are separated by a coordinate distance $D=7.44\left(M_{\rm BH}+M_{\rm ADM}\right)=7.44M$, and have an initial orbital angular velocity $M\Omega_{\rm orb}=0.0413$, with no additional infall velocity ($\dot{a}=0$). We will now focus on a subset of these initial data sets to demonstrate initial data convergence. In particular, the sets with $q=3$, $q=5$, $q=10$, $\chi=0$, $\chi=0.5$, $\chi=0.95$.
@@ -471,7 +487,7 @@ of this procedure.
 
 \subsection{Initial Data Set Parameters}
 Let us begin by discussing the parameters for the initial data sets
-that will be used in this work. We start from the six BH-NS
+that will be used in this work. We start from the six Bh-Ns
 configurations described in Table 1 of \cite{Foucart:2013a}. All
 binaries have a mass ratio $q=7$ and a black hole spin magnitude of
 $\chi_{\rm BH}=0.9$. The neutron star in each binary has
@@ -511,7 +527,7 @@ typically $\chi_{NS}\sim 0.4$ and $\chi_{\rm NS}\sim 0.1$,
 respectively. In our naming notation, we use a large arrow
 ($\Uparrow$)  for the ``high-spin'' configurations and a small arrow
 ($\uparrow$) for the ``low-spin'', with the direction of the arrow
-indicating the direction of the NS spin vector. The full parameters of
+indicating the direction of the Ns spin vector. The full parameters of
 the initial data sets are summarized in Table
 ~\ref{tab:FullBHNSParameters}. In particular, the name of the run,
 the black hole spin direction, the baryon mass of the neutron star, the orbital angular velocity of the system,
@@ -585,8 +601,8 @@ extend the work of \cite{Foucart:2013a}. For example, it was found
 that the size of the neutron star, varying from $12km$ to $14km$ can
 greatly affect the onset of neutron star disruption, and thus the disk
 produced and the electromagnetic signal that would be produced. Given
-such sensitivity to the NS parameters, it is natural to think that
-sensitivity to the NS spin should be tested. If the material is less
+such sensitivity to the Ns parameters, it is natural to think that
+sensitivity to the Ns spin should be tested. If the material is less
 strongly bound to the star because of centrifugal forces arising from
 the spin, then the stars should disrupt earlier.
 
@@ -695,7 +711,7 @@ $
  We find apparent
 exponential convergence, although there are two disinctly different
 slopes in the data, with the slope becoming more shallow at high
-resolution. This is likely because we have stopped measuring the NS
+resolution. This is likely because we have stopped measuring the Ns
 surface at this point, i.e., after the fourth resolution. However, we are able to measure the spin to an
 accuracy of about $10^{-6}$. 
  We have omitted the first data point in this curve
@@ -787,7 +803,7 @@ solver breaks down around $\chi_{\rm NS}\sim 0.7$ which is around the
 theoretical maximum spin for $\Gamma=2$ polytropes. In
 Fig.~\ref{fig:ChiVOmega} we have also plotted, in addition to this
 Bh-Ns curve, a curve from Ns-Ns initial data sets. These data use
-different NS parameters, with mass $M_{\rm ADM}=1.64M_{\odot}$ and
+different Ns parameters, with mass $M_{\rm ADM}=1.64M_{\odot}$ and
 equation of state parameter $\kappa=123.6$. However, the curves remain
 very close to each other in shape. Thus we see the neutron star spin
 code seems to be working the same for the code described in this
