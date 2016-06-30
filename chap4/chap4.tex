@@ -498,20 +498,19 @@ that of an isolated, non-spinning neutron star with ADM mass
 $1.4M_{\odot}$, with the same equation of state. We explore three
 different Ns equations of state. All three are polytropic equations of
 state ($P=\kappa\rho^\Gamma$) with $\Gamma=2$, but vary in terms of
-$\kappa$, resulting in different neutron star compactnesses. The
-values of $\kappa$ used are $84.28$, $92.12$, $101.45$, which result
-in compactnesses of $0.170$, $0.156$, $0.144$, and radii of
-approximately $12km$, $13km$, $14km$, respectively, for non-spinning
+$\kappa$, resulting in different neutron star compactnesses. This results
+in compactnesses ($C=R/M$) of $0.170$, $0.156$, $0.144$, and radii of
+approximately $12{\rm km}$, $13{\rm km}$, $14{\rm km}$, respectively, for non-spinning
 neutron stars with ADM Mass $1.4M_{\odot}$. We will use the notation
-$R12$, $R13$ and $R14$ to refer to these configurations,
-respectively. The $R12$ and $R13$ configurations are the onlys sets
+${\tt R12}$, ${\tt R13}$ and ${\tt R14}$ to refer to these configurations,
+respectively. The ${\tt R12}$ and ${\tt R13}$ configurations are the onlys sets
 with the black hole spin aligned with the orbital angular
-momentum. For $R14$, we also consider precessing
-black hole spins spanning angles of $20^{\circ}$, $40^{\circ}$ and
+momentum. For ${\tt R14}$, we also consider precessing
+black hole spins spanning misalignment angles of $20^{\circ}$, $40^{\circ}$ and
 $60^{\circ}$ with the orbital angular momentum. The non-parallel part of the black hole spin is set
 parallel to the $\hat{x}$ axis. In each case the initial separation
 between the black hole and the neutron star is $D=7.44M$, where
-$M=M_{\rm BH}+M_{\rm ADM}^{\rm NS}$ is the total mass of the
+$M=M_{\rm BH}+M^{\rm ADM}_{\rm NS}$ is the total mass of the
 binary. The initial infall velocity parameter $\dot{a}_0$ is set to
 $0$. The orbital angular velocity, $\Omega_0$, is the same as in \cite{Foucart:2013a} and is indicated in table~\ref{tab:FullBHNSParameters}.
 The above constitutes 6 different configurations. 
@@ -523,7 +522,7 @@ three directions - aligned with the orbital angular momentum,
 anti-aligned with the orbital angular momentum, and completley in the
 orbital plane, parallel to the $\hat{x}$ direction. For each of these
 3 directions, we use a ``high-spin'' and a ``low-spin''. These are
-typically $\chi_{NS}\sim 0.4$ and $\chi_{\rm NS}\sim 0.1$,
+typically $\chi_{\rm NS}\sim 0.4$ and $\chi_{\rm NS}\sim 0.1$,
 respectively. In our naming notation, we use a large arrow
 ($\Uparrow$)  for the ``high-spin'' configurations and a small arrow
 ($\uparrow$) for the ``low-spin'', with the direction of the arrow
@@ -598,7 +597,7 @@ data sets.]{\label{tab:FullBHNSParameters}Full set of parameters of
 
 Although we do not perform evolutions of any of these initial data sets, in principle these initial data sets could be easily used to
 extend the work of \cite{Foucart:2013a}. For example, it was found
-that the size of the neutron star, varying from $12km$ to $14km$ can
+that the size of the neutron star, varying from $12{\rm km}$ to $14{\rm km}$ can
 greatly affect the onset of neutron star disruption, and thus the disk
 produced and the electromagnetic signal that would be produced. Given
 such sensitivity to the Ns parameters, it is natural to think that
@@ -611,13 +610,13 @@ To assess the convergence of the initial data solver we will begin by looking at
 described above. We will first focus on one particular initial data
 set of the 36 in Tab~\ref{Tab:36Sets} - namely the {\tt
   R14i60$\Uparrow$} initial data set. The results we present for {\tt
-  R14i60$\Uparrow$} are representative for all of the 36 sets considered.
+  R14i60$\Uparrow$}, however, are representative for all of the 36 sets considered.
 
 We begin by looking at the convergence of the Euler constant, $C$. In figure~\ref{Fig:EulerConv} we plot the absolute difference in $C$ between neighbouring iterations for the eight
 different resolutions used in the initial data solve. %\red{Expand explanation}In our notation, {\tt R1} is the first (lowest) resolution, {\tt R2} is the second, etc. 
 In the figure we see that at a given resolution these differences
 decrease exponentially with iteration as expected for the relaxation
-scheme employed (cf. Eq.~\ref{eq:Relaxation}). Meanwhile the differences also decrease with increasing resolution. This all shows that the initial data solver is working as it should. Note that although we've only shown
+scheme employed (cf. Eq.~\ref{eq:Relaxation}). Meanwhile the differences also decrease with increasing resolution. This all shows that the initial data solver is working as it should. Although we've only shown
 this plot for the {\tt R14i60$\Uparrow$} inital data set, we find similar results for all the other initial data sets we consider.
 
 
@@ -650,8 +649,8 @@ difference is plotted as a funciton of iteration, for four different
 resolutions. Note that the previous plot had eight different
 resolutions, while this one only has four. This is because the black
 hole spin is only computed for the first four resolutions - afterwards
-it is no longer solved adjusted (cf. Step~\ref{it:toplevelparamsolve}) We note that in general we see a decrease in this difference with iteration, especially at the first resolution, therefore showing that the iterative solver is correctly driving the the black hole properties to the target values.
-We also note that this difference decrease with resolution, and that
+it is no longer solved adjusted (cf. Step~\ref{it:toplevelparamsolve}). In general we see a decrease in this difference with iteration, especially at the first resolution, therefore showing that the iterative solver is correctly driving the the black hole properties to the target values.
+Furthermore, that this difference decrease with resolution, and that
 we are able to achieve an accuracy of about $10^{-5}$ in the BH spin
 and mass. \red{Can we understand this sawtooth pattern?}
 
@@ -663,9 +662,9 @@ the four different resolutions at which the black hole spin is measured. The sol
 the dotted curves are for the irreducible mass of the BH.}
 \end{figure}
 
-Having now established the convergence of the iterative procedure, we
+Having established the convergence of the iterative procedure, we
 turn now to establish the convergence with resolution of the global
-properties of the solution, continuing to focus on the {\tt R14i60$\Uparrow$} ID set.We begin by looking at the Hamiltonian and momentum constraints for the {\tt R14i60$\Uparrow$} initial data set.
+properties of the solution, continuing to focus on the {\tt R14i60$\Uparrow$} ID set. We begin by looking at the Hamiltonian and momentum constraints for the {\tt R14i60$\Uparrow$} initial data set.
 The Hamiltonian constraint is computed as
 \begin{equation}
 H=||\frac{R_{\Psi}}{8\Psi^5}||
@@ -764,12 +763,12 @@ Figure~\ref{fig:3dparam} summarizes all the initial data sets along the axes of 
 Parameter space exploration. Starting from {\tt
   R14i60$\Uparrow$} (large red circle) we vary (i) the Bh spin
 $\chi_{\rm BH}$, (ii) the Ns spin $\chi_{\rm NS}$ and (iii) the black
-hole mass $M_{\rm BH}$, indicated by the mass-ration $q$.}
+hole mass $M_{\rm BH}$, indicated by the mass-ratio $q$.}
 \end{figure}
 
 We begin by
 varying the neutron star spin from $\chi=0$ ($\omega=0$) to $\chi\sim0.7$,
-corresponding to $\omega\sim0.22$. The parameters in this
+corresponding to $M_{\odot}\omega\sim0.22$. The parameters in this
 sequence are otherwise the same as in the {\tt R14i0} data sets, and the neutron star spin is kept aligned with the orbital
 angular momentum. To demonstrate convergence, we begin by plotting the
 Hamiltonian and momentum constraints for a subset of the generated
