@@ -1,3 +1,4 @@
+
 \chapter{Junk Radiation in Binary Black Hole Simulations}
 
 \section{Chapter Overview}
@@ -39,6 +40,7 @@ An Overview of my chapter here.
 
 
 \section{Introduction}
+\red{Re-write this paragraph}
 The inspiral and merger of solar-mass binary black holes are one of
 the most promising sources for ground-based gravitational wave
 detectors such as LIGO~\cite{Barish:1999},
@@ -91,7 +93,7 @@ understand the junk radiation, how important it is, and how to reduce
 it.
 
 Junk radiation is thought to be caused by assumptions made during the
-initial data construction, which are not compatible with black holes in perfect equilibrium. Specifically,
+initial data construction, which are not compatible with binary black holes in perfect equilibrium. Specifically,
  black holes are generally treated in the
 initial data as independent and non-interacting, while in reality
 there should be some non-trivial tidal interactions between them. If
@@ -117,7 +119,7 @@ to be approximately independent of binary separation.
 
 Lovelace~\cite{Lovelace2009} investigated the effects on junk radiation of using
 superposed Kerr-Schild~\cite{Matzner1999,Marronetti-Matzner:2000,Pfeiffer2002a,Lovelace2008} (conformally curved) initial data for equal mass, non-spinning black
-holes.  The metric is written as
+holes.  The conformal metric is written as
 \begin{equation}
 \tilde{g}_{ij}=f_{ij}+e^{-(r_A/w)^2}\left(g_{ij}^A-f_{ij}\right)+e^{-(r_B/w)^2}\left(g_{ij}^B-f_{ij}\right),
 \end{equation}
@@ -143,7 +145,7 @@ The paper is organized as follows:
   Section~\ref{sec:NumericalMethods} presents the numerical methods,
   and Section~\ref{sec:Methodology} describes how we quantify junk
   radiation and other initial transients in the BBH initial data sets.
-  We present our results in Sec.~\ref{sec:Results} and close with a discussion in Sec.~\ref{sec:Discussion}.
+  We present our results in Sec.~\ref{sec:Results} and close with a discussion in Sec.~\ref{sec:JRDiscussion}.
 
 \section{Numerical Methods}
 \label{sec:NumericalMethods}
@@ -216,7 +218,7 @@ are \red{PROVIDE DETAILS}.
 \label{sec:Code}
 
 The initial data is solved using the spectral solver {\tt Spells}(~\cite{Pfeiffer2003}) of the Spectral 
- Einstein Code {\tt SpEC}~\cite{SXSWebsite}.  This is a
+ Einstein Code {\tt SpEC}\footnote{\url{www.black-holes.org}}.  This is a
 multi-domain elliptic PDE solver that uses pseudo-spectral methods,
 whereby quantities of interest are expressed as a linear summation of
 basis functions. This method gives exponential convergence (with the
@@ -234,16 +236,16 @@ domain using the Newman-Penrose scalar $\Psi_4$. Given a spacelike
 hypersurface with unit normal $n^{\mu}$ and a spatial unit vector in
 the direction of wave propagation $r^{\mu}$, $\Psi_4$ is defined as 
 \begin{equation}
-\Psi_4 = -C_{\alpha\mu\beta\nu}l^{\mu}l^{\nu}m^{\alpha}\bar{m}^{\beta}
+\Psi_4 = -C_{\alpha\mu\beta\nu}l^{\mu}l^{\nu}m^{\alpha}\bar{m}^{\beta},
 \end{equation}
 where $C_{\alpha\mu\beta\nu}$ is the Weyl tensor,
 $l^{\mu}=\left(n^{\mu}-r^{\mu}\right)/\sqrt{2}$ and $m^{\mu}$ is a
 complex null vector satisfying $m^{\mu}\bar{m}_{\mu}=1$. We then expand
 $\Psi_4$ in spin-weighted spherical harmonics
 \begin{equation}
-\Psi_4(t,r,\theta,\phi)=\sum_{l,m}{\Psi_4^{lm}(t,r)_{-2}Y_{lm}(\theta,\phi)}
+\Psi_4(t,r,\theta,\phi)=\sum_{l=2}^{l_{\rm max}}\sum_{|m|\leq~l}{\Psi_4^{lm}(t,r)_{-2}Y_{lm}(\theta,\phi)}
 \end{equation}
-The number of terms used in this expansion is generally $l\le 8$ in
+The number of terms used in this expansion is generally $l_{\rm max}\leq 8$ in
 our simulations. At large $r$, $\Psi_4$ is related to the
 gravitational wave amplitude, $h$, by
 \begin{equation}
@@ -254,18 +256,18 @@ gravitational wave amplitude, $h$, by
 \subsection{Eccentricity Reduction}
 Gravitational radiation tends to circularize in-spiralling compact
 binaries(~\cite{PetersMathews1963,Peters1964}). We reduce orbital
-eccentricity with an iterative method similar to the one described in~\cite{Boyle2007,Chu2009}. One guesses the initial orbital
+eccentricity with an iterative method similar to the one described in~\cite{Boyle2007,Chu2009}. One selects the initial orbital
 frequency $\Omega_0$ from Kepler's third law or from a Post-Newtonian
 calculation, while assuming that the initial radial velocity, $v_r$ is
 zero. After the first simulation has run for a sufficient length, about two orbits, we fit the time derivative of
 the orbital frequency, $\dot{\Omega}(t)$ as suggested
-in~\cite{Buonanno:2010yk}.  We fit parameters $\{A_0, A_1, T_c, B, \phi, \omega, q\}$ with the function
+in~\cite{Buonanno:2010yk}.  We fit parameters $\{A_0, A_1, t_c, B, \phi, \omega, q\}$ with the function
 \begin{equation}
-\dot{\Omega}(t)=A_0\left(T_c-t\right)^{-11/8}+A_1\left(T_c-t\right)^{-13/8}
+\dot{\Omega}(t)=A_0\left(t_c-t\right)^{-11/8}+A_1\left(t_c-t\right)^{-13/8}
 +B\cos\left(\varphi + \omega
   t+qt^2\right),
 \end{equation}
-where $T_C$ is the time of merger. The first two terms represent the
+where $t_C$ is the time of merger. The first two terms represent the
 smooth inspiral motion of the black holes, while the oscillatory
 second terms represents unwanted effects due to eccentricity. The
 updating formulae
@@ -346,8 +348,8 @@ $D/M=\{12,15,20,25,30\}$, and $D/M=\{12,15,20\}$ for SKS data, where $M$ is the 
 holes, and at each separation we consider  six different spins,
 $\chi=\{0,0.1,0.2,0.3,0.4,0.5\}$. In each case the black holes are of
 equal mass, equal spin, and the spin is aligned with the orbital
-angular momentum, i.e., in the the $+z$ direction. To test the
-convergence of quantities of interest, each run is done at four
+angular momentum, i.e., in the the $+\hat{z}$ direction. To test the
+convergence of our measurements, each run is done at four
 resolutions, which we will refer to as N0 (lowest resolution) to N3
 (highest resolution). Each evolution is
 run to about $t\sim1000M$, which is long enough to accurately measure the
@@ -374,19 +376,19 @@ quantifying the amount of junk radiation present in a given
 simulation. It is not immediately obvious what the best way to do this
 is.  \cite{Lovelace2009} considered the
 maximum value of the Newman-Penrose waveform,
-$\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius.  The
+$\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius of the gravitational waves.  The
   $(l,m)=(2,2)$ and $(2,0)$ modes were found to dominate. We find,
   however, that this method has some inadequacies. This is illustrated
   by comparing $R|\Psi_4^{lm}|(t_R)$, where $t_R$ is the retarded time,
-  $t_R=t-R$, for two runs (CF data, $D=15M$, $\chi=0.2$); one at our
-  typical highest resolution N3, and another at an even higher
-  resolution, N7. In terms of the total number of basis
+  $t_R=t-R$, in two different simulations. These use CF data, with the parameters $D=15M$, $\chi=0.2$; one is at our
+  typical highest resolution {\tt N3}, and another at an even higher
+  resolution, {\tt N7}. In terms of the total number of basis
     functions $X$, $X^{1/3}\sim58$ for N3 and $X^{1/3}\sim78$ for
     N4. The $(2,0)$ and $(2,2)$ modes are shown in the top panel of
   Fig.~\ref{fig:HighResComparison}. It is clear that the $(2,0)$ mode
   is significantly different between N3 and N7, in both the
   largest peak and in the subsequent smaller peaks, and that these
-  differences are not well encapsulated simply by
+  differences are not well encapsulated simply by using
   $\max\{R|\Psi_4|\}$. In Fig.~\ref{fig:HighResComparison} we also
   show these quantties for an SKS run with the same parameters. Because
   the waveform is significantly different from the CF waveform in both the
@@ -429,7 +431,7 @@ $\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius.  The
 \end{figure}
 
 As a more robust quantity that incorporates the whole waveform, and is
-less resolution dependent than $\max{|R\Psi_4^{lm}|}$, we look at the
+less resolution dependent than $\max\{R|\Psi_4^{lm}|\}$, we look at the
 total energy carried away from the system by gravitational waves. The
  gravitational wave energy flux is(~\cite{Boyle:2008})
 \begin{equation}
@@ -1143,5 +1145,6 @@ fit to an exponential; at $D=15M$,
 
 
 \section{Summary }
+\label{sec:JRDiscussion}
 
 My Summary.
