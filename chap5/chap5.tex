@@ -1,59 +1,56 @@
 
 \chapter{Junk Radiation in Binary Black Hole Simulations}
 
-\section{Chapter Overview}
+%\section{Chapter Overview}
+%
+%An Overview of my chapter here.%
+%
 
-An Overview of my chapter here.
+%\section{Chapter TDL}
+%\begin{itemize}
 
+%\item Many citations in the introduction and very much out of
+ % date. It should be re-written.
 
-\section{Chapter TDL}
-\begin{itemize}
+%\item Are there any new papers on junk radiation to discuss that have
+ % come out since this time? Ask Harald / do a literature search.
 
-\item Many citations in the introduction and very much out of
-  date. It should be re-written.
+%\item Discuss more about boundary conditions in IVP for bbh
 
-\item Are there any new papers on junk radiation to discuss that have
-  come out since this time? Ask Harald / do a literature search.
+%\item Maybe make a table detailing all the simulations that were
+ % done. Come up with a better naming system for the runs.
 
-\item Discuss more about boundary conditions in IVP for bbh
+%\item There is a note about the uncertainity from numerical
+ % trunctation in $E_J$ for SKS. Not sure what to do about that. I
+  %think it can reasonably left the way it is.
 
-\item Maybe make a table detailing all the simulations that were
-  done. Come up with a better naming system for the runs.
+%\item Combine data into a single plot for wave extraction plot
 
-\item There is a note about the uncertainity from numerical
-  trunctation in $E_J$ for SKS. Not sure what to do about that. I
-  think it can reasonably left the way it is.
+%\item Decide what to do for $\delta M$ for SKS, given that the data is
+ % so weird
 
-\item Combine data into a single plot for wave extraction plot
+%\item Write the results section closely citing all the figures
+ % properly. Are we overfitting the data? Be careful with how to report
+  %the data. Maybe just focus on the plots, and not the fits.
 
-\item Decide what to do for $\delta M$ for SKS, given that the data is
-  so weird
+%\item Write a conclusion. What are the implications of these kinds of
+ % numbers?
 
-\item Write the results section closely citing all the figures
-  properly. Are we overfitting the data? Be careful with how to report
-  the data. Maybe just focus on the plots, and not the fits.
-
-\item Write a conclusion. What are the implications of these kinds of
-  numbers?
-
-\end{itemize}
+%\end{itemize}
 
 
 \section{Introduction}
-\red{Re-write this paragraph}
-The inspiral and merger of solar-mass binary black holes are one of
-the most promising sources for ground-based gravitational wave
-detectors such as LIGO~\cite{Barish:1999},
-Virgo\cite{Acernese-etal:2006}, and LCGT\cite{Kuroda:2010}. In the
-next few years, as it is upgraded to higher sensitivity, Advanced
-LIGO is expected to begin making detections, with a realistic event
-rate estimated at about 20 per year \cite{Abadie:2010cfa}.
-For the gravitational radiation to be detected, and to learn about the
-properties of the source, waveform templates must be accurately
-modelled.  Although analytic prescriptions like Post-Newtonian (PN)\cite{Blanchet2006} or
-Effective One-Body (EOB)\cite{Buonanno99} can accurately model some of the inspiral,
+The detection of the inspiral and merger of binary black holes by
+Advanced
+LIGO\big[\cite{PhysRevLett.116.241103},~\cite{Abbott:2016blz}\big] has
+dawned the beginning of the era of gravitational wave astronomy. To
+make these kind of detections, and to learn about the properties of
+the source, gravitational waveform templates must be accurately
+modelled. Although analytic perscriptions like Post-Newtonian (PN)
+\big[\cite{Blanchet2006}\big] or Effective One-Body (EOB)
+\big[\cite{Buonanno99}\big] can accurately model some of the inspiral,
 Numerical Relativity (NR) simulations are needed to accurately model
-late inspiral and merger of the black holes.
+the late inspiral and merger of the black holes.
 
 In current NR simulations, there is always a burst of spurious
 gravitational radiation at the start of the simulation, often referred to as
@@ -86,7 +83,7 @@ reasons. It adds to the computational cost of the simulation as the
 junk radiation must leave the computational grid before any useful
 physical information can be extracted.  It can unrealistically shorten
 the time until the black holes
-merge\cite{BodeEtAl:2008}. It also makes it more difficult
+merge \big[\cite{BodeEtAl:2008}\big]. It also makes it more difficult
 to compare general relativistic simulations with Post-Newtonian
 calculations. It is therefore a useful endeavour to try to better
 understand the junk radiation, how important it is, and how to reduce
@@ -96,10 +93,14 @@ Junk radiation is thought to be caused by assumptions made during the
 initial data construction, which are not compatible with binary black holes in perfect equilibrium. Specifically,
  black holes are generally treated in the
 initial data as independent and non-interacting, while in reality
-there should be some non-trivial tidal interactions between them. If
-we imagine a sequence of initial data sets where the initial
+there should be some non-trivial tidal interactions between them
+(see~\big[\cite{Chu:2013nkx,JohnsonMcDaniel:2009dq}\big] for examples of including tidal interactions). If
+we consider a sequence of initial data sets where the initial
 separation between the holes is decreasing, we would expect that this
-effect becomes more important as the initial separation decreases. 
+effect becomes more important as the initial separation
+decreases. Similarly, there should be some outgoing gravitational
+radiation already present in the simulation to model the black holes
+inspiraling from infinity, and this is generally not modelled (see~\big[\cite{JohnsonMcDaniel:2009dq,Kelly:2009js}\big] for efforts to model it).
 Moreover, the black holes in the initial data are often constructed
 with techniques that do not even allow to construct a single, equilibrium black  hole.  Specifically, often, conformal flatness is assumed. As detailed in section~\ref{subsec:IVP}, the construction of initial data has a
 free choice for the conformal metric, $\tilde{g}_{ij}$, on the initial
@@ -108,8 +109,9 @@ $\tilde{g}_{ij}$ is equal to the flat Euclidean metric. Since every
 spherically symmetric space is conformally flat, this would be fine
 for one Schwarzchild black hole. However,  a
 binary system of compact objects is not conformally flat at second PN
-order\cite{Rieth:1997}, and the Kerr space-time does not admit a
-conformally flat slicing~\cite{GaratPrice:2000} that continuously approach Schwarzschild coordinates as the spin goes to zero. 
+order \big[\cite{Rieth:1997}\big], and the Kerr space-time does not admit a
+conformally flat slicing that continuously approach Schwarzschild
+coordinates as the spin goes to zero \big[\cite{GaratPrice:2000}\big]. 
 The former effect should decrease in importance with increasing separation of the binary.  The latter is caused by a deficiency of conformally flat slicing that is present even for single spinning black holes, and so we expect its importance
 to be approximately independent of binary separation.
 % It is reasonable to think that the latter
@@ -117,8 +119,8 @@ to be approximately independent of binary separation.
 % have higher spins, while we might imagine that the first effect is
 % some sort of constant effect.
 
-Lovelace~\cite{Lovelace2009} investigated the effects on junk radiation of using
-superposed Kerr-Schild~\cite{Matzner1999,Marronetti-Matzner:2000,Pfeiffer2002a,Lovelace2008} (conformally curved) initial data for equal mass, non-spinning black
+\cite{Lovelace2009} investigated the effects on junk radiation of using
+superposed Kerr-Schild~\big[\cite{Matzner1999,Marronetti-Matzner:2000,Pfeiffer2002a,Lovelace2008}\big] (conformally curved) initial data for equal mass, non-spinning black
 holes.  The conformal metric is written as
 \begin{equation}
 \tilde{g}_{ij}=f_{ij}+e^{-(r_A/w)^2}\left(g_{ij}^A-f_{ij}\right)+e^{-(r_B/w)^2}\left(g_{ij}^B-f_{ij}\right),
@@ -139,9 +141,13 @@ In this paper we investigate the parameter space dependence of junk
 radiation. We measure its dependence on the spin and on the initial
 separation of the black holes, for low eccentricity, equal-mass,
 spin-aligned binaries. We also perform a comparison between conformally
-flat initial data, and superposed Kerr-Schild initial data.
+flat (CF) initial data, and superposed Kerr-Schild (SKS) initial data. To
+quantify the amount of junk radiation present we will use three
+diagnostics - the amount of energy present in the junk radiation, and
+the size of the transient effects of mass increase and spin decrease
+due to the junk radiation.
 
-The paper is organized as follows: 
+This chapter is organized as follows: 
   Section~\ref{sec:NumericalMethods} presents the numerical methods,
   and Section~\ref{sec:Methodology} describes how we quantify junk
   radiation and other initial transients in the BBH initial data sets.
@@ -199,26 +205,27 @@ frame.  This then leaves $\tilde{g}_{ij}$ and $K$ as the free data to
 choose.  
 
 The two types of initial data we compare are described in detail in
-Ref.~\cite{Lovelace2008}: Conformally flat, quasi-equilibrium initial
-data employs conformal flatness, maximal slicing ($K=0$) and inner
+~\cite{Lovelace2008}: Conformally flat, quasi-equilibrium initial
+data employs conformal flatness, $\tilde{g}_{ij}=f_{ij}$, maximal
+slicing, $K=0$, and inner
 boundary conditions that enforce that the black holes are
 instantaneously in
-equilibrium~\cite{Caudill-etal:2006,Cook2004,Cook2002}.  Superposed
+equilibrium~\big[\cite{Caudill-etal:2006,Cook2004,Cook2002}\big].  Superposed
 Kerr-Schild initial data, first used
-in~\cite{Marronetti-Matzner:2000,Matzner1999}, takes the spatial
+in\big[~\cite{Marronetti-Matzner:2000,Matzner1999}\big], takes the spatial
 metric and extrinsic curvature as superposition of elements of
 Kerr-Schild metrics (one for each black hole).  As explained in
-Ref.\cite{Lovelace2008}, we introduce Gaussian attenuation functions
-to ensure regularity at spatial infinity.  Inner boundary conditions
-are \red{PROVIDE DETAILS}.
+\cite{Lovelace2008}, we introduce Gaussian attenuation functions
+to ensure regularity at spatial infinity. The details on the inner
+boundary conditions used can be found in ~\cite{Lovelace2008}.
 
 
 
 \subsection{Code}
 \label{sec:Code}
 
-The initial data is solved using the spectral solver {\tt Spells}(~\cite{Pfeiffer2003}) of the Spectral 
- Einstein Code {\tt SpEC}\footnote{\url{www.black-holes.org}}.  This is a
+The initial data is solved using the spectral solver {\tt Spells}~\big[\cite{Pfeiffer2003}\big] of the Spectral 
+ Einstein Code {\tt SpEC}\footnote{\url{www.black-holes.org}}. This is a
 multi-domain elliptic PDE solver that uses pseudo-spectral methods,
 whereby quantities of interest are expressed as a linear summation of
 basis functions. This method gives exponential convergence (with the
@@ -255,8 +262,8 @@ gravitational wave amplitude, $h$, by
 
 \subsection{Eccentricity Reduction}
 Gravitational radiation tends to circularize in-spiralling compact
-binaries(~\cite{PetersMathews1963,Peters1964}). We reduce orbital
-eccentricity with an iterative method similar to the one described in~\cite{Boyle2007,Chu2009}. One selects the initial orbital
+binaries~\big[\cite{PetersMathews1963,Peters1964}\big]. We reduce orbital
+eccentricity with an iterative method similar to the one described in~\big[\cite{Boyle2007,Chu2009}\big]. One selects the initial orbital
 frequency $\Omega_0$ from Kepler's third law or from a Post-Newtonian
 calculation, while assuming that the initial radial velocity, $v_r$ is
 zero. After the first simulation has run for a sufficient length, about two orbits, we fit the time derivative of
@@ -350,7 +357,8 @@ $\chi=\{0,0.1,0.2,0.3,0.4,0.5\}$. In each case the black holes are of
 equal mass, equal spin, and the spin is aligned with the orbital
 angular momentum, i.e., in the the $+\hat{z}$ direction. To test the
 convergence of our measurements, each run is done at four
-resolutions, which we will refer to as N0 (lowest resolution) to N3
+resolutions, which we will refer to as {\tt N0} (lowest resolution) to
+{\tt N3}
 (highest resolution). Each evolution is
 run to about $t\sim1000M$, which is long enough to accurately measure the
 eccentricity, and make sure that it is sufficiently low. As discussed in
@@ -380,13 +388,13 @@ $\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius of the gravitationa
   $(l,m)=(2,2)$ and $(2,0)$ modes were found to dominate. We find,
   however, that this method has some inadequacies. This is illustrated
   by comparing $R|\Psi_4^{lm}|(t_R)$, where $t_R$ is the retarded time,
-  $t_R=t-R$, in two different simulations. These use CF data, with the parameters $D=15M$, $\chi=0.2$; one is at our
+  $t_R=t-R$, in two different simulations. These use CF data, with the parameters $\{D=15M$, $\chi=0.2\}$; one is at our
   typical highest resolution {\tt N3}, and another at an even higher
   resolution, {\tt N7}. In terms of the total number of basis
-    functions $X$, $X^{1/3}\sim58$ for N3 and $X^{1/3}\sim78$ for
-    N4. The $(2,0)$ and $(2,2)$ modes are shown in the top panel of
+    functions $X$, $X^{1/3}\sim58$ for {\tt N3} and $X^{1/3}\sim78$ for
+    {\tt N7}. The $(2,0)$ and $(2,2)$ modes are shown in the top panel of
   Fig.~\ref{fig:HighResComparison}. It is clear that the $(2,0)$ mode
-  is significantly different between N3 and N7, in both the
+  is significantly different between {\tt  N3} and {\tt N7}, in both the
   largest peak and in the subsequent smaller peaks, and that these
   differences are not well encapsulated simply by using
   $\max\{R|\Psi_4|\}$. In Fig.~\ref{fig:HighResComparison} we also
@@ -419,10 +427,10 @@ $\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius of the gravitationa
   \includegraphics[scale=0.95]{chap5/HighResComparison}
   \caption[Junk radiation profiles for CF and SKS initial data, and a
   comparison to high resolution SKS initial data.]{{\it Top Panel:} Comparison of the junk radiation profiles for our usual
-    highest resolution (N3) and an additional run at very highest
-    resolution (N7). We see, especially for the $(2,0)$ mode, that the
-    maximum peak of the junk radiation is much higher for N7, but
-    additional peaks are comparable or higher for N3. \newline {\it
+    highest resolution ({\tt N3}) and an additional run at very highest
+    resolution ({\tt N7}). We see, especially for the $(2,0)$ mode, that the
+    maximum peak of the junk radiation is much higher for {\tt  N7}, but
+    additional peaks are comparable or higher for {\tt N3}. \newline {\it
       Bottom Panel:} Junk radiation profile for an SKS run with the
     same parameters as in the top panel. The waveform is significantly
     different in structure from the CF waveform.
@@ -433,7 +441,7 @@ $\max\{R|\Psi_4^{lm}|\}$, where $R$ is the extraction radius of the gravitationa
 As a more robust quantity that incorporates the whole waveform, and is
 less resolution dependent than $\max\{R|\Psi_4^{lm}|\}$, we look at the
 total energy carried away from the system by gravitational waves. The
- gravitational wave energy flux is(~\cite{Boyle:2008})
+ gravitational wave energy flux is~\big[\cite{Boyle:2008}\big]
 \begin{equation}
 F(t) =\frac{1}{16\pi}\sum_{l,m}\dot{h}_{lm}^2(t),
 \end{equation}
@@ -462,7 +470,7 @@ Here, $F_0$ represents the value of $F(t)$ after the pulse of
 junk-radiation and $\theta$ represents the step-function.
 The choice of a constant value $F_0$ is reasonable since the
 timescale on which $F_{22}$ changes significantly is much longer than
-the junk radiation timescale.  This energy flux is indicated by the blue dashed curves in Fig.~\ref{fig:FluxSample}.
+the junk radiation timescale.
 We will
 discuss our choice for $t_{22}$ shortly.  The energy in the
 junk-radiation is given by
@@ -470,8 +478,13 @@ junk-radiation is given by
 E_J=\int_0^{t_C}\big[(F(t)-F_{22}(t)\big]dt,
 \end{equation}
 where the cut-off time $t_C$ is chosen after the junk radiation has
-decayed, i.e. $t_C-R\gtrsim 50M$.  The energy attributed to the junk
-radiation is thus the shaded area in Fig.~\ref{fig:FluxSample}.  As
+decayed, i.e. $t_C-R\gtrsim 50M$.  In Fig.~\ref{fig:FluxSample} we
+plot a representative example of the computation of $E_J$ for CF (top
+panel) and SKS (bottom panel) data. The blue dashed curves represent
+$F_{22}(t)$, while the shaded area represents $E_J$.
+%The energy attributed to the junk
+%radiation is thus the shaded area in Fig.~\ref{fig:FluxSample}.  
+As
 already apparent from Fig.~\ref{fig:FluxSample}, the precise value of
 $t_C$ is not extremely important, because at late times $F(t)-F_{22}(t)\approx 0$.  
 
@@ -509,7 +522,8 @@ $F(t)-F_{22}(t)$, in other words. So,
 \begin{equation}\label{eq:t22}
 t_{22}=\frac{\int_0^{t_C}{t\left(F\left(t\right)-F_0\theta\left(t-t_{22}\right)\right)dt}}{\int_0^{t_C}{\left(F\left(t\right)-F_0\theta\left(t-t_{22}\right)\right)dt}}.
 \end{equation}
-This equation must be solved iteratively for $t_{22}$.
+This equation must be solved iteratively for $t_{22}$, and the
+solution is found to converge rapdily.
 
 \begin{figure}
  \includegraphics[scale=0.95]{chap5/FluxSample}
@@ -537,12 +551,12 @@ Several effects may influence the quantity $E_J$ computed by
   $E_J$ increases with resolution. This is because junk radiation is
 a short wavelength feature, so greater resolution allows for more of
 the features present to be captured.  To estimate the
-uncertainty in $E_J$, we compare our $D=15M$,
-$\chi=0.2$ runs at N3 and N7, as discussed earlier. We find that
-at N7, $E_J$ is about $13\%$ greater than at N3. Since we don't
+uncertainty in $E_J$, we compare our $\{D=15M$,
+$\chi=0.2\}$ runs at {\tt N3} and {\tt N7}, as discussed earlier. We find that
+at {\tt N7}, $E_J$ is about $13\%$ greater than at {\tt N3}. Since we don't
 have such high resolutions runs available for each of our cases, we
 assume that we can use this same $13\%$ difference for each of our
-runs. This also assumes that at N7 the junk
+runs. We are also assuming that at {\tt N7} the junk
 radiation is nearly fully resolved, so that this difference is a good
 indication of the true value. Finally, we use this same uncertainty of
 $13\%$ for the SKS runs as well - while the technology is different
@@ -565,16 +579,16 @@ $E_J$, which subtracts out the additional flux in the astrophysical
 $(2,2)$ mode.}  To verify this assertion, we compute $E_J$ with $t_C$ in Eq.~(\ref{eq:EJ}) replaced by $t_C+\delta t_C$.  Figure~\ref{fig:EvsDtC} shows that indeed $E_J$ is almost independent of $\delta t_C$.  
 %The uncertainty introduced by $t_C$ is about $1\%$. 
 In Fig.~\ref{fig:EvsDtC}, $E_J$ is plotted against $t_C$
-in the representative $D=15M$, $\chi=0$ case.
+in the representative $\{D=15M, \chi=0\}$ case.
 For each run we define a fractional
 error parameter due to the choice of $t_C$, where we average the
 differences for $\delta t_C = -10M$ and $\delta t_C = 10M$:
 \begin{equation}
-\frac{\Delta E}{E} = \frac{|E(t_C+10M) - E(t_C)| + |E(t_C) - E(t_C -
-  10M)|}{2E(t_C)}
+\frac{\Delta E}{E} = \frac{|E_J(t_C+10M) - E_J(t_C)| + |E_J(t_C) - E_J(t_C -
+  10M)|}{2E_J(t_C)}
 \end{equation}
 This uncertainty ranges from $\sim 0.25\%$ to $\sim 3.75\%$ throughout
-all of ours runs.
+all of our simulations.
 
 \begin{figure}
  \includegraphics[width=0.95\columnwidth]{chap5/EvsDtj}
@@ -593,7 +607,7 @@ A third error in $E_J$ arises through {\it the finite radius
 waveforms to differ from the one that would be observed at
 infinity.  
 To estimate the error in $E_J$ due to the finite extraction radius, we
-use the following procedure. For each of our runs, we take $E_J$ at
+use the following procedure. For each of our simulations, we compute $E_J$ at
 several extraction radii, and examine $E_J$ as a function of
 $1/R_{ex}$. We then extrapolate
 \begin{equation}
@@ -608,14 +622,14 @@ as our error estimate. This parameter is on the order of $10\%$ for
 most of our runs. Note, however, that we still use $E_J$ and not $E_{\infty}$ as
 our measure of energy in the pulse. In Fig.~\ref{fig:EvsRextr} we illustrate an
 example of this procedure, plotting $E_J$ vs. $1/R_{ex}$ for one case,
-$D=15M, \chi=0$, for both CF and SKS data.
+$\{D=15M, \chi=0\}$, for both CF and SKS data.
 
 \begin{figure}
   \includegraphics[scale=0.95]{chap5/EvsRextr}
   \caption[$E_J$ as a function of $1_R/{\rm ex}$.]{$E_J$ as a function of $1/R_{ex}$, where $R_{ex}$ is the
-    extraction radius. This is for the case where $D=15M$, $\chi=0$,
-    with CF initial data in the left panel and SKS initial data in the
-    right panel. The extrapolation
+    extraction radius. This is for the case where $\{D=15M,\chi=0\}$,
+    with CF data in black and SKS data in red. The dashed lines
+    represent the best linear fit. The extrapolation
     to $1/R_{ex}\rightarrow 0$ allows us to estimate the error on
     $E_J$ due to finite extraction radius effects. }
 
@@ -679,48 +693,36 @@ eccentricity of all of our runs to $e\lesssim 0.002$.
 \subsection{Transient behaviour in Black Hole quantities}
 
 \subsubsection{Mass Increase}
-Besides the energy carried away in junk radiation, we utilize two further
+In addition to the energy carried away in junk radiation, we utilize two further
 diagnostics of transients arising from imperfect initial data.
-The first diagnostic is the irreducible
-mass of the black hole, $M_{irr} = \sqrt{A/(16\pi)}$, where $A$
-is the area of the black hole's apparent horizon. 
-In the first few $M$ during the evolution, the apparent horizon mass
+The first diagnostic comes from the irreducible
+mass of the black hole, $M_{\rm irr} = \sqrt{A/16\pi}$, where $A$
+is the area of the black hole's apparent horizon. In the first few $M$ during the evolution, the apparent horizon mass
 $M_{\rm irr}(t)$ increases by a small amount, before settling down to
 an approximately constant value. This effect is easily apparent for CF initial data plotted in the upper panel of Fig.~\ref{fig:MassIncreaseCFSKS}.
 We characterize the increase in mass due to initial transients by 
 \begin{equation}
-\delta M(t)=\frac{M_{irr}(t)}{M_{irr}(0)}-1
+\delta M(t)=\frac{M_{\rm irr}(t)}{M_{\rm irr}(0)}-1
 \end{equation}
-and the equilibrium parameter $\delta M_{eq} = \delta M(t_{\rm eq})$.
-Here $t_{\rm eq}$ is a time where the mass-increase is complete, and
+and we define the equilibrium parameter $\delta M = \delta M(t_{\rm eq})$.
+Here $t_{\rm eq}$ is a time where the mass-increase is complete and
 levels off; typically $\sim20M$. 
 
 For SKS initial data the behaviour of $M_{\rm irr}(t)$ is more
-  complex.  Within the first few $M$, $M_{\rm irr}(t)$ shows a rapid,
-  albeit small increase, presumably due to relaxation of the geometry
+  complex.  Within the first few $M$, $M_{\rm irr}(t)$ shows a rapid
+  increase, presumably due to relaxation of the geometry
   in the immediate vicinity of the black holes.  The trend here is
   similar to the CF initial data, in that larger spins result in a
   larger increase of $M_{\rm irr}(t)$, albeit the magnitude of the
-  increase is about a factor 50 smaller for SKS initial data.
-  Subsequently, starting at $t\sim 40M$, the SKS-runs show a second
+  increase is about a factor of 50 smaller for SKS initial data.
+  Subsequently, starting at $t\sim 40M$, the SKS simulations show a second
   set of features, oscillations with amplitude $\sim 2\times 10^{-5}$ lasting about
-  $60M$.  The features of these oscillations are similar to each other even for runs with different spin $\chi$.  Therefore, it is
+  $60M$.  The features of these oscillations are similar to each other
+  even for runs with different spin black hole spin $\chi$.  Therefore, it is
   likely that these oscillations are caused by features in the initial
   data set {\it away} from the black holes.
 
-In Fig.~\ref{fig:MassIncreaseCFSKS}, curves of $M_{irr}(t)$ are
-shown at different spins, at constant $D=15M$, with Conformally flat
-initial data in the top panel, and SKS initial data in the bottom
-panel. There is a clear qualitative between the CF and SKS curves. The CF data evidently forms a increasing sequence of $\delta_M$ with
-$\chi$, and $\delta_M$ is clearly well-defined in each case. However,
-the SKS data exhibits oscillatory behaviour that is relatively spin
-independent, and there is not a clear way to define $\delta_M$. The
-scale of the oscillations is on the order of $10^{-5}$. Our conclusion
-is that these are numerical oscillations and the contribution from
-junk radiation is not directly measurable, and we do not seek to
-characterize their parameter space dependence any further.
-
-\begin{figure}
+\begin{figure}[!htb]
  \includegraphics[width=0.95\columnwidth]{chap5/MassIncreaseCFSKS}
   \caption[Normalized irreducible mass curves for CF and SKS data.]{Normalized irreducible mass curves for CF data (top panel)
     and SKS data (bottom panel) for all of the different spins in the
@@ -728,35 +730,42 @@ characterize their parameter space dependence any further.
   \label{fig:MassIncreaseCFSKS}
 \end{figure}
 
-Figures~\ref{fig:CFMConvergence1} and~\ref{fig:SKSMConvergence1} show
-convergence tests for one of the spin-values shown in
-Fig.~\ref{fig:MassIncreaseCFSKS}.  ($D=15M$, $\chi=0.3$).  The top
-panels of Figs.~\ref{fig:CFMConvergence1}
-and~\ref{fig:SKSMConvergence1} show $M_{\rm irr}(t)$ of one black hole
-computed at different numerical resolutions, and the bottom panels
-show differences in $M_{\rm irr}(t)$ computed at neighbouring
-resolutions.  Note that our parameter space studies presented in
-Sec.~\ref{sec:Results} were usually performed on resolution ``N3''; we
-have run ``N4'' only for select cases to test convergence.  The CF
-initial data shows rapid convergence and the features in the upper
-panel of Fig.~\ref{fig:MassIncreaseCFSKS} are well resolved.  For the
-SKS data, Fig.~\ref{fig:SKSMConvergence1} indicates convergence,
-albeit much more slowly.
-
-The magnitude of the change of $M_{\rm irr}(t)$ is much smaller for
-SKS initial data than for CF initial data ($\sim 10^{-5}$ vs. $\sim
-5\times 10^{-4}$).  The changes in $M_{\rm irr}(t)$ for SKS initial
-data approach our numerical truncation error, and are furthermore
-ambiguous due to the extra features apparent in
-Fig.~\ref{fig:MassIncreaseCFSKS}.  Therefore, we shall not attempt to
-quantify them in detail, beyond giving upper bounds of the change on
-$M_{\rm irr}$ for SKS data.
-
+There is a clear qualitative difference between the CF and SKS
+curves. The CF data evidently forms an increasing sequence of
+$\delta_M$ with $\chi$, and $\delta_M$ is clearly well-defined in each
+case. However, the SKS data exhibits oscillatory behavior that is
+relatively spin-independent, and there is not a clear way to robustly
+define $\delta_M$. To further underscore the difficulties of the SKS
+data, figures~\ref{fig:CFMConvergence1} and~\ref{fig:SKSMConvergence1}
+show convergence tests for one of the mass curves shown in
+fig.~\ref{fig:MassIncreaseCFSKS}, $\{D=15M,\chi=0.3\}$. The top panels
+of Figs.~\ref{fig:CFMConvergence1} and~\ref{fig:SKSMConvergence1} show
+$M_{\rm irr}(t)$ of one of the black holes computed at different
+numerical resolutions, and the bottom panels show differences in
+$M_{\rm irr}(t)$ computed at neighboring resolutions. Note that our
+parameter space studies presented in Sec.~\ref{sec:Results} were
+usually performed on resolution {\tt N3}; we have run {\tt N4-N6} for
+select cases to test convergence. The CF initial data shows rapid
+convergence and the features in the upper panel of
+Fig.~\ref{fig:CFMConvergence1} are well resolved. For the SKS data
+shown in Fig.~\ref{fig:SKSMConvergence1} we do not find convergence -
+the differences between resolutions do not strictly decrease with
+increasing resolution, and these differences are of similar order to
+the features that we are trying to quantify. Our conclusion is
+therefore that the magnitude of the change $M_{\rm irr}(t)$ is much
+smaller for SKS initial data than for CF initial data ($\sim 10^{-5}$
+vs. $\sim 5\times10^{-4}$), however, the changes in $M_{\rm irr}(t)$
+for SKS initial data approach our numerical truncation error, and are
+furthermore ambiguous due to the extra oscillatory features present in
+Fig.~\ref{fig:MassIncreaseCFSKS}. We therefore shall not attempt to
+quantify them in detail, beyond giver upper bounds on $\delta_M$ for
+the SKS data.
 
 \begin{figure}
  \includegraphics[scale=0.95]{chap5/CFMConvergence1}
-  \caption[Convergence of $M_{\rm irr})(t)$ for CF initial data.]{Convergence test of $M_{irr}(t)$ for CF initial data in the
-  case $D15=M$, $\chi=0.3$. The top panel shows $M_{irr}(t)$ at
+  \caption[Convergence of $M_{\rm irr})(t)$ for CF initial
+  data.]{Convergence test of $M_{\rm irr}(t)$ for CF initial data in the
+  case $\{D15=M,\chi=0.3\}$. The top panel shows $M_{\rm irr}(t)$ at
   different resolutions, and the bottom panel shows the difference
   between consecutive resolutions.}
   \label{fig:CFMConvergence1}
@@ -776,44 +785,19 @@ $M_{\rm irr}$ for SKS data.
 \subsubsection{Spin Decrease}
 
 Our third and final quantification of junk radiation comes from the
-black hole's spin $S(t)$. At early times in each simulation --seen in Fig.~\ref{fig:SvsT2}, the spin
+black hole's spin $S(t)$. At early times in each simulation 
+%--seen in Fig.~\ref{fig:SvsT2}
+, the spin
 of each black hole decreases and oscillates rapidly. Eventually, at
-some time $t_{eq}$, the spin reaches some approximately constant
+some time $t_{\rm eq}$, the spin reaches some approximately constant
 value, which is lower than the initial spin, $S(0)$. This effect can
 be interpreted as angular momentum being carried away from the system
 by junk radiation. Note that we use the dimension-ful quasi-local
 angular momentum, measured with approximate Killing vectors as
 described in~\cite{Lovelace2008}. We use $S$ rather than $\chi=S/M^2$
-to de-couple the change in spin from the change in mass.
-
-%We illustrate this effect in figure~\ref{fig:SStabilize}. Using
-%representative runs where $D=15M$ and $\chi=0.5$, $S(t)/S(0)$
-%is plotted for conformally flat initial data in the top panel, and SKS
-%initial data in the bottom panel. It is worth noting that $S(t)$
-%stabilizes on a significantly larger timescale for the SKS initial
-%data, but also that it deviates significantly less from $S(0)$.
-
-%\begin{figure}
-% \includegraphics[scale=0.50]{SStabilize}
- % \caption{\note{Do Caption!}}
- % \label{fig:SStabilize}
-%\end{figure}
-
-%\begin{comment}
-%Our third and final quantification of junk radiation comes from the
-%black hole's spin $S(t)$.  This is the dimension-ful quasi-local
-%angular momentum, measured with approximate Killing vectors as
-%described in~\cite{Lovelace2008}.  At early times the spin $S(t)$ of
-%each black hole decreases and oscillates rapidly.Eventually, at some
-%time $t_{eq}$ it reaches an approximately constant value that is lower
-%than the initial spin. This effect can be interpreted as angular
-%momentum being carried away from the system by junk radiation. This is
-%illustrated in Fig.~\ref{fig:SStabilize}, for a run with parameters
-%$D=15M$, $\chi=0.5$.  Note that we use the dimensionful quasi-local
-%angular momentum $S$.  We utilize $S$ rather than $\chi=S/M^2$, to
-%de-couple the change in spin from the change in mass.  Fundamentally,
-%we measure $S$ and $M_{\rm irr}$. 
-%\end{comment}
+to de-couple the change in spin from the change in mass. This effect
+is illustrated in Fig.~\ref{fig:SvsT2}, where we plot $\delta~S(t)$
+for all of our simulations done at $D=15M$.
 
 Analogous to $\delta M(t)$, we can define the parameter $\delta S(t)$ as the
 fractional spin decrease of the black hole:
@@ -826,16 +810,32 @@ In practice, we compute $\delta S_{eq}$ as the average value of
 $\delta S(t)$
 over some suitable interval around $t_{eq}$.
 
+We find similar difficulties in defining $\delta~S$ for the SKS data
+as we did for defining $\delta~M$. In Fig~\ref{fig:SvsT2}, the SKS
+data shows similar oscillatory behavior that makes it difficult to
+robsutly define $\delta S$. After the oscillations, $\delta S$ does
+not neatly form a monotonic sequence in $\chi$.
 Analogous to Figs.~\ref{fig:CFMConvergence1}
 and~\ref{fig:SKSMConvergence1}, Figs.~\ref{fig:CFSConvergence1} and
 ~\ref{fig:SKSSConvergence1} demonstrate convergence tests for $\delta
-S(t)$, again for the case $D=15M, \chi=0.3$. Similar to what was see
+S(t)$, again for the case $\{D=15M,\chi=0.3\}$. Similar to what was seen
 in the convergence test for $M_{\rm irr}(t)$, the CF data convergences
-rapidly, while we see no clear convergence in the SKS data going up to N6.
+rapidly, while we see no clear convergence in the SKS data going up to
+{\tt N6}, and the differences between the resolutions are of a similar
+order to the features we are trying to quantify. Thus we make a
+similar conclusion as we did for the mass transients. $\delta~S$ is
+small compared for SKS data is small compared to CF data for the spins
+we consider ($\delta~S\sim-2\times~10^{-5} vs. -5\times10^{-4}$ at
+$\chi=0.5$), but because of the confounding oscillatory features and
+the lack of convergence, we do not seek to further quantify $\delta S$
+for the SKS data.
 
 \begin{figure}
 \includegraphics[width=0.95\columnwidth]{chap5/SvsT2}
-\caption[$\delta S(t)$ for CF and SKS initial data.]{Fractional change in spin relative to $t=0$, $\delta S = S(t)/S(t=0)-1$.  The top panel shows conformally flat initial data and the bottom panel SKS data (note the different scale).  All simulations at distance $D=15M$.}
+\caption[$\delta S(t)$ for CF and SKS initial data.]{Fractional change
+  in spin relative to $t=0$, $\delta S(t) = S(t)/S(t=0)-1$.  The top
+  panel shows CF initial data and the bottom panel SKS data (note the
+  different scale).  All simulations shown are at $D=15M$.}
 \label{fig:SvsT2}
 \end{figure}
 
@@ -843,7 +843,7 @@ rapidly, while we see no clear convergence in the SKS data going up to N6.
 \begin{figure}
   \includegraphics[width=0.95\columnwidth]{chap5/CFSConvergence1}
   \caption[Convergence test of $\delta S(t)$ for CF initial data.]{Convergence test of $\delta S(t)$ for CF initial data in the case
-    $D=15M$, $\chi=0.3$. The top panel shows $\delta S(t)$ at different
+    $\{D=15M,\chi=0.3\}$. The top panel shows $\delta S(t)$ at different
     resolutions and the bottom panel shows the differences between
     consecutive resolutions}
   \label{fig:CFSConvergence1}
@@ -852,7 +852,7 @@ rapidly, while we see no clear convergence in the SKS data going up to N6.
 \begin{figure}
   \includegraphics[width=0.95\columnwidth]{chap5/SKSSConvergence1}
   \caption[Convergence test of $\delta S(t)$ for SKS initial data.]{Convergence test of $\delta S(t)$ for SKS initial data in the case
-    $D=15M$, $\chi=0.3$. The top panel shows $\delta S(t)$ at different
+    $\{D=15M,\chi=0.3\}$. The top panel shows $\delta S(t)$ at different
     resolutions and the bottom panel shows the differences between
     consecutive resolutions}
   \label{fig:SKSSConvergence1}
@@ -910,7 +910,11 @@ rapidly, while we see no clear convergence in the SKS data going up to N6.
 \subsection{Energy in Junk Radiation}
 
 Figure~\ref{fig:EvsS} shows the energy in the pulse of junk radiation,
-for all of our runs, as a function of spin. It is clear that within
+for all of our runs, as a function of spin. As was expected, the
+energy in junk radiation is a decreasing function of initial
+separation. We also see that at a given separation and spin, the $E_J$
+is always smaller for SKS intiail data than for CF intitial data;
+typically by about a factor of 2. It is clear that within
 the uncertainty of our simulations, $E_J$ has virtually no dependence
 on the spins of the black holes. The only exception may be that for
 conformally flat data, $E_J$ seems to increase as $\chi\rightarrow
@@ -934,13 +938,15 @@ $\chi=0$. Figure~\ref{fig:EvsD} shows $E_J$ as a function of $D$ for
 CF and SKS data. Both cases are good fits to power laws. For
 conformally flat data,
 \begin{equation}
-E_J^{\rm CF}\sim 0.06225\left(\frac{D}{M}\right)^{-2.7933}.
+%E_J^{\rm CF}\sim 0.06225\left(\frac{D}{M}\right)^{-2.7933}.
+E_J^{\rm CF}\sim0.062\left(\frac{D}{M}\right)^{-2.79},
 \end{equation}
 and for SKS data
 \begin{equation}
-E_J^{\rm SKS}\sim 0.019576\left(\frac{D}{M}\right)^{-2.5464},
+%E_J^{\rm SKS}\sim 0.019576\left(\frac{D}{M}\right)^{-2.5464},
+E_J^{\rm SKS}\sim 0.020\left(\frac{D}{M}\right)^{-2.55}.
 \end{equation}
-however the latter is just a fit to three data points.
+Note, however, the latter is a fit to three data points.
 
 %Figure~\ref{fig:EvsS} shows the energy in junk radiation, $E_J$ as a
 %function of a spin. The black curves correspond to conformally flat
@@ -999,24 +1005,27 @@ is a clear dependence at lower spin. In each case, we fit the data to
 a power law plus a constant offset. The fits are
 \begin{eqnarray*}
 \delta M_{\rm eq}^{\chi = 0.1} &=&
-0.000170\left(D/M\right)^{-1.76}+8.194\times 10^{-7} \\
+0.00017\left(D/M\right)^{-1.76}+8.19\times 10^{-7} \\
 \delta M_{\rm eq}^{\chi = 0.2} &=&
-0.000209\left(D/M\right)^{-1.36}+1.007\times 10^{-5} \\
+0.00021\left(D/M\right)^{-1.36}+1.01\times 10^{-5} \\
 \delta M_{\rm eq}^{\chi = 0.3} &=&
-0.000146\left(D/M\right)^{-0.75}+4.60\times 10^{-5} \\
+0.00015\left(D/M\right)^{-0.75}+4.60\times 10^{-5} \\
 \delta M_{\rm eq}^{\chi = 0.4} &=&
-0.000262\left(D/M\right)^{-0.87}+1.83\times 10^{-4} \\
+0.00026\left(D/M\right)^{-0.87}+1.83\times 10^{-4} \\
 \delta M_{\rm eq}^{\chi = 0.5} &=&
-0.000470\left(D/M\right)^{-0.99}+5.08\times 10^{-4} 
+0.00047\left(D/M\right)^{-0.99}+5.08\times 10^{-4} 
 \end{eqnarray*}
 
-In Fig.~\ref{fig:MvsS}, the dependence of $\delta M_{\rm eq}$ is
-shown. In general we find that $\delta M_{\rm eq}$ grows rapidly with
-$\chi$ and the dependence is nearly exponential at each separation.
+In Fig.~\ref{fig:MvsS}, the dependence of $\delta M$ is
+shown. In general we find that $\delta M$ grows rapidly with
+$\chi$ and the dependence is nearly exponential at each
+separation. Unlike $E_J$, which did not depend much on spin and
+depended strongly on separation, we find that $\delta_M$ depends
+strongly on spin and not very much on separation. 
 
 \begin{figure}[!htbp]
 \includegraphics[scale=0.95]{chap5/MvsS2}
- \caption{$\delta M_{eq}$ as a function of black hole spin $\chi$ for CF
+ \caption{$\delta M_{\rm eq}$ as a function of black hole spin $\chi$ for CF
     initial data, evaluated at each different initial separation.}
   \label{fig:MvsS}
 \end{figure}
@@ -1056,13 +1065,12 @@ $\chi$ and the dependence is nearly exponential at each separation.
 
 \subsection{Spin Decrease}
 \label{subsec:SpinDecrease}
-As with the mass increase, we only attempt to calculate $\delta S_{\rm
-  eq}$ for CF data, as it was found to not be convergent for SKS
-data. In Fig.~\ref{fig:SvsD} we plot $\delta S_{\rm eq}$ vs. $D$ for
+As with the mass increase, we only attempt to calculate $\delta S$ for CF data, as it was found to not be convergent for SKS
+data. In Fig.~\ref{fig:SvsD} we plot $\delta S$ vs. $D$ for
 curves of constant $\chi$\footnote{we omit $\chi=0$ because $\delta
   S_{\rm eq}$ is not well-defined, and we omit $\chi=0.1$ because the
   data is too noisy}. The data are similar to those in
-Fig.~\ref{fig:MvsD}, although there is a stronger dependence on separation.
+Fig.~\ref{fig:MvsD}, although there seems to be a stronger dependence on initial separation.
 
 \begin{figure}[!htbp]
  \includegraphics[scale=0.95]{chap5/SvsD2}
@@ -1074,26 +1082,32 @@ Fig.~\ref{fig:MvsD}, although there is a stronger dependence on separation.
 In each case, we fit the data to
 a power law plus a constant offset. The fits are
 \begin{eqnarray*}
-\delta S_{\rm eq}^{\chi = 0.2} &=&
-0.000154\left(D/M\right)^{-.966}+5.836\times 10^{-8} \\
-\delta S_{\rm eq}^{\chi = 0.3} &=&
-0.000340\left(D/M\right)^{-0.836}+6.025\times 10^{-6} \\
-\delta S_{\rm eq}^{\chi = 0.4} &=&
-0.00136\left(D/M\right)^{-1.189}+8.348\times 10^{-5} \\
-\delta S_{\rm eq}^{\chi = 0.5} &=&
-0.00261\left(D/M\right)^{-1.133}+3.445\times 10^{-4}
+\delta S^{\chi = 0.2} &=&
+0.00031\left(D/M\right)^{-1.28}+3.70\times 10^{-6} \\
+\delta S^{\chi = 0.3} &=&
+0.00034\left(D/M\right)^{-0.84}+6.03\times 10^{-6} \\
+\delta S^{\chi = 0.4} &=&
+0.0014\left(D/M\right)^{-1.19}+8.35\times 10^{-5} \\
+\delta S^{\chi = 0.5} &=&
+0.0026\left(D/M\right)^{-1.13}+3.45\times 10^{-4}
 \end{eqnarray*}
 
-In figure~\ref{fig:SvsS}, $\delta S_{\rm eq}$ is plotted as a function
+In figure~\ref{fig:SvsS}, $\delta S$ is plotted as a function
 of $\chi$, at different separations. In each case, the data is a good
 fit to an exponential; at $D=15M$,
 \begin{equation}
-\delta S_{\rm eq} \sim 1.563\times10^{-6}e^{11.546\chi}
+\delta S \sim 1.563\times10^{-6}e^{11.546\chi}
 \end{equation}
+If we extrapolate this fit outwards, we find that $\delta S\sim 1$ at
+$\chi\sim0.84$. Because this happens before $\chi=1$, this sets a fundamental limit on the highest black
+hole spins that can be evolved using conformally flat initial
+data. Note that because we fit to $S$ and $\chi$, this limit is
+difficult to directly compute. \cite{Lovelace2008} found that they could only evolve CF data
+with a maximum spin of $\chi\sim0.93$.
 
 \begin{figure}[!htbp]
 \includegraphics[scale=0.95]{chap5/SvsS2}
-\caption{Semi-log plot of $\delta S_{\rm eq}$ as a function of $\chi$ for CF data. The
+\caption{Semi-log plot of $\delta S$ as a function of $\chi$ for CF data. The
   dotted lines are the best fit exponentials.}
 \label{fig:SvsS}
 \end{figure}
@@ -1144,7 +1158,33 @@ fit to an exponential; at $D=15M$,
 %probably due to numerical noise. \note{Need better discussion here}
 
 
-\section{Summary }
+\section{Conclusion }
 \label{sec:JRDiscussion}
 
-My Summary.
+We have performed a parameter space study of junk radiation in binary
+black hole simulations. We studied the effects of initial separation
+and spin magnitude, for spins up to $\chi=0.5$, for both conformally flat and superposed
+Kerr-Schild initial data sets. We used three diagnostics to quantify
+the amount of junk radiation present - the energy carried away by junk
+radiation, the transient mass increase due to junk radiation and the
+transient spin decrease due to junk radiation.
+
+For the energy present in the junk radiation we found that there is
+very little dependence on the spin of the black holes, but that there
+is a power law dependence on the initial separations, with indices of
+$\sim -2.79$ for CF initial data and $\sim -2.55$ for SKS initial
+data.
+
+We were unable to directly quantify the mass and spin transients for
+SKS initial data because of a lack of convergence. However, we are
+able to say that they are below $\sim 2\times10^{-5}$ and $\sim
+4\times10^{-5}$ respectively in the parameter space we study. These
+are well below the typical values for CF data, by factors of about 50.
+
+For CF data, for both the mass and spin transients, we see very little
+dependence on initial separation. Instead however, we see very strong
+dependences on the spin of the black holes, finding an exponential
+dependence for $\delta S$ and a near-exponential dependence for
+$\delta M$. The exponential dependence of $\delta S$ sets a
+fundamental limit on the maximum spin of black holes that can be
+evolved with conformally flat initial data.
