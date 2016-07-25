@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun  7 18:43:56 2016"
+@timestamp def "Wed Jul 20 01:57:20 2016"
 @with string
 @    string on
 @    string loctype view
@@ -64,7 +64,7 @@
 @    string font 0
 @    string just 0
 @    string char size 1.010000
-@    string def "D=15M SKS"
+@    string def "SKS D=15M"
 @with string
 @    string on
 @    string loctype view
@@ -74,7 +74,7 @@
 @    string font 0
 @    string just 0
 @    string char size 1.010000
-@    string def "D=15M CF"
+@    string def "CF  D=15M"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -938,7 +938,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.7395896697, 0.488869222909
+@    legend 0.6958396697, 0.748244222909
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0

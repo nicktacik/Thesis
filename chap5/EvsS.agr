@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Feb  5 16:51:40 2013"
+@timestamp def "Wed Jul 20 02:15:11 2016"
 @with string
 @    string on
 @    string loctype view
@@ -78,7 +78,7 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.21549334397, 0.65396619634
+@    string 0.21861834397, 0.66802869634
 @    string color 2
 @    string rot 0
 @    string font 0
@@ -88,7 +88,7 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.751545595054, 0.55101211547
+@    string 0.751545595054, 0.55413711547
 @    string color 2
 @    string rot 0
 @    string font 0
@@ -128,7 +128,7 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.250034900534, 0.270561400011
+@    string 0.215659900534, 0.272123900011
 @    string color 6
 @    string rot 0
 @    string font 0

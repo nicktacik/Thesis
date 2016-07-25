@@ -54,27 +54,17 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun  7 21:27:08 2016"
-@with box
-@    box on
-@    box loctype view
-@    box 0.58125, 0.490625, 0.3515625, 0.5234375
-@    box linestyle 1
-@    box linewidth 1.0
-@    box color 1
-@    box fill color 1
-@    box fill pattern 0
-@box def
+@timestamp def "Wed Jul 20 02:11:23 2016"
 @with string
 @    string on
 @    string loctype view
-@    string 0.353125, 0.4984375
+@    string 0.325, 0.478125
 @    string color 1
 @    string rot 0
 @    string font 0
 @    string just 0
-@    string char size 1.010000
-@    string def "D=15M \f{Symbol}c=0.3\f{} SKS"
+@    string char size 1.250000
+@    string def "SKS {D=15M,\f{Symbol}c=0.3\f{}}"
 @r0 off
 @link r0 to g0
 @r0 type above

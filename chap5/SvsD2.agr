@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Mar 25 09:37:42 2013"
+@timestamp def "Wed Jul 20 03:18:57 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -488,7 +488,7 @@
 @    s4 errorbar riser linestyle 1
 @    s4 errorbar riser clip off
 @    s4 errorbar riser clip length 0.100000
-@    s4 comment "y = A0 * x ^ A1 + A2"
+@    s4 comment "y = A0*x^A1+A2"
 @    s4 legend  ""
 @    s5 hidden false
 @    s5 type xy
@@ -643,6 +643,7 @@
 15 1.3303446e-05
 20 1.026463e-05
 25 8.3964949e-06
+30 7.7526539e-06
 &
 @target G0.S1
 @type xy
@@ -670,10 +671,11 @@
 &
 @target G0.S4
 @type xy
-12 1.6272274e-05
-15 1.3304948e-05
-20 1.0266133e-05
-25 8.3979973e-06
+12 1.6323179e-05
+15 1.318273e-05
+20 1.0257622e-05
+25 8.6257749e-06
+30 7.5986908e-06
 &
 @target G0.S5
 @type xy

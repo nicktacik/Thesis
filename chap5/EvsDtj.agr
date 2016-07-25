@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Mar 11 13:18:42 2013"
+@timestamp def "Wed Jul 20 00:59:44 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -199,8 +199,8 @@
 @    yaxis  tick minor grid off
 @    yaxis  tick minor size 0.750000
 @    yaxis  ticklabel on
-@    yaxis  ticklabel format general
-@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel format scientific
+@    yaxis  ticklabel prec 1
 @    yaxis  ticklabel formula ""
 @    yaxis  ticklabel append ""
 @    yaxis  ticklabel prepend ""
@@ -223,7 +223,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.472903226, 0.871935484
+@    legend 0.513528226, 0.917247984
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -292,7 +292,7 @@
 @    s0 errorbar riser clip off
 @    s0 errorbar riser clip length 0.100000
 @    s0 comment "Col2"
-@    s0 legend  "CF     D=15M \f{Symbol}c\f{}=0"
+@    s0 legend  "CF     {D=15M\f{Symbol},c\f{}=0}"
 @    s2 hidden true
 @    s2 type xy
 @    s2 symbol 1
@@ -451,8 +451,8 @@
 @    yaxis  tick minor grid off
 @    yaxis  tick minor size 0.750000
 @    yaxis  ticklabel on
-@    yaxis  ticklabel format general
-@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel format scientific
+@    yaxis  ticklabel prec 1
 @    yaxis  ticklabel formula ""
 @    yaxis  ticklabel append ""
 @    yaxis  ticklabel prepend ""
@@ -475,7 +475,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.466129032, 0.414516129
+@    legend 0.495816532, 0.464516129
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -544,7 +544,7 @@
 @    s0 errorbar riser clip off
 @    s0 errorbar riser clip length 0.100000
 @    s0 comment "copy of setdata G0.S2"
-@    s0 legend  "SKS     D=15M \f{Symbol}c\f{}=0"
+@    s0 legend  "SKS     {D=15M\f{Symbol},c\f{}=0}"
 @    s1 hidden false
 @    s1 type xy
 @    s1 symbol 0

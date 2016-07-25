@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,31 +54,11 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Sat Mar 16 22:11:47 2013"
-@with box
-@    box on
-@    box loctype view
-@    box 0.765625, 0.6171875, 0.5609375, 0.646875
-@    box linestyle 1
-@    box linewidth 1.0
-@    box color 1
-@    box fill color 1
-@    box fill pattern 0
-@box def
+@timestamp def "Wed Jul 20 00:56:26 2016"
 @with box
 @    box on
 @    box loctype view
 @    box 0.590625, 0.253125, 0.590625, 0.253125
-@    box linestyle 1
-@    box linewidth 1.0
-@    box color 1
-@    box fill color 1
-@    box fill pattern 0
-@box def
-@with box
-@    box on
-@    box loctype view
-@    box 0.778125, 0.24375, 0.5671875, 0.2734375
 @    box linestyle 1
 @    box linewidth 1.0
 @    box color 1
@@ -186,23 +166,23 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.5625, 0.621875
+@    string 0.5125, 0.63125
 @    string color 1
 @    string rot 0
 @    string font 0
 @    string just 0
-@    string char size 1.110000
-@    string def "D=15M \f{Symbol}c\f{}=0 CF"
+@    string char size 1.250000
+@    string def "CF   {D=15M\f{Symbol},c\f{}=0}"
 @with string
 @    string on
 @    string loctype view
-@    string 0.571875, 0.2484375
+@    string 0.50625, 0.2921875
 @    string color 1
 @    string rot 0
 @    string font 0
 @    string just 0
-@    string char size 1.010000
-@    string def "D=15M \f{Symbol}c\f{}=0 SKS"
+@    string char size 1.250000
+@    string def "SKS    {D=15M\f{Symbol},c\f{}=0}"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -372,7 +352,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.553225806, 0.79516129
+@    legend 0.614163306, 0.78578629
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0

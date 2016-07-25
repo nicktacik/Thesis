@@ -1,6 +1,6 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Apr  2 14:51:29 2013"
+@timestamp def "Wed Jul 20 01:32:55 2016"
 @with string
 @    string on
 @    string loctype view
@@ -73,8 +73,8 @@
 @    string rot 0
 @    string font 0
 @    string just 0
-@    string char size 1.500000
-@    string def "D=15M CF"
+@    string char size 1.250000
+@    string def "CF  D=15M"
 @with string
 @    string on
 @    string loctype view
@@ -83,8 +83,8 @@
 @    string rot 0
 @    string font 0
 @    string just 0
-@    string char size 1.500000
-@    string def "D=15M SKS"
+@    string char size 1.250000
+@    string def "SKS D=15M"
 @r0 off
 @link r0 to g0
 @r0 type above

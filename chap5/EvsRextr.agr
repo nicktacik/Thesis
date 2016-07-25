@@ -54,7 +54,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Tue Jun  7 18:12:47 2016"
+@timestamp def "Wed Jul 20 01:02:58 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -391,7 +391,7 @@
 @    s2 errorbar riser clip off
 @    s2 errorbar riser clip length 0.100000
 @    s2 comment "/home/p/pfeiffer/tacik/JunkAnalysis/AllCFData/RExtrDep/CFD15S0.dat"
-@    s2 legend  "CF D=15M \f{Symbol}c\f{}=0"
+@    s2 legend  "CF   {D=15M\f{Symbol},c\f{}=0}"
 @    s3 hidden false
 @    s3 type xy
 @    s3 symbol 0
@@ -443,7 +443,7 @@
 @    s3 legend  ""
 @    s4 hidden false
 @    s4 type xy
-@    s4 symbol 1
+@    s4 symbol 2
 @    s4 symbol size 1.000000
 @    s4 symbol color 2
 @    s4 symbol pattern 1
@@ -489,7 +489,7 @@
 @    s4 errorbar riser clip off
 @    s4 errorbar riser clip length 0.100000
 @    s4 comment "copy of setdata G1.S0"
-@    s4 legend  "SKS D=15M \f{Symbol}c\f{}=0"
+@    s4 legend  "SKS {D=15M\f{Symbol},c\f{}=0}"
 @    s5 hidden false
 @    s5 type xy
 @    s5 symbol 0
