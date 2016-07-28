@@ -1,33 +1,24 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
 @link page off
-@map font 13 to "ZapfDingbats", "ZapfDingbats"
-@map font 4 to "Helvetica", "Helvetica"
-@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
-@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
-@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
-@map font 17 to "Nimbus-Sans-L-Regular-Condensed", "Nimbus-Sans-L-Regular-Condensed"
-@map font 18 to "Nimbus-Sans-L-Bold-Condensed", "Nimbus-Sans-L-Bold-Condensed"
-@map font 19 to "Nimbus-Sans-L-Regular-Condensed-Italic", "Nimbus-Sans-L-Regular-Condensed-Italic"
-@map font 20 to "Nimbus-Sans-L-Bold-Condensed-Italic", "Nimbus-Sans-L-Bold-Condensed-Italic"
 @map font 0 to "Times-Roman", "Times-Roman"
-@map font 2 to "Times-Bold", "Times-Bold"
 @map font 1 to "Times-Italic", "Times-Italic"
+@map font 2 to "Times-Bold", "Times-Bold"
 @map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
 @map font 8 to "Courier", "Courier"
-@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
-@map font 29 to "URW-Palladio-L-Roman", "URW-Palladio-L-Roman"
-@map font 30 to "URW-Palladio-L-Bold", "URW-Palladio-L-Bold"
-@map font 31 to "URW-Palladio-L-Italic", "URW-Palladio-L-Italic"
-@map font 32 to "URW-Palladio-L-Bold-Italic", "URW-Palladio-L-Bold-Italic"
 @map font 12 to "Symbol", "Symbol"
-@map font 34 to "URW-Chancery-L-Medium-Italic", "URW-Chancery-L-Medium-Italic"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
 @map color 0 to (255, 255, 255), "white"
 @map color 1 to (0, 0, 0), "black"
 @map color 2 to (255, 0, 0), "red"
@@ -44,6 +35,13 @@
 @map color 13 to (103, 7, 72), "maroon"
 @map color 14 to (64, 224, 208), "turquoise"
 @map color 15 to (0, 139, 0), "green4"
+@map color 16 to (204, 121, 167), "Dan-red"
+@map color 17 to (213, 94, 0), "Dan-orange"
+@map color 18 to (0, 114, 178), "Dan-blue"
+@map color 19 to (240, 228, 66), "Dan-yellow"
+@map color 20 to (86, 180, 233), "Dan-lightblue"
+@map color 21 to (230, 159, 0), "Dan-orange2"
+@map color 22 to (43, 159, 120), "Dan-seagreen"
 @reference date 0
 @date wrap off
 @date wrap year 1950
@@ -63,7 +61,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Jun 20 22:11:26 2016"
+@timestamp def "Tue Jul 19 11:28:19 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -110,10 +108,10 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 1.5, 0.4, 10.5, 0.4201
+@    world 1.5, 0.4, 10.5, 0.418
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.150000, 0.150000, 0.950000, 0.950000
+@    view 0.150000, 0.480000, 0.950000, 0.950000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -193,8 +191,8 @@
 @    yaxis  label color 1
 @    yaxis  label place normal
 @    yaxis  tick on
-@    yaxis  tick major 0.005
-@    yaxis  tick minor ticks 0
+@    yaxis  tick major 0.004
+@    yaxis  tick minor ticks 3
 @    yaxis  tick default 9
 @    yaxis  tick place rounded true
 @    yaxis  tick in

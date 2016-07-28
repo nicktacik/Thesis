@@ -1,37 +1,6 @@
 \chapter{Introduction}
 \label{chap:intro}
 
-\section{Timeline}
-
-\begin{itemize}
-\item Jun 15 - Send Harald completed draft of thesis and begin editing
-\item Jul 15 - Submit thesis
-\item Aug 30 - Defend thesis
-\item Each of the above could reasonably be pushed back 2 weeks depending on when Harald gets back to Toronto
-\end{itemize}
-
-\section{Thesis TDL}
-\begin{itemize}
-\item Fix all short captions of ch 5
-\item Modify introduction of introduction to discuss detection of gravitational waves
-\item Add introduction section to discuss detection of gravitational waves
-\item Need introduction section on current status of NR
-\item Organize what papers to put into that section
-\item Fix $\Omega$ driver section in the paper to use accurate equations
-\item Fix caption for 3+1 decomp text and add a sentence referencing it
-\item Read bunch of bh-ns papers to motivate the introduction of that section better. Log these papers in mendeley.
-\item Write up numerical methods section for bh-ns
-\item Add citaiton for dimensional reduction tehcniques
-\item fix table ref on page 33
-\item what does ``appropriate averaging'' mean on page 8?
-\item find a citation for PN results and methodology
-\item find a citation for the TT decomposition 
-\item fix refernce to fig binary evolution
-\item collaction misspelled in ch2
-
-
-
-\end{itemize}
 
 \section{Introduction}
 %{\bf Below is a bullet list of items that should be discussed in the introduction}
@@ -45,23 +14,21 @@
 %\item What is in the thesis?
 %\end{itemize}
 
-Einstein's theory of general relativity (GR) is now over a century old. One of its most striking predictions is the existence of gravitationl waves (GWs) - ripples in space-time that propagate at the speed of light. One of the ways these gravitational waves are generated is through the inspiral of compact object binaries. In these binaries, a neutron star (NS) or a black hole (BH), orbits with a NS/BH companion about their common centre of mass. Over time, through the emission of GW, the orbit shrinks and eventually the objects merge. Although these GW have never been directly detected, their existence has been indirectly confirmed. Hulse and Taylor won the 1993 Nobel Prize for their observations of the Hulse-Taylor pulsar (\cite{Hulse:1974eb}) - a binary pulsar system whose orbital decay was carefully measured and found to match perfectly with the predctions of general relativity. Further observations have since strengthened these findings; see \cite{Berti:2015itd} for a detailed review of current and future tests of GR. 
+September 14th, 2015 marked the dawning of a new age in astronomy -- the age of gravitational wave astronomy. The extraordinary detection of merging black holes by Advanced LIGO~\citep{LIGOVirgo2016a} left no doubt of this. After a second detection of merging black holes on December 26th, 2015,~\cite{Abbott:2016nmj}, we are left anxiously waiting what will be in store for us next. The first detection was made just before Einstein's theory of general relativity (GR)~\citep{Einstein:1915by} turned one hundred years old. Indeed, one of its most striking predictions is the existence of gravitationl waves (GWs) - ripples in space-time that propagate at the speed of light. One of the ways these gravitational waves are generated is through the inspiral of compact object binaries. In these binaries, a neutron star (NS) or a black hole (BH), orbits with a NS/BH companion about their common centre of mass. Over time, through the emission of GW, the orbit shrinks and eventually the objects merge. Previously, these GW have never been directly detected, although their existence had been indirectly confirmed. Hulse and Taylor won the 1993 Nobel Prize for their observations of the Hulse-Taylor pulsar~\citep{Hulse:1974eb} - a binary pulsar system whose orbital decay was carefully measured and found to match perfectly with the predctions of general relativity. Further observations have since strengthened these findings; see \cite{Berti:2015itd} for a detailed review of current and future tests of GR. 
 
-Ground-based interferometric gravitational wave detectors are poised to make direction detections of GWs. With Advanced LIGO (~\cite{aLIGO1,aLIGO2}) recently beginning its first science run, and Advanced Virgo (~\cite{AdV,TheVirgo:2014hva}) and KAGRA~(\cite{Somiya:2012}) to soon follow, the first direct detection may come soon. Advanced LIGO expect a realistic event rate $\sim 30$ binary neutron star mergers per year at design sensitivity, with a horzion diestance of $\sim 200$ Mpc. Similarly, an event rate of $\sim 10$ mergers per year is expected for binary black holes, and $\sim 10$ for BH-NS binaries. These detectors are sensitive to frequencies of $\sim 10{\rm Hz} - 1{\rm kHz}$. Other detection methods, like pulsar timing arrays (see \cite{Joshi:2013at}), are sensitive to very different frequency bands ($300{\rm pHz}-100{\rm nHz}$).
+Ground-based interferometric gravitational wave detectors are poised to make many more direction detections of GWs. With Advanced LIGO~\citep{aLIGO1,aLIGO2} already doing so, and Advanced Virgo ~\citep{AdV,TheVirgo:2014hva} and KAGRA~\cite{Somiya:2012}) coming on soon, a wealth of results awaits. Advanced LIGO expects a realistic event rate $\sim 30$ binary neutron star mergers per year at design sensitivity, with a horzion diestance of $\sim 200$ Mpc. Similarly, an event rate of $\sim 10$ mergers per year is expected for binary black holes, and $\sim 10$ for BH-NS binaries. These detectors are sensitive to frequencies of $\sim 10{\rm Hz} - 1{\rm kHz}$. Other detection methods, like pulsar timing arrays~\citep{Joshi:2013at}, are sensitive to very different frequency bands ($300{\rm pHz}-100{\rm nHz}$).
 
-These ground-based detectors use the technique of mathced filtering to make detections, in which the observed signal is mathced against teplate waveforms to search for the astrophysical signal. These templates are generated either using an analytically, using, for example, Post-Newtonian theory, an perturbative expansion of GR, or by using numerical relativity (NR), in which the Einstein Field Equations are solved numerically on sumpercomputers. PN wave are cheap to produce but become increasingly innaccurate near merger, while NR waveforms are more accurate, but are costly to produce. Hybridization techniques ``stitch'' PN waveofrms together with NR waveforms to get the best of both worlds.
+These ground-based detectors use the technique of matched filtering~\citep{Owen:1998dk} to make detections, in which the observed signal is mathced against template waveforms to search for the astrophysical signal. These templates are generated either analytically, using, for example, Post-Newtonian (PN) theory, a perturbative expansion of GR, or by using numerical relativity (NR), in which the Einstein Field Equations are solved numerically on sumpercomputers. PN waveforms are computationally cheap to produce but become increasingly inaccurate near merger, while NR waveforms are more accurate, but are costly to produce. Hybridization techniques~\citep{MacDonald:2012mp} ``stitch'' PN waveforms together with NR waveforms to get the best of both worlds.
 
-The parameter space of numerical relativity simulations of black hole binaries is seven dimensional. Each black hole has a spin vector $\vec{\chi}$ with three components, and their mass ration $q=\equiv m_1/m_2$, where $m_1$ is the mass of the larger hole, is the 7th dimension. The total mass of the binary is scaled out of the numerical problem. Most compact object systems are expected to circularize in their orbits before merger, so we do not regard orbital eccentriccity as part of the parameter space. Spanning this parameter space is a difficult endeavour for numerical relativity collaborations and much of it remains uncovered. Various dimensional reduction technqiues are used for Advanced LIGO template banks. 
+The parameter space of numerical relativity simulations of black hole binaries is seven dimensional. Each black hole has a spin vector $\vec{\chi}$ with three components, and their mass ration $q\equiv m_1/m_2$, where $m_1$ is the mass of the larger hole, is the 7th dimension. The total mass of the binary is scaled out of the numerical problem. Most compact object systems are expected to circularize~\citep{PetersMathews1963,Peters1964} in their orbits before merger, so we do not regard orbital eccentriccity as part of the parameter space. Spanning this parameter space is a difficult endeavour for numerical relativity collaborations and much of it remains uncovered~\citep{Mroue:2013PRL,Chu:2015kft}. Various dimensional reduction technqiues~\citep{Canizares:2014fya} are used for Advanced LIGO template banks. Once matter is added to simulations, through neutron stars, the parameter space increases signficantly. In addition to the seven parameters already present in the black hole binaries, the total mass of the system is now a parameter, as the maximum NS provides a natural phsyical mass scale. This can affect, for example, whether or not a hyper-massive neutron star is present after the merger of binary neutron stars or if direct collapse to a black hole occurs. In addition, the NS equation of state (EOS) becomes important to the system. Since the equation of state of dense nuclear matter is not currently known, constrainting the NS EOS from gravitational wave observations is an important goal of advanced ground-based detectors. Additionally, once a neutron star is present, simulations can study additional physics such as neutrino transport, nuclear reactions, and magnetic fields. Such ingredients are crucial for understand the electromagnetic emission likely to come from a BNS or BHNS merger.
 
-Once matter is added to simulations, through neutron stars, the parameter space increases signficantly. In addition to the 7 parameters already present in the black hole binaries, the total mass of the system is now a parameter, as the maximum NS provides a natural phsyical mass scale. This can affect, for example, whether or not a hyper-massive neutron star is present after the merger or if direct collapse to a black hole occurs. In addition, the NS equation of state (EOS) becomes important to the system. Many research groups use a polytropic equation of state $P=\kappa\rho^\Gamma$, as a simple choice. Recently, more focus has been placed on using piece-wise polytropes or tabulated EOS to represent EOS motivated by nuclear theory . There is hope that detections by by advanced LIGO will place constraints on the EOS of dense matter by measuring the orbital effect of tidal deformations of the NSs during the last stages of the orbit. Finally, the addition of matter adds additional physics to the problem. Numerical relativity simulations can investigate, for exmaple, neutrino heating in the post-merger disk, or the growth of magnetic fields that are thought to power short gamma ray bursts (GRBs). The field of multi-messenger seeks to use GW observations together with electromagnetic and neutrino observations to learn more about merging NS systems.
-
-NS-NS binaries, unlike BH-BH and BH-NS bianries, have been observed and studied within our galaxy, and therefore the expections of Advanced LIGO for NS-NS binaries are more tightly constrained. The known binary neutron star population is summarized in table~\ref{tab:BNSPop}. We report the spin periods, orbital periods, eccentriccites, characteristic life-times ($\tau_{c}=\dot{P}/2P$), time until merger, and the final spin periods of systems that will merge in a Hubble time. The system J0737-3039 is particuarly interesting, as one fot the NSs will merge with a spin period of 22.4ms. This is comparable enough to the orbtial timescale near merger, $P\sim 2ms$, to be relevant to GW data analysis. NSs in binaries are spinning, and thus it is important to do NR simulations of spinning NS-NS binaries. For many years, spin was a largely unexamined dimension of the BNS paramter space, although there has been a significant interest lately. \red{Add a note on why we want to study bns binaries}. \red{Add a note on corotational vs. irrotational vs. spinning}.
+BNS binaries, unlike BBH and BHNS bianries, have been observed and studied within our galaxy, and therefore the expections of Advanced LIGO for NSNS binaries are more tightly constrained. The known binary neutron star population is summarized in table~\ref{tab:BNSPop}~\citep{Postnov:2014tza}. We report the spin periods, orbital periods, eccentricites, characteristic life-times ($\tau_{c}=\dot{P}/2P$), time until merger, and the final spin periods of systems that will merge in a Hubble time. The system J0737-3039 is particuarly interesting, as one fot the NSs will merge with a spin period of 22.4ms. This is comparable enough to the orbtial timescale near merger, $P\sim 2ms$, to be relevant to GW data analysis. NSs in binaries are spinning, and thus it is important to do NR simulations of spinning BNS binaries. For many years, spin was a largely unexamined dimension of the BNS paramter space, although there has been a significant interest lately. Note, however, that the spins would have to be innate, since neutron star viscosity is not nearly large enough for tidal torques to be effective in spinning the stars up~\citep{BildstenCutler1992}.
 
  
  \begin{table}
 \centering
+ \caption{The properties of known double neutron star systems.}
 \label{tab:BNSPop}
- \caption{The properties of known double neutron star systems}
  \begin{tabular}{c || c | c | c | c | c | c}
 %\label{tab:BNSPop}
  \hline
@@ -82,9 +49,9 @@ NS-NS binaries, unlike BH-BH and BH-NS bianries, have been observed and studied 
  \end{table}
  
 
-This thesis is largely interested in spining neutron stars in numerical relativity. The structure is as follows: In chapter 2, we discuss our work on initial data and evolutions of spinning NS-NS binaries using the SpEC code. In chapter 3, we disucss the exntension of this initial data formalism to NS-BH binaries with a spinning NS. In chapter 4, we discuss the application of our initial data to studying spinning NS-NS binaries with interacting magnetic fields. In chapter 5, we shift focus and discuss work we have done on understanding the nature of ``junk radiation'' in Binary BH systems. Finally, in chapter 6 we conclude and summarize the thesis and discuss future possibilities.
+This thesis is largely interested in spining neutron stars in numerical relativity. The structure is as follows: In chapter~\ref{chap:bns}, we discuss our work on initial data and evolutions of spinning BNS binaries using the SpEC code. In chapter~\ref{chap:bhns}, we disucss the exntension of this initial data formalism to BHNS binaries with a spinning NS. In chapter~\ref{chap:jr}, we shift focus and discuss work we have done on understanding the nature of spurious gravitational radiation, commonly known as ``junk radiation'', in BBH systems. Finally, in chapter~\ref{chap:conc} we conclude and summarize the thesis and discuss future possibilities.
 
-The remainder of this introduction is structured as follows: In Section~\ref{sec:TwoBody} we review the 2-body problem in GR and discuss some basic Post-Newtonian theory. In section~\ref{sec:IVP}, we review the initial value problem in NR. Finally, in section~\ref{sec:BNS} we discuss some basic astrophysical properties of binary neutron star systems.
+The remainder of this introduction is structured as follows: In Section~\ref{sec:TwoBody} we review the 2-body problem in GR and discuss some basic Post-Newtonian theory. In section~\ref{sec:IVP}, we review the initial value problem in NR. Finally, in section~\ref{sec:BNS} we discuss some basic astrophysical properties of binary neutron star systems and black hole--neutron star systems.
 
 %{\bf Below is a copy-paste of the introduction of my thesis proposal. This must be updated}
 
@@ -101,11 +68,11 @@ The remainder of this introduction is structured as follows: In Section~\ref{sec
 
 %The outline of this paper is as follows. In section 2, we discuss the astrophysical motivation for this project, and what can be expected from neutron star spin. In section 3, we discuss the formalism of the initial value problem in numerical relativity, and how neutron star spin can be incorporated. Finally, in section 4 we go into greater detail on this project, the expected timeline, and the code that we use.
 
-%A few words on notation. We use natural units where $G=c=1$. When discussing a binary system, $a$ will be the semi-major axis of the system, $M$ will be the total mass of the system, and $m$ will be the mass of the neutron star. $P$ or $\Omega$ refer to the spin periods or angular frequency of a neutron star, while $P_{\textnormal{orb}}$ or $\Omega_{\textnormal{orb}}$ refer to the orbital period or angular frequency of the system.
+%A few words on notation. We use natural units where $G=c=1$. When discussing carrollTextbooka binary system, $a$ will be the semi-major axis of the system, $M$ will be the total mass of the system, and $m$ will be the mass of the neutron star. $P$ or $\Omega$ refer to the spin periods or angular frequency of a neutron star, while $P_{\textnormal{orb}}$ or $\Omega_{\textnormal{orb}}$ refer to the orbital period or angular frequency of the system.
 
 \section{The two-body problem in General Relativity}
 \label{sec:TwoBody}
-In this section, we will review the basic scales and ideas that govern the two-body problem in general relativity. Specifically, when the bodies are of comparable masses (i.e., the mass ratio is not a perturbative parameter). Since the inspiral of two compact objects is driven by the emission of gravitational radiation, we being by reviewing gravitational waves.
+In this section, we will review the basic scales and ideas that govern the two-body problem in general relativity. Specifically, when the bodies are of comparable masses (i.e., the mass ratio is not a perturbative parameter). Since the inspiral of two compact objects is driven by the emission of gravitational radiation, we being by reviewing gravitational waves (see, e.g.,~\cite{carrollTextbook} for an introduction).
 
 We consider a perturbation to a Minkowski background, so we write the full metric as
 \begin{equation}
@@ -141,7 +108,7 @@ Thus we see that gravitational waves propagate at the speed of light. Using furt
 \end{equation}
 The first conditions guarantees that the non-zero components of $\bar{h}_{\munu}^{\ttt}$ are purely spatial, while the traceless condition guarantees that $\bar{h}_{\munu}^{\ttt}=\bar{h}_{\munu}^{\ttt}$. For the rest of this section, we will work only in the TT gauge.
 
-The Lorentz gauge condition, transverse condition, and traceless condition account for 8 of the 10 degrees of freedom in the gravitational field $h_{\munu}$. The remaining two degrees of freedom correspond go the two polarization states of gravitational waves. These are known as the ``$+$'' and ``$\times$'' polarizations, due to their particular distorting effects acting upon a ring of particles (see Fig.~\ref{fig:GWRing}). We can thus decompose a gravitational wave as
+The Lorentz gauge condition, transverse condition, and traceless condition account for 8 of the 10 degrees of freedom in the gravitational field $h_{\munu}$. The remaining two degrees of freedom correspond go the two polarization states of gravitational waves. These are known as the ``$+$'' and ``$\times$'' polarizations, due to their particular distorting effects acting upon a ring of particles, as shown in Fig.~\ref{fig:GWRing}. We can thus decompose a gravitational wave as
 \begin{equation}
 h_{ij}^{\ttt}=h_{+}e^{+}_{ij}+h_{\times}e_{ij}^{\times}.
 \end{equation}
@@ -156,7 +123,7 @@ h_{ij}^{\ttt}=h_{+}e^{+}_{ij}+h_{\times}e_{ij}^{\times}.
   \centering
   \includegraphics[width=.95\linewidth]{intro/GW2}
 \end{subfigure}
-\caption[Effect of $+$ and $\times$ polarized gravitational waves on a ring of particles.]{From~\cite{Buonanno:2007yg}. The top panel shows the effect of a $+$ polarized gravitational wave passing through a ring of particles, in the direction perpendicular to the plane of the ring. The bottom panel shows the effect of a $\times$ polarized gravitational wave.}
+\caption[Effect of gravitational waves on a ring of particles.]{From~\cite{Buonanno:2007yg}. The top panel shows the effect of a $+$ polarized gravitational wave passing through a ring of particles, in the direction perpendicular to the plane of the ring. The bottom panel shows the effect of a $\times$ polarized gravitational wave.}
 \label{fig:GWRing}
 \end{figure}
 
@@ -185,7 +152,7 @@ In other words, linear gravitational waves are sourced by an oscillating quadrup
 \begin{equation}
 T_{\munu}=\frac{1}{32\pi}\left<\partial_{\mu}h_{ij}\partial_{\nu}h^{ij}\right>.
 \end{equation}
-where $<>$ denotes an appropriate averaging. This can be integrated to find the energy output per unit time in gravitational waves,
+This can be integrated to find the energy output per unit time in gravitational waves,
 \begin{eqnarray}
 \label{eq:LGW}
 L_{GW}&=&\frac{r^2}{16\pi}\oint{\left<\dot{h}_{\times}^2+\dot{h}_{+}^2\right>d\Omega}\\
@@ -240,17 +207,17 @@ The evolution of the orbital phase, for example, can be written as
 \begin{equation}
 \phi=\frac{-x^{-5/2}}{32\nu}\left(1+a_1x + a_2x^{3/2} + a_3x^2 + a_4x^{5/2} + a_5x^3 + a_6x^{7/2}+\mathcal{O}(1/c^8)\right)
 \end{equation}
-where $\nu$ is the symmetric mass ratio, $\nu=\frac{m_1m_2}{(m_1+m_2)^2}$, and each of the $a_i$ are functions only of $\nu$ and $\log{x}$. This expression is said to be known to 3.5 Post-Newontian order. Additional contrbutions come in at other PN orders, such as spin-orbit coupling at 1.5 PN order, spin-spin coupling at 2 PN order and tidal effects at 5 PN order. See \red{cite} for an overview of PN results and methodology.
+where $\nu$ is the symmetric mass ratio, $\nu=\frac{m_1m_2}{(m_1+m_2)^2}$, and each of the $a_i$ are functions only of $\nu$ and $\log{x}$. This expression is said to be known to 3.5 Post-Newontian order. Additional contrbutions come in at other PN orders, such as spin-orbit coupling at 1.5 PN order, spin-spin coupling at 2 PN order and tidal effects at 5 PN order. See~\cite{Blanchet2006} and references therein for an overview of PN results and methodology.
 
 
 \section{The initial value problem in Numerical Relativity}
 \label{sec:IVP}
-From the point of view of numerical relativity, it is natural to use a 3+1 decomposition of space-time. In this section, we will review this process. Given a globally hyperbolic spacetime $(M,g_{\munu})$. We foliate $M$ by a set of $t={\rm const}$ hypersurfaces $\Sigma_t$.
+From the point of view of numerical relativity, it is natural to use a 3+1 decomposition of space-time. In this section, we will review this process. Given a globally hyperbolic spacetime $(M,g_{\munu})$. We foliate $M$ by a set of $t={\rm const}$ hypersurfaces $\Sigma_t$. This is illustrated in Fig.~\ref{fig_Slice}.
 \begin{center}
 \begin{figure}[!ht]
 \includegraphics[scale=0.45]{intro/Slice.png}
+\caption[Illustration of the 3+1 decomposition.]{From~\cite{Cardoso2014}. An illustration of the foliation of spacetime by space-like hypersurfaces $\Sigma_t$, as well as illustrating the lapse, $\alpha$, the shift, $\beta^i$, and the normal $n^{\mu}$.}
 \label{fig_Slice}
-\caption[\red{add caption}]{\red{add caption - from here http://relativity.livingreviews.org/Articles/lrr-2015-1/articlese6.html}}
 \end{figure}
 \end{center}
 
@@ -319,7 +286,7 @@ The Hamiltonian and Momentum constraints become
 {D}_j{A}^{ij}-\frac{2}{3}{D}^iK=8\pi j^i,
 \end{equation}
 
-$\tilde{A}^{ij}=\Psi^{-10}A^{ij}$. We now proceed according to the extended conformal thin sandwich formalism. See \red{cite} for a review of the alternative traceless-transverse decomposition. We define 
+$\tilde{A}^{ij}=\Psi^{-10}A^{ij}$. We now proceed according to the extended conformal thin sandwich formalism. We define 
 \begin{equation}
 \tilde{u}_{ij}=\partial_t\tilde{\gamma}_{ij},
 \end{equation}
@@ -378,8 +345,8 @@ To begin our discussion of the properties of binary neutron star binaries, we sh
 
 \begin{figure}[!ht]
 \includegraphics[scale=0.95]{intro/BinaryEvolution.png}
-\label{fig_BinaryEvolution}
 \caption[Evolutionary scenarios of a typical high-mass binary.]{From \cite{Lorimer2008}. The possible evolutionary scenarios of a typical high mass binary are shown.}
+\label{fig_BinaryEvolution}
 \end{figure}
 
 As discussed earlier, such systems are expected to be quasi-circular once they enter the LIGO band. There are, however, other ways of forming systems that are highly eccentric while in the LIGO band. For example, the dynamical capture in a close two-body encounter in a dense cluster environment, or a binary in a hierarchichal triple system whose eccentricity is enhanced by the Kozai mechanism. Nonetheless, quasi-circular binaries are expected to constitute the large majority of gravitational wave sources.
@@ -411,7 +378,9 @@ As discussed earlier, such systems are expected to be quasi-circular once they e
 % \end{tabular}
  %\end{table}
 
-The end state of a binary neutron star merger depends strongly on the properties of the stars. For systems with a combined mass less than the maximum mass allowed by the EOS, the final result would be a more massive neutron star. Otherwise, the final result will be a single Kerr black hole. Simulations have shown that these black holes will have a spin on the order of $\chi \simeq 0.6-0.8$. The intermediate state is known as a hypermassive neutron star (HMNS). This is a NS whose mass is above the maximum mass allowed by the EOS, temporarily supported by differential rotation and thermal pressure. Over time, angular momentum is efficiently transported out of the system, and it collapses into a black hole. We can further subdivide these systems based on the timescale for callapse - prompt collapse or delayed collapse. In the prompt case, the pressure support is too low, and the system collapses on a $\sim$ freefall timescale. This is expected in systems with a large total mass ($\gtrsim 2.8M_{\odot}$), although the details depend, of course, on the EOS. In the delayed collapse case, the collapse timescale depends on many factors. Angular momentum distribution by magnetic winding is an important factor - it operates on the Alfven timescale $\tau \sim R\sqrt{\rho}/B \simeq 10-100{\rm ms}$. Transport driven by magneto-rotational instability is also important. It is of the order $\tau \sim 100{\rm ms}$ for $B \simeq 10^{15}G$. Cooling by neutrino or electromagnetic emission is also important, as it decreases thermal pressure, although it operates on a longer timescale, $\sim$ seconds. An accretion disk around the eventual BH, lying beyond the ISCO, will form, with a mass of $\simeq 0.01-0.3 M_{\odot}$. The amount of material in the disk depends on the time to BH formation, as there is more time to distribute angular momentum ot the disk. HMNS systems emit gravitational waves at peak frequencies of approximately $2-4 {\rm kHz}$, unfortunately outside of the optimal frequency range of ground-based detectors. The mass ratio of the system is another important factor. Figure ~\ref{fig:Contours} shows the post-merger remnant of an equal-mass system, and of a system with mass ratio $q\sim 1.38$. The equal mass system shows a ``dumbell''-like structure, composed of two cores which, over time, turn into an ellipsoidal HMNS. The non-equal-mass case shows two asymmetric cores, which act like the smaller one orbiting the larger one. The stronger tidal forces in this case cause the outher layers of the smaller star to be stripped off and form an envelope around the HMNS. Higher disk mass correlates with higher deviations from $q=1$, as well as with higher NS compactness.
+The end state of a binary neutron star merger depends strongly on the properties of the stars. For systems with a combined mass less than the maximum mass allowed by the EOS, the final result would be a more massive neutron star. Otherwise, the final result will be a single Kerr black hole. Simulations have shown that these black holes will have a spin on the order of $\chi \simeq 0.6-0.8$. The intermediate state is known as a hypermassive neutron star (HMNS). This is a NS whose mass is above the maximum mass allowed by the EOS, temporarily supported by differential rotation and thermal pressure. Over time, angular momentum is efficiently transported out of the system, and it collapses into a black hole. We can further subdivide these systems based on the timescale for callapse - prompt collapse or delayed collapse. In the prompt case, the pressure support is too low, and the system collapses on a $\sim$ freefall timescale. This is expected in systems with a large total mass ($\gtrsim 2.8M_{\odot}$), although the details depend, of course, on the EOS. In the delayed collapse case, the collapse timescale depends on many factors. Angular momentum distribution by magnetic winding is an important factor - it operates on the Alfven timescale $\tau \sim R\sqrt{\rho}/B \simeq 10-100{\rm ms}$. Transport driven by magneto-rotational instability is also important. It is of the order $\tau \sim 100{\rm ms}$ for $B \simeq 10^{15}G$. Cooling by neutrino or electromagnetic emission is also important, as it decreases thermal pressure, although it operates on a longer timescale, $\sim$ seconds. An accretion disk around the eventual BH, lying beyond the ISCO, will form, with a mass of $\simeq 0.01-0.3 M_{\odot}$. The amount of material in the disk depends on the time to BH formation, as there is more time to distribute angular momentum ot the disk. HMNS systems emit gravitational waves at peak frequencies of approximately $2-4 {\rm kHz}$ (see, e.g.,~\cite{Hotokezaka:2011dh}), unfortunately outside of the optimal frequency range of ground-based detectors. 
+
+The mass ratio of the system is another important factor. Figure ~\ref{fig:Contours} shows the post-merger remnant of an equal-mass system, and of a system with mass ratio $q\sim 1.38$~\citep{Rezzolla:2010fd}. The equal mass system shows a ``dumbell''-like structure, composed of two cores which, over time, turn into an ellipsoidal HMNS. The non-equal-mass case shows two asymmetric cores, which act like the smaller one orbiting the larger one. The stronger tidal forces in this case cause the outher layers of the smaller star to be stripped off and form an envelope around the HMNS. Higher disk mass correlates with higher deviations from $q=1$, as well as with higher NS compactness.
 
 \begin{figure}[!t]
 \centering
@@ -423,7 +392,7 @@ The end state of a binary neutron star merger depends strongly on the properties
   \centering
   \includegraphics[width=.95\linewidth]{intro/Contours2}
 \end{subfigure}
-\caption[Comparison of iso-density contours of an equal mass system and a non-equal mass system.]{From ~\cite{Rezzolla:2010fd}. The top panel shows the iso-density contours of the HMNS from an equal mass system with baryon masses $M_1=M_2=1.643M_{\odot}$. The bottom panel shows the iso-density contours of the HMNS from a system with baryon masses $M_1=1.304M_{\odot}$ and $M_2=1.805M_{\odot}$.}
+\caption[Comparison of an equal mass BNS system and a non-equal mass BNS system.]{From ~\cite{Rezzolla:2010fd}. The top panel shows the iso-density contours of the HMNS from an equal mass system with baryon masses $M_1=M_2=1.643M_{\odot}$. The bottom panel shows the iso-density contours of the HMNS from a system with baryon masses $M_1=1.304M_{\odot}$ and $M_2=1.805M_{\odot}$.}
 \label{fig:Contours}
 \end{figure}
 
@@ -437,9 +406,9 @@ Or, likewise, by the second tidal Love number,
 \begin{equation}
 k_2=\frac{3}{2}\frac{\lambda}{R^5}.
 \end{equation}
-These enter the PN equations for binary phase at the very high 5PN order, but because of the large pre-factors, they are still very important in the late-stage inspiral dynamics. Much work has been done to estimate how well Advanced LIGO can measure these paramters (see ~\cite{Read2009b,Hinderer2010,damour:12,Lackey2011}). \cite{DelPozzo:13} (further extended in~\cite{Agathos:2015a}) used a Bayesian framework to show that $\lambda$ could be constrained at the 10\% level after a few tens of detections. There is also the question of more exotic NS matter. \cite{Chatziioannou:2015uea} studied various possibilities and found, for example, that a detection with an SNR of $\sim 20$ could provide good evidence of the existence or non-existence of strange quark stars. However, kaon condensates or hyperons in NS cores are much more difficulty to confirm.
+These enter the PN equations for binary phase at the very high 5PN order, but because of the large pre-factors, they are still very important in the late-stage inspiral dynamics. Much work has been done to estimate how well Advanced LIGO can measure these paramters (see ~\cite{Read2009b,Hinderer2010,damour:12,Lackey2011}). \cite{DelPozzo:13} (further extended in~\cite{Agathos:2015a}) used a Bayesian framework to show that $\lambda$ could be constrained at the 10\% level after a few tens of detections. There is also the question of more exotic NS matter. \cite{Chatziioannou:2015uea} studied various possibilities and found, for example, that a detection with an SNR of $\sim 20$ could provide good evidence of the existence or non-existence of strange quark stars.
 
-Numerical simulations of the mergers of binary neutron stars have been possible for at least fifteen years \red{cite}. Since then, simulations have rapidly progressed, adding more resolution, more orbits, more detailed physics, and a better coverage of the available paramter space. \red{Cite a bunch of papers here, on those different things}. With the great increase in simulation technology, and the coincident start of the Advanced LIGO era, it is truly an exciting time for this field.
+Numerical simulations of the mergers of binary neutron stars have been possible for at least fifteen years~\citep{Shibata00b}. Since then, simulations have rapidly progressed, by adding more resolution~\citep{Hotokezaka2013}, more orbits~\citep{Haas:2016}, radiative losses~\citep{Kiuchi:2012mk,Neilsen:2014hha,Palenzuela2015,Sekiguchi:2015}, studying different equations of state~\citep{Hotokezaka:2011dh,Kiuchi:2012mk,Neilsen:2014hha}, magnetic fields~\citep{Liu:2008xy,Giacomazzo:2010bx,Rezzolla:2011da,Anderson:2008zp,Neilsen:2014hha,Kiuchi2015,PalenzuelaEtAl:2013,Palenzuela:2013kra,2015arXiv150202021D}, unequal mass ratios~\citep{Rezzolla:2010fd,Kiuchi:2010ze,Shibata:2003ga,Dietrich:2015iva},ejecta~\citep{Wanajo2014,Sekiguchi:2015,RadiceLeak:2016} eccentric binaries~\citep{Gold:2011df}, and spinning binaries~\cite{Bernuzzi:2013rza,Kastaun:2013mv,Dietrich:2015pxa,Tacik:2015tja}. Note that this is by no means an exhaustive list of ongoing research -- see~\cite{Baiotti:2016qnr} for an up-to-date review. With the great increase in simulation technology, and the coincident start of the Advanced LIGO era, it is truly an exciting time for this field.
 
 %\section{Astrophysical Motivation}
 

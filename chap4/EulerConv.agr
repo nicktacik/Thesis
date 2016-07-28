@@ -1,33 +1,24 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
 @link page off
-@map font 13 to "ZapfDingbats", "ZapfDingbats"
-@map font 4 to "Helvetica", "Helvetica"
-@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
-@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
-@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
-@map font 17 to "Nimbus-Sans-L-Regular-Condensed", "Nimbus-Sans-L-Regular-Condensed"
-@map font 18 to "Nimbus-Sans-L-Bold-Condensed", "Nimbus-Sans-L-Bold-Condensed"
-@map font 19 to "Nimbus-Sans-L-Regular-Condensed-Italic", "Nimbus-Sans-L-Regular-Condensed-Italic"
-@map font 20 to "Nimbus-Sans-L-Bold-Condensed-Italic", "Nimbus-Sans-L-Bold-Condensed-Italic"
 @map font 0 to "Times-Roman", "Times-Roman"
-@map font 2 to "Times-Bold", "Times-Bold"
 @map font 1 to "Times-Italic", "Times-Italic"
+@map font 2 to "Times-Bold", "Times-Bold"
 @map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
 @map font 8 to "Courier", "Courier"
-@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
-@map font 29 to "URW-Palladio-L-Roman", "URW-Palladio-L-Roman"
-@map font 30 to "URW-Palladio-L-Bold", "URW-Palladio-L-Bold"
-@map font 31 to "URW-Palladio-L-Italic", "URW-Palladio-L-Italic"
-@map font 32 to "URW-Palladio-L-Bold-Italic", "URW-Palladio-L-Bold-Italic"
 @map font 12 to "Symbol", "Symbol"
-@map font 34 to "URW-Chancery-L-Medium-Italic", "URW-Chancery-L-Medium-Italic"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
 @map color 0 to (255, 255, 255), "white"
 @map color 1 to (0, 0, 0), "black"
 @map color 2 to (255, 0, 0), "red"
@@ -44,6 +35,13 @@
 @map color 13 to (103, 7, 72), "maroon"
 @map color 14 to (64, 224, 208), "turquoise"
 @map color 15 to (0, 139, 0), "green4"
+@map color 16 to (204, 121, 167), "Dan-red"
+@map color 17 to (213, 94, 0), "Dan-orange"
+@map color 18 to (0, 114, 178), "Dan-blue"
+@map color 19 to (240, 228, 66), "Dan-yellow"
+@map color 20 to (86, 180, 233), "Dan-lightblue"
+@map color 21 to (230, 159, 0), "Dan-orange2"
+@map color 22 to (43, 159, 120), "Dan-seagreen"
 @reference date 0
 @date wrap off
 @date wrap year 1950
@@ -63,7 +61,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Jun 20 16:28:37 2016"
+@timestamp def "Sun Jul 17 10:37:13 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -110,10 +108,10 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 0, 1e-08, 150, 0.1
+@    world 0, 1e-08, 135, 0.1
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.150000, 0.150000, 0.950000, 0.950000
+@    view 0.150000, 0.350000, 0.950000, 0.950000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -133,16 +131,16 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "Iteration #"
+@    xaxis  label "iteration  n"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 2.000000
+@    xaxis  label char size 1.750000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
 @    xaxis  tick on
-@    xaxis  tick major 50
-@    xaxis  tick minor ticks 0
+@    xaxis  tick major 20
+@    xaxis  tick minor ticks 1
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
@@ -184,11 +182,11 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "\f{Symbol}D\f{}Euler Constant"
+@    yaxis  label "| C\S(n+1)\N - C\S(n)\N |"
 @    yaxis  label layout para
 @    yaxis  label place spec
 @    yaxis  label place 0.000000, 0.110000
-@    yaxis  label char size 2.000000
+@    yaxis  label char size 1.750000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -233,18 +231,18 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.7375, 0.93125
+@    legend 0.6671875, 0.934375
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
 @    legend box linestyle 1
 @    legend box fill color 0
-@    legend box fill pattern 0
+@    legend box fill pattern 8
 @    legend font 0
 @    legend char size 1.000000
 @    legend color 1
 @    legend length 4
-@    legend vgap 1
+@    legend vgap 0
 @    legend hgap 1
 @    legend invert false
 @    frame type 0
@@ -302,7 +300,7 @@
 @    s8 errorbar riser clip off
 @    s8 errorbar riser clip length 0.100000
 @    s8 comment "Backward difference of set 0"
-@    s8 legend  "N\S1/3\N~33.3"
+@    s8 legend  "k=0, N\S1/3\N~33.3"
 @    s9 hidden false
 @    s9 type xy
 @    s9 symbol 0
@@ -351,7 +349,7 @@
 @    s9 errorbar riser clip off
 @    s9 errorbar riser clip length 0.100000
 @    s9 comment "Backward difference of set 1"
-@    s9 legend  "N\S1/3\N~39.9"
+@    s9 legend  "k=1, N\S1/3\N~39.9"
 @    s10 hidden false
 @    s10 type xy
 @    s10 symbol 0
@@ -400,7 +398,7 @@
 @    s10 errorbar riser clip off
 @    s10 errorbar riser clip length 0.100000
 @    s10 comment "Backward difference of set 2"
-@    s10 legend  "N\S1/3\N~46.1"
+@    s10 legend  "k=2, N\S1/3\N~46.1"
 @    s11 hidden false
 @    s11 type xy
 @    s11 symbol 0
@@ -449,7 +447,7 @@
 @    s11 errorbar riser clip off
 @    s11 errorbar riser clip length 0.100000
 @    s11 comment "Backward difference of set 3"
-@    s11 legend  "N\S1/3\N~53.3"
+@    s11 legend  "k=3, N\S1/3\N~53.3"
 @    s12 hidden false
 @    s12 type xy
 @    s12 symbol 0
@@ -498,7 +496,7 @@
 @    s12 errorbar riser clip off
 @    s12 errorbar riser clip length 0.100000
 @    s12 comment "Backward difference of set 4"
-@    s12 legend  "N\S1/3\N~60.4"
+@    s12 legend  "k=4, N\S1/3\N~60.4"
 @    s13 hidden false
 @    s13 type xy
 @    s13 symbol 0
@@ -547,7 +545,7 @@
 @    s13 errorbar riser clip off
 @    s13 errorbar riser clip length 0.100000
 @    s13 comment "Backward difference of set 5"
-@    s13 legend  "N\S1/3\N~67.5"
+@    s13 legend  "k=5, N\S1/3\N~67.5"
 @    s14 hidden false
 @    s14 type xy
 @    s14 symbol 0
@@ -596,7 +594,7 @@
 @    s14 errorbar riser clip off
 @    s14 errorbar riser clip length 0.100000
 @    s14 comment "Backward difference of set 6"
-@    s14 legend  "N\S1/3\N~74.3"
+@    s14 legend  "k=6, N\S1/3\N~74.3"
 @    s15 hidden false
 @    s15 type xy
 @    s15 symbol 0
@@ -645,7 +643,7 @@
 @    s15 errorbar riser clip off
 @    s15 errorbar riser clip length 0.100000
 @    s15 comment "Backward difference of set 7"
-@    s15 legend  "N\S1/3\N~79.5"
+@    s15 legend  "k=7, N\S1/3\N~79.5"
 @target G0.S8
 @type xy
 0 0.025947969

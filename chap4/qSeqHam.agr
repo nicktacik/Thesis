@@ -1,33 +1,24 @@
 # Grace project file
 #
-@version 50122
+@version 50123
 @page size 480, 480
 @page scroll 5%
 @page inout 5%
 @link page off
-@map font 13 to "ZapfDingbats", "ZapfDingbats"
-@map font 4 to "Helvetica", "Helvetica"
-@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
-@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
-@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
-@map font 17 to "Nimbus-Sans-L-Regular-Condensed", "Nimbus-Sans-L-Regular-Condensed"
-@map font 18 to "Nimbus-Sans-L-Bold-Condensed", "Nimbus-Sans-L-Bold-Condensed"
-@map font 19 to "Nimbus-Sans-L-Regular-Condensed-Italic", "Nimbus-Sans-L-Regular-Condensed-Italic"
-@map font 20 to "Nimbus-Sans-L-Bold-Condensed-Italic", "Nimbus-Sans-L-Bold-Condensed-Italic"
 @map font 0 to "Times-Roman", "Times-Roman"
-@map font 2 to "Times-Bold", "Times-Bold"
 @map font 1 to "Times-Italic", "Times-Italic"
+@map font 2 to "Times-Bold", "Times-Bold"
 @map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
 @map font 8 to "Courier", "Courier"
-@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 10 to "Courier-Bold", "Courier-Bold"
 @map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
-@map font 29 to "URW-Palladio-L-Roman", "URW-Palladio-L-Roman"
-@map font 30 to "URW-Palladio-L-Bold", "URW-Palladio-L-Bold"
-@map font 31 to "URW-Palladio-L-Italic", "URW-Palladio-L-Italic"
-@map font 32 to "URW-Palladio-L-Bold-Italic", "URW-Palladio-L-Bold-Italic"
 @map font 12 to "Symbol", "Symbol"
-@map font 34 to "URW-Chancery-L-Medium-Italic", "URW-Chancery-L-Medium-Italic"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
 @map color 0 to (255, 255, 255), "white"
 @map color 1 to (0, 0, 0), "black"
 @map color 2 to (255, 0, 0), "red"
@@ -44,6 +35,13 @@
 @map color 13 to (103, 7, 72), "maroon"
 @map color 14 to (64, 224, 208), "turquoise"
 @map color 15 to (0, 139, 0), "green4"
+@map color 16 to (204, 121, 167), "Dan-red"
+@map color 17 to (213, 94, 0), "Dan-orange"
+@map color 18 to (0, 114, 178), "Dan-blue"
+@map color 19 to (240, 228, 66), "Dan-yellow"
+@map color 20 to (86, 180, 233), "Dan-lightblue"
+@map color 21 to (230, 159, 0), "Dan-orange2"
+@map color 22 to (43, 159, 120), "Dan-seagreen"
 @reference date 0
 @date wrap off
 @date wrap year 1950
@@ -63,7 +61,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Jun 20 14:56:02 2016"
+@timestamp def "Tue Jul 19 11:11:44 2016"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -110,10 +108,10 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 30, 1e-09, 90, 0.001
+@    world 30, 2e-09, 90, 0.0008
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.150000, 0.600000, 0.800000, 0.900000
+@    view 0.150000, 0.640000, 0.800000, 0.950000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -133,7 +131,7 @@
 @    xaxis  bar color 1
 @    xaxis  bar linestyle 1
 @    xaxis  bar linewidth 1.0
-@    xaxis  label "N\S1/3\N"
+@    xaxis  label ""
 @    xaxis  label layout para
 @    xaxis  label place auto
 @    xaxis  label char size 2.000000
@@ -142,11 +140,11 @@
 @    xaxis  label place normal
 @    xaxis  tick on
 @    xaxis  tick major 10
-@    xaxis  tick minor ticks 0
+@    xaxis  tick minor ticks 1
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
-@    xaxis  tick major size 1.000000
+@    xaxis  tick major size 0.750000
 @    xaxis  tick major color 1
 @    xaxis  tick major linewidth 1.0
 @    xaxis  tick major linestyle 1
@@ -155,8 +153,8 @@
 @    xaxis  tick minor linewidth 1.0
 @    xaxis  tick minor linestyle 1
 @    xaxis  tick minor grid off
-@    xaxis  tick minor size 0.500000
-@    xaxis  ticklabel on
+@    xaxis  tick minor size 0.350000
+@    xaxis  ticklabel off
 @    xaxis  ticklabel format general
 @    xaxis  ticklabel prec 7
 @    xaxis  ticklabel formula ""
@@ -184,11 +182,11 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "Ham Const"
+@    yaxis  label "H"
 @    yaxis  label layout para
 @    yaxis  label place spec
-@    yaxis  label place 0.000000, 0.110000
-@    yaxis  label char size 2.000000
+@    yaxis  label place 0.000000, 0.100000
+@    yaxis  label char size 1.800000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -233,7 +231,7 @@
 @    altyaxis  off
 @    legend on
 @    legend loctype view
-@    legend 0.828125, 0.6859375
+@    legend 0.81875, 0.775
 @    legend box color 1
 @    legend box pattern 1
 @    legend box linewidth 1.0
@@ -454,9 +452,9 @@
 @    s4 type xy
 @    s4 symbol 2
 @    s4 symbol size 1.000000
-@    s4 symbol color 3
+@    s4 symbol color 7
 @    s4 symbol pattern 1
-@    s4 symbol fill color 3
+@    s4 symbol fill color 7
 @    s4 symbol fill pattern 0
 @    s4 symbol linewidth 1.0
 @    s4 symbol linestyle 1
@@ -466,7 +464,7 @@
 @    s4 line type 1
 @    s4 line linestyle 3
 @    s4 line linewidth 1.0
-@    s4 line color 3
+@    s4 line color 7
 @    s4 line pattern 1
 @    s4 baseline type 0
 @    s4 baseline off
@@ -488,7 +486,7 @@
 @    s4 avalue offset 0.000000 , 0.000000
 @    s4 errorbar on
 @    s4 errorbar place both
-@    s4 errorbar color 3
+@    s4 errorbar color 7
 @    s4 errorbar pattern 1
 @    s4 errorbar size 1.000000
 @    s4 errorbar linewidth 1.0
@@ -552,9 +550,9 @@
 @    s6 type xy
 @    s6 symbol 3
 @    s6 symbol size 1.000000
-@    s6 symbol color 8
+@    s6 symbol color 20
 @    s6 symbol pattern 1
-@    s6 symbol fill color 8
+@    s6 symbol fill color 20
 @    s6 symbol fill pattern 0
 @    s6 symbol linewidth 1.0
 @    s6 symbol linestyle 1
@@ -564,7 +562,7 @@
 @    s6 line type 1
 @    s6 line linestyle 3
 @    s6 line linewidth 1.0
-@    s6 line color 8
+@    s6 line color 20
 @    s6 line pattern 1
 @    s6 baseline type 0
 @    s6 baseline off
@@ -586,7 +584,7 @@
 @    s6 avalue offset 0.000000 , 0.000000
 @    s6 errorbar on
 @    s6 errorbar place both
-@    s6 errorbar color 8
+@    s6 errorbar color 20
 @    s6 errorbar pattern 1
 @    s6 errorbar size 1.000000
 @    s6 errorbar linewidth 1.0
@@ -657,10 +655,10 @@
 @g1 fixedpoint format general general
 @g1 fixedpoint prec 6, 6
 @with g1
-@    world 30, 1e-09, 90, 0.001
+@    world 30, 2e-09, 90, 0.0008
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.150000, 0.150000, 0.800000, 0.450000
+@    view 0.150000, 0.320000, 0.800000, 0.630000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -683,7 +681,7 @@
 @    xaxis  label "N\S1/3\N"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 2.000000
+@    xaxis  label char size 1.750000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -693,7 +691,7 @@
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
-@    xaxis  tick major size 1.500000
+@    xaxis  tick major size 0.750000
 @    xaxis  tick major color 1
 @    xaxis  tick major linewidth 1.0
 @    xaxis  tick major linestyle 1
@@ -702,7 +700,7 @@
 @    xaxis  tick minor linewidth 1.0
 @    xaxis  tick minor linestyle 1
 @    xaxis  tick minor grid off
-@    xaxis  tick minor size 0.750000
+@    xaxis  tick minor size 0.400000
 @    xaxis  ticklabel on
 @    xaxis  ticklabel format general
 @    xaxis  ticklabel prec 5
@@ -731,10 +729,11 @@
 @    yaxis  bar color 1
 @    yaxis  bar linestyle 1
 @    yaxis  bar linewidth 1.0
-@    yaxis  label "Mom Const"
+@    yaxis  label "M"
 @    yaxis  label layout para
-@    yaxis  label place auto
-@    yaxis  label char size 2.000000
+@    yaxis  label place spec
+@    yaxis  label place 0.000000, 0.100000
+@    yaxis  label char size 1.800000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -744,7 +743,7 @@
 @    yaxis  tick default 6
 @    yaxis  tick place rounded true
 @    yaxis  tick in
-@    yaxis  tick major size 1.500000
+@    yaxis  tick major size 1.000000
 @    yaxis  tick major color 1
 @    yaxis  tick major linewidth 1.0
 @    yaxis  tick major linestyle 1
@@ -753,7 +752,7 @@
 @    yaxis  tick minor linewidth 1.0
 @    yaxis  tick minor linestyle 1
 @    yaxis  tick minor grid off
-@    yaxis  tick minor size 0.750000
+@    yaxis  tick minor size 0.500000
 @    yaxis  ticklabel on
 @    yaxis  ticklabel format power
 @    yaxis  ticklabel prec 0
@@ -1000,9 +999,9 @@
 @    s4 type xy
 @    s4 symbol 2
 @    s4 symbol size 1.000000
-@    s4 symbol color 3
+@    s4 symbol color 7
 @    s4 symbol pattern 1
-@    s4 symbol fill color 3
+@    s4 symbol fill color 7
 @    s4 symbol fill pattern 0
 @    s4 symbol linewidth 1.0
 @    s4 symbol linestyle 1
@@ -1012,7 +1011,7 @@
 @    s4 line type 1
 @    s4 line linestyle 3
 @    s4 line linewidth 1.0
-@    s4 line color 3
+@    s4 line color 7
 @    s4 line pattern 1
 @    s4 baseline type 0
 @    s4 baseline off
@@ -1034,7 +1033,7 @@
 @    s4 avalue offset 0.000000 , 0.000000
 @    s4 errorbar on
 @    s4 errorbar place both
-@    s4 errorbar color 3
+@    s4 errorbar color 7
 @    s4 errorbar pattern 1
 @    s4 errorbar size 1.000000
 @    s4 errorbar linewidth 1.0
@@ -1098,9 +1097,9 @@
 @    s6 type xy
 @    s6 symbol 3
 @    s6 symbol size 1.000000
-@    s6 symbol color 8
+@    s6 symbol color 20
 @    s6 symbol pattern 1
-@    s6 symbol fill color 8
+@    s6 symbol fill color 20
 @    s6 symbol fill pattern 0
 @    s6 symbol linewidth 1.0
 @    s6 symbol linestyle 1
@@ -1110,7 +1109,7 @@
 @    s6 line type 1
 @    s6 line linestyle 3
 @    s6 line linewidth 1.0
-@    s6 line color 8
+@    s6 line color 20
 @    s6 line pattern 1
 @    s6 baseline type 0
 @    s6 baseline off
@@ -1132,7 +1131,7 @@
 @    s6 avalue offset 0.000000 , 0.000000
 @    s6 errorbar on
 @    s6 errorbar place both
-@    s6 errorbar color 8
+@    s6 errorbar color 20
 @    s6 errorbar pattern 1
 @    s6 errorbar size 1.000000
 @    s6 errorbar linewidth 1.0
