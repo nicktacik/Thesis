@@ -116,6 +116,21 @@
 \usepackage{subcaption}
 \usepackage{longtable}
 \usepackage{cleveref}
+\usepackage{float}
+\usepackage{verbatim}
+%\usepackage{siunitx}
+%\usepackage{array}
+%\usepackage{times}
+\usepackage{appendix}
+\usepackage{chngcntr}
+\usepackage{etoolbox}
+\AtBeginEnvironment{subappendices}{%
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendices}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+}
+
 
 % Paragraph Spacing Issue:
 \setlength{\parskip}{0cm plus1mm minus1mm}
@@ -150,7 +165,7 @@
 
 %% ***   Change this example to appropriate values.   ***
 \degree{Doctor of Philosophy} \department{Astronomy \& Astrophysics}
-\gradyear{2016} \author{Nicholas A. Tacik} \title{Binary Neutron Stars with Arbitrary Spins\\ in Numerical Relativity}
+\gradyear{2016} \author{Nicholas A. Tacik} \title{Compact Object Binaries with Spinning Neutron Stars in Numerical Relativity}
 
 %% ***   NOTE   ***
 %% Put here all other formatting commands that belong in the preamble.
@@ -193,34 +208,43 @@
 %% This generates the abstract page, with the line spacing adjusted
 %% according to SGS guidelines.
 \begin{abstract}
-  
-We discuss spinning binary neutron stars in numerical
-relativity. \red{Write a good abstract when done everything else.}
-  
+The inspiral and merger of binary neutron stars (BNS) is one of the most promising potential sources of gravitational waves for ground-based detectors like Advanced LIGO. BNS mergers are also likely a source of counterpart electromagnetic radiation. It is important to perform simulations of BNS to better understand and model their gravitational wave emission as well as their electromagnetic emission. The parameter space of BNS binaries is quite large, and one aspect that has not been well studied in NS spin.
+
+In this thesis, we focus on invesitaging spinning neutron stars in compact object binaries. Using the {\tt SpEC} code, developed by the SXS collaboration, we begin by presenting a new code to create initial data for binary neutron stars with arbitrary spins. We introduce a novel method of measuring neutron spin, and show that it is accurate and robust. We evolve several spinning binary configurations and show that their properties agree remarkably well with Post-Newtonian predictions. We also show that we are able to control the eccentricity of the binaries to $\sim 0.1\%$.
+
+Thereafter, we proceed to extend our code to black hole--neutron star (BHNS) binaries. We create many data sets across the BHNS paramter space, varying neutron star spin magnitude, spin direction, compactness, and black hole mass, spin and spin direction. We are able to create initial data sets with neutron star spins near the mass-shedding limit, and nearly extremal black hole spins.
+
+Finally, we investigate spurious gravitational radiation in binary black hole systems. We study its parameter space dependence, by introducing three diagnostics, investigating them as a function of black hole spin and black hole separation, and comparing two different methods of constructing initial data.
+
+ 
 \end{abstract}
 \cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Anything placed between the abstract and table of contents will
 %% appear on a separate page since the abstract ends with \newpage
 %% and the table of contents starts with \clearpage.
 
 %% This generates a "dedication" section, if needed.
 %% (uncomment to have it appear in the document)
-\begin{dedication}
-Dedicated to lots of good people. \red{Write a proper dedication.}
-\end{dedication}
+%\begin{dedication}
+%Dedicated to lots of good people. \red{Write a proper dedication.}
+%\end{dedication}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % A better opening Quote Environment
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}[c]{4.75in}
-  ``Something inspirinsg.'' \vspace{2em}
+  ``Until now, we have only seen warped space-time when it is very calm - as though we had only seen the surface of the ocean on a very clam day, when it's quite glassy. We had never seen the ocean roiled in a storm, with crashing waves. All that changed on Sept. 14. The colliding black holes that produced these gravitational waves created a violent storm in the fabric of space and time.'' \vspace{2em}
 
-\hfill \emph{Someone inspiring}
+\hfill \emph{Kip Thorne}
 
 \end{minipage}
 \end{center}
 \vspace*{\fill}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \cleardoublepage
 \newpage
@@ -230,11 +254,14 @@ Dedicated to lots of good people. \red{Write a proper dedication.}
 
 %% This generates an "acknowledgements" section, if needed.
 %% (uncomment to have it appear in the document)
-\begin{acknowledgements}
 
-Thanks to my friends and family.
-
-\end{acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{acknowledgements}
+%
+%Thanks to my friends and family.%
+%
+%\end{acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% This generates the Table of Contents (on a separate page).
 \tableofcontents
